@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://lyuzhao.com">
-  <title>glide的简单用法 | 催眠术的博客</title>
+  <title>从Android手机内提取已安装的apk文件 | 催眠术的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先需要在app的build.gradle中加入1compile &apos;com.github.bumptech.glide:glide:+&apos; 注：”+”表示始终请求最新版">
-<meta name="keywords" content="glide">
+  <meta name="description" content="假如你在其他手机上看到一个应用，又不知道从哪去下载，而那个手机的安装包已经被删除掉，那怎样安装一个和那个手机上一模一样的应用呢？办法就是从那个手机中备份一份，然后传给你。也许你见过一些其他软件有备份apk的功能，也是这个原理。">
+<meta name="keywords" content="apk,backup">
 <meta property="og:type" content="article">
-<meta property="og:title" content="glide的简单用法">
-<meta property="og:url" content="http://lyuzhao.com/2016/08/29/glide的简单用法/index.html">
+<meta property="og:title" content="从Android手机内提取已安装的apk文件">
+<meta property="og:url" content="http://lyuzhao.com/2018/04/09/从Android手机内提取已安装的apk文件/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="首先需要在app的build.gradle中加入1compile &apos;com.github.bumptech.glide:glide:+&apos; 注：”+”表示始终请求最新版">
+<meta property="og:description" content="假如你在其他手机上看到一个应用，又不知道从哪去下载，而那个手机的安装包已经被删除掉，那怎样安装一个和那个手机上一模一样的应用呢？办法就是从那个手机中备份一份，然后传给你。也许你见过一些其他软件有备份apk的功能，也是这个原理。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2016-08-29T12:24:38.000Z">
+<meta property="og:updated_time" content="2018-04-09T06:54:37.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="glide的简单用法">
-<meta name="twitter:description" content="首先需要在app的build.gradle中加入1compile &apos;com.github.bumptech.glide:glide:+&apos; 注：”+”表示始终请求最新版">
+<meta name="twitter:title" content="从Android手机内提取已安装的apk文件">
+<meta name="twitter:description" content="假如你在其他手机上看到一个应用，又不知道从哪去下载，而那个手机的安装包已经被删除掉，那怎样安装一个和那个手机上一模一样的应用呢？办法就是从那个手机中备份一份，然后传给你。也许你见过一些其他软件有备份apk的功能，也是这个原理。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -155,37 +155,42 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-glide的简单用法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-从Android手机内提取已安装的apk文件" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      glide的简单用法
+      从Android手机内提取已安装的apk文件
     </h1>
   
 
         
-        <a href="/2016/08/29/glide的简单用法/" class="archive-article-date">
-  	<time datetime="2016-08-29T12:15:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年08月29日</time>
+        <a href="/2018/04/09/从Android手机内提取已安装的apk文件/" class="archive-article-date">
+  	<time datetime="2018-04-09T06:44:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年04月09日</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先需要在app的build.gradle中加入<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.github.bumptech.glide:glide:+'</span></span><br></pre></td></tr></table></figure></p>
-<p>注：”+”表示始终请求最新版</p>
+        <p>假如你在其他手机上看到一个应用，又不知道从哪去下载，而那个手机的安装包已经被删除掉，那怎样安装一个和那个手机上一模一样的应用呢？办法就是从那个手机中备份一份，然后传给你。也许你见过一些其他软件有备份apk的功能，也是这个原理。</p>
 <a id="more"></a>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Glide</span><span class="selector-class">.with</span>(context)</span><br><span class="line">        <span class="selector-class">.load</span>(url)<span class="comment">//图片地址</span></span><br><span class="line">        <span class="selector-class">.placeholder</span>(R.drawable.default_image)<span class="comment">//加载中显示的图片</span></span><br><span class="line">        <span class="selector-class">.error</span>(R.drawable.error_image)<span class="comment">//加载出错显示的图片</span></span><br><span class="line">        <span class="selector-class">.crossFade</span>()<span class="comment">//淡入效果</span></span><br><span class="line">        <span class="selector-class">.into</span>(imageView);</span><br></pre></td></tr></table></figure>
-<h3 id="缓存多尺寸"><a href="#缓存多尺寸" class="headerlink" title="缓存多尺寸"></a>缓存多尺寸</h3><p>因为Glide默认只缓存一种尺寸大小的图片，即当前要加载的ImageView大小的图片，当你要在另一个不同大小的ImageView中加载同一张图片时Glide就会再次请求加载新的尺寸的图片，但是Glide给我们提供了一个设置可以缓存全尺寸的图片，这样在不同大小的ImageView中加载同一张图片就只会产生一次请求。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Glide</span><span class="selector-class">.with</span>(<span class="selector-tag">context</span>)</span><br><span class="line">        <span class="selector-class">.load</span>(<span class="selector-tag">url</span>)</span><br><span class="line">        <span class="selector-class">.diskCacheStrategy</span>(<span class="selector-tag">DiskCacheStrategy</span><span class="selector-class">.ALL</span>)</span><br><span class="line">        <span class="selector-class">.into</span>(<span class="selector-tag">imageView</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="加载特定大小的图片"><a href="#加载特定大小的图片" class="headerlink" title="加载特定大小的图片"></a>加载特定大小的图片</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Glide</span><span class="selector-class">.with</span>(<span class="selector-tag">context</span>)</span><br><span class="line">        <span class="selector-class">.load</span>(<span class="selector-tag">url</span>)</span><br><span class="line">        <span class="selector-class">.override</span>(300, 200);</span><br><span class="line">        <span class="selector-class">.into</span>(<span class="selector-tag">imageView</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="Center-Cropping"><a href="#Center-Cropping" class="headerlink" title="Center Cropping"></a>Center Cropping</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Glide</span><span class="selector-class">.with</span>(<span class="selector-tag">context</span>)</span><br><span class="line">        <span class="selector-class">.load</span>(<span class="selector-tag">url</span>)</span><br><span class="line">        <span class="selector-class">.centerCrop</span>();</span><br><span class="line">        <span class="selector-class">.into</span>(<span class="selector-tag">imageView</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="Transforming"><a href="#Transforming" class="headerlink" title="Transforming"></a>Transforming</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="built_in">context</span>)</span><br><span class="line">        .<span class="built_in">load</span>(url)</span><br><span class="line">        .<span class="built_in">transform</span>(<span class="built_in">new</span> CircleTransform(<span class="built_in">context</span>))</span><br><span class="line">        .into(imageView);</span><br></pre></td></tr></table></figure>
-<h3 id="特性：加载Gif、加载本地图片、asbitmap"><a href="#特性：加载Gif、加载本地图片、asbitmap" class="headerlink" title="特性：加载Gif、加载本地图片、asbitmap"></a>特性：加载Gif、加载本地图片、asbitmap</h3><p>Glide可以加载Gif动态图，使用方法和加载普通图片一样，同时因为Glide和Activity/Fragment的生命周期是一致的，因此gif的动画也会自动的随着Activity/Fragment的状态暂停、重放。Glide 的缓存在gif这里也是一样，调整大小然后缓存。</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Glide.with<span class="params">(context)</span></span><br><span class="line">        <span class="string">.load</span><span class="params">(url)</span><span class="string">//</span>图片地址</span><br><span class="line">        <span class="string">.asGif</span><span class="params">()</span><span class="string">//asGif</span>加载G<span class="keyword">if</span>动态图，asBitmap可以将G<span class="keyword">if</span>解码成bitmap</span><br><span class="line">        <span class="string">.placeholder</span><span class="params">(R.drawable.default_image)</span><span class="string">//</span>加载中显示的图片</span><br><span class="line">        <span class="string">.error</span><span class="params">(R.drawable.error_image)</span><span class="string">//</span>加载出错显示的图片</span><br><span class="line">        <span class="string">.crossFade</span><span class="params">()</span><span class="string">//</span>淡入效果</span><br><span class="line">        <span class="string">.into</span><span class="params">(imageView)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="找到具体的应用的包名"><a href="#找到具体的应用的包名" class="headerlink" title="找到具体的应用的包名"></a>找到具体的应用的包名</h4><p>连接到手机，用adb命令执行如下命令：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb <span class="keyword">shell</span><span class="bash"> pm list package</span></span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package:com<span class="selector-class">.mediatek</span><span class="selector-class">.gba</span></span><br><span class="line">package:com<span class="selector-class">.mediatek</span><span class="selector-class">.ims</span></span><br><span class="line">package:com<span class="selector-class">.flyme</span><span class="selector-class">.roamingpay</span></span><br><span class="line">package:com<span class="selector-class">.github</span><span class="selector-class">.shadowsocks</span></span><br><span class="line">package:org<span class="selector-class">.simalliance</span><span class="selector-class">.openmobileapi</span><span class="selector-class">.uicc2terminal</span></span><br><span class="line">package:com<span class="selector-class">.android</span><span class="selector-class">.providers</span><span class="selector-class">.telephony</span></span><br><span class="line">package:com<span class="selector-class">.meizu</span><span class="selector-class">.documentsui</span></span><br><span class="line">package:com<span class="selector-class">.goodix</span><span class="selector-class">.fingerprint</span></span><br><span class="line">package:com<span class="selector-class">.android</span><span class="selector-class">.providers</span><span class="selector-class">.calendar</span></span><br><span class="line">package:com<span class="selector-class">.zgczw</span><span class="selector-class">.chezhiwang</span></span><br><span class="line">package:cc.mianfeinovel</span><br><span class="line">package:com<span class="selector-class">.android</span><span class="selector-class">.providers</span><span class="selector-class">.media</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<h4 id="找到需要备份的安装包的位置"><a href="#找到需要备份的安装包的位置" class="headerlink" title="找到需要备份的安装包的位置"></a>找到需要备份的安装包的位置</h4><p>如果要找到应用包名为：cc.mianfeinovel</p>
+<p>可通过如下命令，找到具体安装包的位置：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb <span class="keyword">shell</span><span class="bash"> pm path cc.mianfeinovel</span></span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span>:<span class="regexp">/data/</span>app<span class="regexp">/cc.mianfeinovel-2/</span>base.apk</span><br></pre></td></tr></table></figure>
+<h4 id="把安装包取出"><a href="#把安装包取出" class="headerlink" title="把安装包取出"></a>把安装包取出</h4><p>可通过adb的pull命令：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb pull <span class="regexp">/data/</span>app<span class="regexp">/cc.mianfeinovel-2/</span>base.apk</span><br></pre></td></tr></table></figure>
+<p>结果为：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/data/</span>app<span class="regexp">/cc.mianfeinovel-2/</span>base.<span class="string">apk:</span> <span class="number">1</span> file pulled. <span class="number">5.7</span> MB/s (<span class="number">11417386</span> bytes <span class="keyword">in</span> <span class="number">1.913</span>s)</span><br></pre></td></tr></table></figure>
+<p>此操作手机无需root,也就是说每个手机都可以这样操作。</p>
 
       
 
@@ -225,7 +230,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">glide</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">apk</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">backup</a>
         		</li>
       		
 		</ul>
@@ -292,7 +301,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://lyuzhao.com/2016/08/29/glide的简单用法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://lyuzhao.com/2018/04/09/从Android手机内提取已安装的apk文件/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -306,18 +315,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2016/08/29/一句代码搞定-Android-图片压缩/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          一句代码搞定 Android 图片压缩
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/08/29/Git忽略文件-ignore模板（Android-Studio）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Git忽略文件.ignore模板（Android Studio）</div>
+    <a href="/2018/04/08/Apktool反编译/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Apktool反编译</div>
       <i class="icon-circle-right"></i>
     </a>
   
