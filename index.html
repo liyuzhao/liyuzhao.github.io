@@ -155,6 +155,113 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-linux下查看监听端口对应的进程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/10/linux下查看监听端口对应的进程/">linux下查看监听端口对应的进程</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/10/linux下查看监听端口对应的进程/" class="archive-article-date">
+  	<time datetime="2018-12-10T04:54:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年12月10日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><h5 id="1-通过lsof命令查看PID"><a href="#1-通过lsof命令查看PID" class="headerlink" title="1.通过lsof命令查看PID"></a>1.通过lsof命令查看PID</h5><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ipv4</span><br><span class="line">[root@test <span class="keyword">proc</span>]#<span class="title"> lsof</span> -Pnl +M -i4          </span><br><span class="line">COMMAND<span class="title">     PID</span> <span class="title">    USER</span> <span class="title">  FD</span> <span class="title">  TYPE</span> <span class="title"> DEVICE</span> SIZE<span class="title"> NODE</span> NAME</span><br><span class="line">java       1419     1401   10u<span class="title">  IPv4</span> 6793357<span class="title">       TCP</span> *:8453 (LISTEN)</span><br><span class="line">AutonomyD  6147     1401    6u<span class="title">  IPv4</span> 7597365<span class="title">       TCP</span> *:20003 (LISTEN)</span><br><span class="line">AutonomyD  6147     1401   14u<span class="title">  IPv4</span> 7597369<span class="title">       TCP</span> *:20000 (LISTEN)</span><br><span class="line">也可以使用:</span><br><span class="line">[root@test<span class="title"> proc]#</span> lsof -Pnl +M -i4|grep 8453</span><br><span class="line">java       1419     1401   10u<span class="title">  IPv4</span> 6793357<span class="title">       TCP</span> *:8453 (LISTEN)</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ipv6</span><br><span class="line">[root@test proc]# lsof -Pnl +M -i6</span><br><span class="line">COMMAND     PID    <span class="built_in"> USER </span>  FD  <span class="built_in"> TYPE </span> DEVICE SIZE NODE NAME</span><br><span class="line">java       1419     1401  286u <span class="built_in"> IPv6 </span>7616547       TCP 192.168.1.29:55829-&gt;192.168.1.17:7001 (CLOSE_WAIT)</span><br><span class="line">java       1419     1401  290u <span class="built_in"> IPv6 </span>6987470       TCP 192.168.1.29:33836-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  297u <span class="built_in"> IPv6 </span>6793642       UDP *:1133 </span><br><span class="line">java       1419     1401  304u <span class="built_in"> IPv6 </span>6987472       TCP 192.168.1.29:33838-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  306u <span class="built_in"> IPv6 </span>6987479       TCP 192.168.1.29:33839-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  307u <span class="built_in"> IPv6 </span>7006208       TCP 192.168.1.29:60340-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">也可以使用:</span><br><span class="line">[root@test proc]# lsof -Pnl +M -i6|grep 5001</span><br><span class="line">java      12886        0  530u <span class="built_in"> IPv6 </span>6988341       TCP *:5001 (LISTEN)</span><br></pre></td></tr></table></figure>
+<h5 id="2-通过ps命令查看进程情况"><a href="#2-通过ps命令查看进程情况" class="headerlink" title="2.通过ps命令查看进程情况"></a>2.通过ps命令查看进程情况</h5><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@test proc]# ps -ef|<span class="keyword">grep</span> <span class="number">12886</span></span><br><span class="line">root     <span class="number">12886</span> <span class="number">12851</span>  <span class="number">0</span> Dec09 ?        <span class="number">00</span>:<span class="number">00</span>:<span class="number">43</span> <span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>jdk160_05<span class="regexp">/bin/</span>java -client -Xms256m -Xmx512m -XX:CompileThreshold=<span class="number">8000</span> -XX:PermSize=<span class="number">48</span>m -XX:MaxPermSize=<span class="number">128</span>m -Xverify:none -da -Dplatform.home=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>wlserver_10.<span class="number">3</span> -Dwls.home=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>wlserver_10.<span class="number">3</span><span class="regexp">/server -Dweblogic.home=/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/wlserver_10.3/</span>server -Dweblogic.management.discover=<span class="keyword">true</span> -Dwlw.iterativeDev= -Dwlw.testConsole= -Dwlw.logErrorsToConsole= -Dweblogic.ext.dirs=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>patch_wlw1030<span class="regexp">/profiles/</span><span class="keyword">default</span><span class="regexp">/sysext_manifest_classpath:/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/patch_wls1030/</span>profiles<span class="regexp">/default/</span>sysext_manifest_classpath:<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>patch_cie660<span class="regexp">/profiles/</span><span class="keyword">default</span><span class="regexp">/sysext_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/wlserver_10.3/</span>server<span class="regexp">/lib/</span>weblogic.policy weblogic.Server</span><br></pre></td></tr></table></figure>
+<h5 id="3-lsof命令参数解释"><a href="#3-lsof命令参数解释" class="headerlink" title="3.lsof命令参数解释"></a>3.lsof命令参数解释</h5><ul>
+<li><p>1) -P :这个选项约束着网络文件的端口号到端口名称的转换。约束转换可以使lsof运行得更快一些。在端口名称的查找不能奏效时，这是很有用的。</p>
+</li>
+<li><p>2) -n : 这个选项约束着网络文件的端口号到主机名称的转换。约束转换可以使lsof的运行更快一些。在主机名称的查找不能奏效时，它非常有用。</p>
+</li>
+<li><p>3) -l :这个选项约束着用户ID号到登录名的转换。在登录名的查找不正确或很慢时，这个选项就很有用。</p>
+</li>
+<li><p>4) +M :此选项支持本地TCP和UDP端口映射程序的注册报告。</p>
+</li>
+<li><p>5) -i4 :仅列示IPv4协议下的端口。</p>
+</li>
+<li><p>6) -i6 : 仅列示IPv6协议下的端口。</p>
+</li>
+</ul>
+<h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><h5 id="1-使用netstat查看进程PID"><a href="#1-使用netstat查看进程PID" class="headerlink" title="1.使用netstat查看进程PID"></a>1.使用netstat查看进程PID</h5><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@test ~]#  netstat -anp|grep <span class="number">5001</span></span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> :::<span class="number">5001</span>                     :::*                        LISTEN      <span class="number">12886</span>/java</span><br></pre></td></tr></table></figure>
+<h5 id="2-使用ps查看进程情况"><a href="#2-使用ps查看进程情况" class="headerlink" title="2.使用ps查看进程情况"></a>2.使用ps查看进程情况</h5><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@test <span class="number">12886</span>]# ps -ef|<span class="keyword">grep</span> <span class="number">12886</span></span><br><span class="line">root     <span class="number">12886</span> <span class="number">12851</span>  <span class="number">0</span> Dec09 ?        <span class="number">00</span>:<span class="number">01</span>:<span class="number">14</span> <span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>jdk160_05<span class="regexp">/bin/</span>java -client -Xms256m -Xmx512m -XX:CompileThreshold=<span class="number">8000</span> -XX:PermSize=<span class="number">48</span>m -XX:MaxPermSize=<span class="number">128</span>m -Xverify:none -da -Dplatform.home=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>wlserver_10.<span class="number">3</span> -Dwls.home=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>wlserver_10.<span class="number">3</span><span class="regexp">/server -Dweblogic.home=/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/wlserver_10.3/</span>server -Dweblogic.management.discover=<span class="keyword">true</span> -Dwlw.iterativeDev= -Dwlw.testConsole= -Dwlw.logErrorsToConsole= -Dweblogic.ext.dirs=<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>patch_wlw1030<span class="regexp">/profiles/</span><span class="keyword">default</span><span class="regexp">/sysext_manifest_classpath:/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/patch_wls1030/</span>profiles<span class="regexp">/default/</span>sysext_manifest_classpath:<span class="regexp">/home/</span>bjca<span class="regexp">/bea/</span>patch_cie660<span class="regexp">/profiles/</span><span class="keyword">default</span><span class="regexp">/sysext_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/</span>home<span class="regexp">/bjca/</span>bea<span class="regexp">/wlserver_10.3/</span>server<span class="regexp">/lib/</span>weblogic.policy weblogic.Server</span><br><span class="line">root     <span class="number">27592</span> <span class="number">27546</span>  <span class="number">0</span> <span class="number">09</span>:<span class="number">11</span> pts<span class="regexp">/2    00:00:00 grep 12886</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">process</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/10/linux下查看监听端口对应的进程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-wireshark过滤器规则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -981,97 +1088,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-AndroidStudio打包Jar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/13/AndroidStudio打包Jar/">AndroidStudio打包Jar</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/13/AndroidStudio打包Jar/" class="archive-article-date">
-  	<time datetime="2018-03-13T06:49:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年03月13日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Android-Studio-打包Jar"><a href="#Android-Studio-打包Jar" class="headerlink" title="Android Studio 打包Jar"></a>Android Studio 打包Jar</h2>
-        
-          <a class="article-more-a" href="/2018/03/13/AndroidStudio打包Jar/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jar</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/android//" class="article-tag-list-link color3">android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/13/AndroidStudio打包Jar/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1200,15 +1216,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">apktool</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">AsyncTask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jar</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1248,6 +1264,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
@@ -1268,10 +1288,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
@@ -1284,15 +1300,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">dns</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1317,6 +1333,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">grep</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">process</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1348,15 +1368,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
              
               <li class="article-tag-list-item">
