@@ -155,6 +155,103 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-wireshark过滤器规则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/10/wireshark过滤器规则/">wireshark过滤器规则</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/10/wireshark过滤器规则/" class="archive-article-date">
+  	<time datetime="2018-12-10T04:31:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年12月10日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h4 id="一、IP过滤：包括来源IP或者目标IP等于某个IP"><a href="#一、IP过滤：包括来源IP或者目标IP等于某个IP" class="headerlink" title="一、IP过滤：包括来源IP或者目标IP等于某个IP"></a>一、IP过滤：包括来源IP或者目标IP等于某个IP</h4><p>比如：</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ip</span>.src addr==<span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span>  <span class="keyword">or</span> <span class="built_in">ip</span>.src addr eq <span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span> 显示来源<span class="built_in">IP</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ip</span>.dst addr==<span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span>  <span class="keyword">or</span> <span class="built_in">ip</span>.dst addr eq <span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span> 显示目标<span class="built_in">IP</span></span><br></pre></td></tr></table></figure>
+<h4 id="二、端口过滤："><a href="#二、端口过滤：" class="headerlink" title="二、端口过滤："></a>二、端口过滤：</h4><p>比如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> tcp<span class="selector-class">.port</span> eq <span class="number">80</span> <span class="comment">// 不管端口是来源的还是目标的都显示</span></span><br><span class="line"> tcp<span class="selector-class">.port</span> == <span class="number">80</span></span><br><span class="line"> tcp<span class="selector-class">.port</span> eq <span class="number">2722</span></span><br><span class="line"> tcp<span class="selector-class">.port</span> eq <span class="number">80</span> or udp<span class="selector-class">.port</span> eq <span class="number">80</span></span><br><span class="line"> tcp<span class="selector-class">.dstport</span> == <span class="number">80</span> <span class="comment">// 只显tcp协议的目标端口80</span></span><br><span class="line"> tcp<span class="selector-class">.srcport</span> == <span class="number">80</span> <span class="comment">// 只显tcp协议的来源端口80</span></span><br><span class="line"></span><br><span class="line">过滤端口范围</span><br><span class="line">tcp<span class="selector-class">.port</span> &gt;= <span class="number">1</span> and tcp<span class="selector-class">.port</span> &lt;= <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<h4 id="三、协议过滤：tcp"><a href="#三、协议过滤：tcp" class="headerlink" title="三、协议过滤：tcp"></a>三、协议过滤：tcp</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">udp</span><br><span class="line">arp</span><br><span class="line">icmp</span><br><span class="line">http</span><br><span class="line">smtp</span><br><span class="line">ftp</span><br><span class="line">dns</span><br><span class="line">msnms</span><br><span class="line">ip</span><br><span class="line">ssl</span><br><span class="line">等等</span><br><span class="line">排除ssl包，如!ssl 或者  <span class="keyword">not</span> ssl</span><br></pre></td></tr></table></figure>
+<h4 id="四、包长度过滤："><a href="#四、包长度过滤：" class="headerlink" title="四、包长度过滤："></a>四、包长度过滤：</h4><p>比如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">udp<span class="selector-class">.length</span> == <span class="number">26</span> 这个长度是指udp本身固定长度<span class="number">8</span>加上udp下面那块数据包之和</span><br><span class="line">tcp<span class="selector-class">.len</span> &gt;= <span class="number">7</span>  指的是ip数据包(tcp下面那块数据),不包括tcp本身</span><br><span class="line">ip<span class="selector-class">.len</span> == <span class="number">94</span> 除了以太网头固定长度<span class="number">14</span>,其它都算是ip<span class="selector-class">.len</span>,即从ip本身到最后</span><br><span class="line">frame<span class="selector-class">.len</span> == <span class="number">119</span> 整个数据包长度,从eth开始到最后</span><br></pre></td></tr></table></figure>
+<h4 id="五、http模式过滤："><a href="#五、http模式过滤：" class="headerlink" title="五、http模式过滤："></a>五、http模式过滤：</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">例子:</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.uri</span> == “/img/logo-edu.gif”</span><br><span class="line">http contains “GET”</span><br><span class="line">http contains “HTTP/<span class="number">1</span>.”</span><br><span class="line"></span><br><span class="line"><span class="comment">// GET包</span></span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET” &amp;&amp; http contains “Host: ”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET” &amp;&amp; http contains “User-Agent: ”</span><br><span class="line"><span class="comment">// POST包</span></span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST” &amp;&amp; http contains “Host: ”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST” &amp;&amp; http contains “User-Agent: ”</span><br><span class="line"><span class="comment">// 响应包</span></span><br><span class="line">http contains “HTTP/<span class="number">1.1</span> <span class="number">200</span> OK” &amp;&amp; http contains “Content-Type: ”</span><br><span class="line">http contains “HTTP/<span class="number">1.0</span> <span class="number">200</span> OK” &amp;&amp; http contains “Content-Type: ”</span><br><span class="line">一定包含如下</span><br><span class="line">Content-Type:</span><br></pre></td></tr></table></figure>
+<h4 id="六、连接符-and-or"><a href="#六、连接符-and-or" class="headerlink" title="六、连接符 and / or"></a>六、连接符 and / or</h4><h4 id="七、表达式："><a href="#七、表达式：" class="headerlink" title="七、表达式："></a>七、表达式：</h4><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!(arp.src==<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>) and !(arp.dst.proto_ipv4==<span class="number">192.168</span><span class="number">.1</span><span class="number">.243</span>)</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">wireshark</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/10/wireshark过滤器规则/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-git-submodule的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -829,11 +926,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">integer</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">integer</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -946,96 +1043,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/03/13/AndroidStudio打包Jar/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Gyp-学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/25/Gyp-学习记录/">Gyp-学习记录</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/25/Gyp-学习记录/" class="archive-article-date">
-  	<time datetime="2017-12-25T12:12:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年12月25日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Gyp 学习记录</p>
-<p>GYP(Generate Your Projects)是由 Chromium 团队开发的跨平台自动化项目构建工具。</p>
-<h5 id="gyp简述"><a href="#gyp简述" class="headerlink" title="gyp简述"></a>gyp简述</h5><p>GYP的输入是.gyp和.gypi文件，.gypi文件是用于.gyp文件include使用的。.gyp文件就是符合特定格式的json文件。</p>
-<p>gyp文件中包含target，Visual C++下，gyp生成sln，target生成vcproj或vxcproj。</p>
-        
-          <a class="article-more-a" href="/2017/12/25/Gyp-学习记录/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gyp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/c//" class="article-tag-list-link color4">c++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/25/Gyp-学习记录/">展开全文 >></a>
         </p>
       
 
@@ -1193,7 +1200,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+                <a href="javascript:void(0)" class="js-tag color3">apktool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1201,7 +1208,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">apktool</a>
+                <a href="javascript:void(0)" class="js-tag color4">jar</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1237,11 +1244,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1257,7 +1264,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">integer</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1269,11 +1280,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">qt</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">qt</a>
+                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1285,15 +1296,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1301,7 +1304,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">grep</a>
+                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1309,11 +1316,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
+                <a href="javascript:void(0)" class="js-tag color5">grep</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1337,15 +1348,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
              
               <li class="article-tag-list-item">

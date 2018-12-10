@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://lyuzhao.com">
-  <title>Tag: 数据库 | 催眠术的博客</title>
+  <title>wireshark过滤器规则 | 催眠术的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="催眠术的技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="催眠术的博客">
-<meta property="og:url" content="http://lyuzhao.com/tags/数据库/index.html">
+  <meta name="description" content="一、IP过滤：包括来源IP或者目标IP等于某个IP比如： 123ip.src addr==192.168.0.208  or ip.src addr eq 192.168.0.208 显示来源IPip.dst addr==192.168.0.208  or ip.dst addr eq 192.168.0.208 显示目标IP 二、端口过滤：比如： 123456789 tcp.port eq 8">
+<meta name="keywords" content="linux,wireshark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wireshark过滤器规则">
+<meta property="og:url" content="http://lyuzhao.com/2018/12/10/wireshark过滤器规则/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="催眠术的技术博客">
+<meta property="og:description" content="一、IP过滤：包括来源IP或者目标IP等于某个IP比如： 123ip.src addr==192.168.0.208  or ip.src addr eq 192.168.0.208 显示来源IPip.dst addr==192.168.0.208  or ip.dst addr eq 192.168.0.208 显示目标IP 二、端口过滤：比如： 123456789 tcp.port eq 8">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-10T04:36:14.152Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="催眠术的博客">
-<meta name="twitter:description" content="催眠术的技术博客">
+<meta name="twitter:title" content="wireshark过滤器规则">
+<meta name="twitter:description" content="一、IP过滤：包括来源IP或者目标IP等于某个IP比如： 123ip.src addr==192.168.0.208  or ip.src addr eq 192.168.0.208 显示来源IPip.dst addr==192.168.0.208  or ip.dst addr eq 192.168.0.208 显示目标IP 二、端口过滤：比如： 123456789 tcp.port eq 8">
   
   
     <link rel="icon" href="/favicon.png">
@@ -153,79 +155,195 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-wireshark过滤器规则" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/20/Mac-OS-X-下-TAR-GZ-方式安装-MySQL-5-7/" class="archive-article-date">
-  	<time datetime="2016-03-20T04:15:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年03月20日</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/20/Mac-OS-X-下-TAR-GZ-方式安装-MySQL-5-7/">Mac OS X 下 TAR.GZ 方式安装 MySQL 5.7</a>
+    <h1 class="article-title" itemprop="name">
+      wireshark过滤器规则
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/12/10/wireshark过滤器规则/" class="archive-article-date">
+  	<time datetime="2018-12-10T04:31:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年12月10日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h4 id="一、IP过滤：包括来源IP或者目标IP等于某个IP"><a href="#一、IP过滤：包括来源IP或者目标IP等于某个IP" class="headerlink" title="一、IP过滤：包括来源IP或者目标IP等于某个IP"></a>一、IP过滤：包括来源IP或者目标IP等于某个IP</h4><p>比如：</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ip</span>.src addr==<span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span>  <span class="keyword">or</span> <span class="built_in">ip</span>.src addr eq <span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span> 显示来源<span class="built_in">IP</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ip</span>.dst addr==<span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span>  <span class="keyword">or</span> <span class="built_in">ip</span>.dst addr eq <span class="number">192.168</span><span class="meta">.0</span><span class="meta">.208</span> 显示目标<span class="built_in">IP</span></span><br></pre></td></tr></table></figure>
+<h4 id="二、端口过滤："><a href="#二、端口过滤：" class="headerlink" title="二、端口过滤："></a>二、端口过滤：</h4><p>比如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> tcp<span class="selector-class">.port</span> eq <span class="number">80</span> <span class="comment">// 不管端口是来源的还是目标的都显示</span></span><br><span class="line"> tcp<span class="selector-class">.port</span> == <span class="number">80</span></span><br><span class="line"> tcp<span class="selector-class">.port</span> eq <span class="number">2722</span></span><br><span class="line"> tcp<span class="selector-class">.port</span> eq <span class="number">80</span> or udp<span class="selector-class">.port</span> eq <span class="number">80</span></span><br><span class="line"> tcp<span class="selector-class">.dstport</span> == <span class="number">80</span> <span class="comment">// 只显tcp协议的目标端口80</span></span><br><span class="line"> tcp<span class="selector-class">.srcport</span> == <span class="number">80</span> <span class="comment">// 只显tcp协议的来源端口80</span></span><br><span class="line"></span><br><span class="line">过滤端口范围</span><br><span class="line">tcp<span class="selector-class">.port</span> &gt;= <span class="number">1</span> and tcp<span class="selector-class">.port</span> &lt;= <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<h4 id="三、协议过滤：tcp"><a href="#三、协议过滤：tcp" class="headerlink" title="三、协议过滤：tcp"></a>三、协议过滤：tcp</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">udp</span><br><span class="line">arp</span><br><span class="line">icmp</span><br><span class="line">http</span><br><span class="line">smtp</span><br><span class="line">ftp</span><br><span class="line">dns</span><br><span class="line">msnms</span><br><span class="line">ip</span><br><span class="line">ssl</span><br><span class="line">等等</span><br><span class="line">排除ssl包，如!ssl 或者  <span class="keyword">not</span> ssl</span><br></pre></td></tr></table></figure>
+<h4 id="四、包长度过滤："><a href="#四、包长度过滤：" class="headerlink" title="四、包长度过滤："></a>四、包长度过滤：</h4><p>比如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">udp<span class="selector-class">.length</span> == <span class="number">26</span> 这个长度是指udp本身固定长度<span class="number">8</span>加上udp下面那块数据包之和</span><br><span class="line">tcp<span class="selector-class">.len</span> &gt;= <span class="number">7</span>  指的是ip数据包(tcp下面那块数据),不包括tcp本身</span><br><span class="line">ip<span class="selector-class">.len</span> == <span class="number">94</span> 除了以太网头固定长度<span class="number">14</span>,其它都算是ip<span class="selector-class">.len</span>,即从ip本身到最后</span><br><span class="line">frame<span class="selector-class">.len</span> == <span class="number">119</span> 整个数据包长度,从eth开始到最后</span><br></pre></td></tr></table></figure>
+<h4 id="五、http模式过滤："><a href="#五、http模式过滤：" class="headerlink" title="五、http模式过滤："></a>五、http模式过滤：</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">例子:</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.uri</span> == “/img/logo-edu.gif”</span><br><span class="line">http contains “GET”</span><br><span class="line">http contains “HTTP/<span class="number">1</span>.”</span><br><span class="line"></span><br><span class="line"><span class="comment">// GET包</span></span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET” &amp;&amp; http contains “Host: ”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET” &amp;&amp; http contains “User-Agent: ”</span><br><span class="line"><span class="comment">// POST包</span></span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST” &amp;&amp; http contains “Host: ”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST” &amp;&amp; http contains “User-Agent: ”</span><br><span class="line"><span class="comment">// 响应包</span></span><br><span class="line">http contains “HTTP/<span class="number">1.1</span> <span class="number">200</span> OK” &amp;&amp; http contains “Content-Type: ”</span><br><span class="line">http contains “HTTP/<span class="number">1.0</span> <span class="number">200</span> OK” &amp;&amp; http contains “Content-Type: ”</span><br><span class="line">一定包含如下</span><br><span class="line">Content-Type:</span><br></pre></td></tr></table></figure>
+<h4 id="六、连接符-and-or"><a href="#六、连接符-and-or" class="headerlink" title="六、连接符 and / or"></a>六、连接符 and / or</h4><h4 id="七、表达式："><a href="#七、表达式：" class="headerlink" title="七、表达式："></a>七、表达式：</h4><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!(arp.src==<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>) and !(arp.dst.proto_ipv4==<span class="number">192.168</span><span class="number">.1</span><span class="number">.243</span>)</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/blogImg/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">mac</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">wireshark</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/mac//" class="article-tag-list-link color4">mac</a>
+        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://lyuzhao.com/2018/12/10/wireshark过滤器规则/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/12/10/git-submodule的使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git submodule的使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -248,9 +366,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
