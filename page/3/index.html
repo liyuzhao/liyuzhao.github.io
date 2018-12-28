@@ -155,6 +155,107 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-iPhone开发-UILabel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/15/iPhone开发-UILabel/">iPhone开发-UILabel</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/15/iPhone开发-UILabel/" class="archive-article-date">
+  	<time datetime="2017-11-15T12:38:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017年11月15日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>UILable 的用法涉及内容有如下</p>
+<ol>
+<li>创建与显示</li>
+<li>文本内容和字体设置</li>
+<li>背景颜色指定</li>
+<li>计算高度。</li>
+<li>行数指定和计算</li>
+</ol>
+<p>UIlabel可以显示指定的行数，设置numberOfLines =0 则为不限制行数，因为UIlabel不是Icontrol的方面，没有addTarget和block等方法处理相应的行为机制，但支持扩展手势触控等方法处理点击，不过对于html 超链接响应情况，在之前看过是需要采用第三方处理机制处理。</p>
+<p>在日常使用过程，对于文本方法计算高度的用法很常用，ios提供相应计算方法。如属于NSString的类别（NSStringDrawing.h）该类为此提供相应处理解决方案，提供计算高度和文本大小的方法。<br>注意到 过去ios6的版本 提供sizeWithFont方法 在ios 7.0 已经不生效，需要改成其他方法处理。boundingRectWithSize 后续推荐的方式。</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(CGSize)</span>sizeWithAttributes:<span class="params">(NSDictionary *)</span>attrs NS_AVAILABLE_IOS<span class="params">(<span class="number">7</span>_0)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(CGRect)</span>boundingRectWithSize:<span class="params">(CGSize)</span>size options:<span class="params">(NSStringDrawingOptions)</span>options attributes:<span class="params">(NSDictionary *)</span>attributes context:<span class="params">(NSStringDrawingContext *)</span>context NS_AVAILABLE_IOS<span class="params">(<span class="number">7</span>_0)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span> = [[UILabel alloc]initWithFrame:CGRectMake(<span class="number">85</span>, <span class="number">0</span>, <span class="literal">self</span>.view.frame.size.width-<span class="number">85</span>, <span class="number">70</span>)];</span><br><span class="line"> [<span class="literal">self</span>.panel addSubview:<span class="literal">self</span>.<span class="keyword">label</span>];</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.text = @<span class="string">"这个人很懒，什么都没留下"</span>;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.numberOfLines = <span class="number">3</span>;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.lineBreakMode = NSLineBreakByCharWrapping;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.font =[UIFont systemFontOfSize:<span class="number">14</span>];</span><br><span class="line">// <span class="literal">self</span>.<span class="keyword">label</span>.<span class="keyword">user</span>InteractionEnabled = YES; 需要的时候才打开</span><br><span class="line"> [<span class="literal">self</span>.view addSubview:<span class="literal">self</span>.panel];</span><br></pre></td></tr></table></figure>
+<p>下面计算一下高度，当采用默认字体的时候，字体号为17，其高度约为20, 字体为14的时候，高度约为16~17之间</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">字体号：<span class="number">17</span> ，文本高：<span class="number">20</span></span><br><span class="line">字体号：<span class="number">16</span> ，文本高：<span class="number">19</span></span><br><span class="line">字体号：<span class="number">15</span> ，文本高：<span class="number">17</span>~<span class="number">18</span> 之间</span><br><span class="line">字体号：<span class="number">14</span>， 文本高：<span class="number">16</span>~<span class="number">17</span> 之间</span><br></pre></td></tr></table></figure>
+<p>这些字体是默认字体，要是采用其他字体或者设置粗体 ，估计值会受到一些浮动影响。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> getTextHeight:<span class="number">17</span> width:<span class="keyword">self</span>.view.frame.size.width<span class="number">-85</span>];   </span><br><span class="line">-(<span class="keyword">void</span>) getTextHeight:(<span class="built_in">CGFloat</span>) fontSize width:(<span class="built_in">CGFloat</span>) textWidth</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSDictionary</span> *dic =@&#123;<span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:fontSize]&#125;;</span><br><span class="line">    <span class="built_in">CGSize</span> curSize = <span class="built_in">CGSizeMake</span>(textWidth, MAXFLOAT);</span><br><span class="line">    <span class="built_in">CGRect</span> rect =   [<span class="keyword">self</span>.label.text boundingRectWithSize:curSize</span><br><span class="line">                                                  options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span>|<span class="built_in">NSStringDrawingUsesFontLeading</span></span><br><span class="line">                                               attributes:dic context:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *str = <span class="built_in">NSStringFromCGRect</span>(rect);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,str);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/15/iPhone开发-UILabel/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-iPhone开发-leftBarButtonItem" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -951,96 +1052,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-EditText-的使用及值得注意的地方" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/01/EditText-的使用及值得注意的地方/">EditText 的使用及值得注意的地方</a>
-    </h1>
-  
-
-        
-        <a href="/2016/09/01/EditText-的使用及值得注意的地方/" class="archive-article-date">
-  	<time datetime="2016-09-01T04:54:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016年09月01日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>来源：<a href="http://www.jianshu.com/p/1f05bb1fde3e" target="_blank" rel="noopener">http://www.jianshu.com/p/1f05bb1fde3e</a><br>作者：张明云（@UperOne）</p>
-</blockquote>
-<p>Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。</p>
-        
-          <a class="article-more-a" href="/2016/09/01/EditText-的使用及值得注意的地方/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">EditText</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/android//" class="article-tag-list-link color3">android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/01/EditText-的使用及值得注意的地方/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1197,15 +1208,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EditText</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EditText</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1221,7 +1232,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">integer</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1237,7 +1248,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1253,14 +1264,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dns</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">sublime</a>
               </li>
              
@@ -1269,11 +1272,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">glide</a>
+                <a href="javascript:void(0)" class="js-tag color4">dns</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1281,11 +1288,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">grep</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">grep</a>
+                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1329,11 +1340,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+                <a href="javascript:void(0)" class="js-tag color3">english</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">english</a>
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
             
             <div class="clearfix"></div>
