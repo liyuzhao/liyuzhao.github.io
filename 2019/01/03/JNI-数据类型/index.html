@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="催眠术的博客">
 <meta property="og:description" content="JNI的数据类型Java 中有两种数据类型：  基本数据类型：布尔型、字节型、字符型、短整型、整型、长整型、浮点型和双精度类型。 引用类型：字符串类型、数组类及其他类。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-03T11:40:07.600Z">
+<meta property="og:updated_time" content="2019-01-03T11:45:53.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JNI-数据类型">
 <meta name="twitter:description" content="JNI的数据类型Java 中有两种数据类型：  基本数据类型：布尔型、字节型、字符型、短整型、整型、长整型、浮点型和双精度类型。 引用类型：字符串类型、数组类及其他类。">
@@ -202,8 +202,7 @@ var _hmt = _hmt || [];
 <td style="text-align:center">byte</td>
 <td style="text-align:center">jbyte</td>
 <td style="text-align:center">char</td>
-<td style="text-align:center">char</td>
-<td>有符号8位</td>
+<td style="text-align:center">有符号8位</td>
 </tr>
 <tr>
 <td style="text-align:center">char</td>
@@ -323,14 +322,14 @@ var _hmt = _hmt || [];
 <ol>
 <li><p>创建字符串</p>
 <p> 可以在原生代码中用 NewString 函数构建Unicode编码格式的字符串实例，用NewStringUTF函数构建UTF-8编码格式的字符串实例。这些函数以一个C字符串为参数，并返回一个Java字符串引用类型jstring值。</p>
- <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jstring javaString<span class="comment">;</span></span><br><span class="line">javaString = (<span class="name">*env</span>)-&gt;NewStringUTF(<span class="name">env</span>, <span class="string">"Hello world!"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jstring javaString<span class="comment">;</span></span><br><span class="line">javaString = (<span class="name">*env</span>)-&gt;NewStringUTF(<span class="name">env</span>, <span class="string">"Hello world!"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <p>在内存溢出的情况下，这些函数返回NULL以通过原生代码虚拟机中抛出异常，这样原生代码就会停止运行。</p>
 <ol>
 <li><p>把 Java 字符串转换成 C 字符串</p>
 <p> 为了在原生代码中使用 Java 字符串，需要先将 Java 字符串转换成 C 字符串。用 GetStringChars 函数可以将Unicode格式的Java字符串转换成 C 字符串， 用GetStringUTFChars 函数可以将UTF-8格式的Java字符串转换成C字符串。 这些函数的第三个参数均为可选参数，该可选参数名是isCopy, 它让调用者确定返回的C字符串地址指向副本还是指向堆中的固定对象。</p>
- <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">将<span class="keyword">Java字符串转换成C字符串</span></span><br><span class="line"><span class="keyword">const </span><span class="keyword">jbyte* </span>str<span class="comment">;</span></span><br><span class="line"><span class="keyword">jboolean </span>isCopy<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">str = (*env)-&gt;GetStringUTFChars(env, <span class="keyword">javaString, </span>&amp;isCopy)<span class="comment">;</span></span><br><span class="line">if(<span class="number">0</span> != str)&#123;</span><br><span class="line">	printf(<span class="string">"Java string: %s"</span>, str)<span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	if(<span class="keyword">JNI_TRUE </span>== isCopy)&#123;</span><br><span class="line">		printf(<span class="string">"C string is a copy of the Java string."</span>)</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		printf(<span class="string">"C string points to actual string."</span>)<span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">		将<span class="keyword">Java字符串转换成C字符串</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">const </span><span class="keyword">jbyte* </span>str<span class="comment">;</span></span><br><span class="line"><span class="keyword">jboolean </span>isCopy<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">str = (*env)-&gt;GetStringUTFChars(env, <span class="keyword">javaString, </span>&amp;isCopy)<span class="comment">;</span></span><br><span class="line">if(<span class="number">0</span> != str)&#123;</span><br><span class="line">	printf(<span class="string">"Java string: %s"</span>, str)<span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	if(<span class="keyword">JNI_TRUE </span>== isCopy)&#123;</span><br><span class="line">		printf(<span class="string">"C string is a copy of the Java string."</span>)</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		printf(<span class="string">"C string points to actual string."</span>)<span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>释放字符串</p>
 <p> 通过JNI GetStringChars 函数和 GetStringUTFChars 函数获得的C字符串在原生代码中使用完之后需要正确地释放，否则将会引起内存泄露。 JNI提供了 ReleaseStringChars 函数释放 Unicode编码格式的字符串，而用ReleaseStringUTFChars函数释放UTF-8编码格式的字符串。</p>
@@ -360,9 +359,30 @@ var _hmt = _hmt || [];
 <p> 因为可以像普通的C数组一样访问和处理数组元素，因此JNI没提供访问和处理数组元素的方法，JNI 要求原生代码用完这些指针立即释放，否则会出现内存溢出。原生代码可以使用JNI提供的 Release&lt;Type&gt;ArrayElements函数释放 Get&lt;Type&gt;ArrayElements函数返回C数组。</p>
  <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">释放指向Java数组元素的直接指针</span><br><span class="line"><span class="function"><span class="params">(*env)</span>-&gt;</span>ReleaseIntArrayElements(env, javaArray, nativeDirectArray, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
 <p> 该函数带有四个函数，第四个函数是释放模式，下面列出了支持的释放模式列表。</p>
-<p> |释放模式|动作|<br> |:–:|:–:|<br> |0| 将内容复制回来并是否原生数组|<br> |JNI_COMMIT| 将内容复制回来但不释放原生数组，一般用于周期性地更新一个Java数组|<br> |JNI_ABORT| 释放原生数组但不用将内容复制回来|</p>
 </li>
 </ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">释放模式</th>
+<th style="text-align:center">动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">将内容复制回来并是否原生数组</td>
+</tr>
+<tr>
+<td style="text-align:center">JNI_COMMIT</td>
+<td style="text-align:center">将内容复制回来但不释放原生数组，一般用于周期性地更新一个Java数组</td>
+</tr>
+<tr>
+<td style="text-align:center">JNI_ABORT</td>
+<td style="text-align:center">释放原生数组但不用将内容复制回来</td>
+</tr>
+</tbody>
+</table>
 <h5 id="NIO操作"><a href="#NIO操作" class="headerlink" title="NIO操作"></a>NIO操作</h5><p>原生I/O（NIO）在缓冲管理区、大规模网络和文件I/O及字符集支持方面的性能有所改进。JNI提供了在原生代码中使用NIO的函数。与数组操作相比，NIO缓冲区的数据传送性能较好，更适合在原生代码和Java应用程序之间传送大量数据。</p>
 <ol>
 <li><p>创建直接字节缓冲区</p>
@@ -429,14 +449,60 @@ var _hmt = _hmt || [];
 <p>Java和原生代码之间的转换是代价较大的操作，强烈建议规划Java代码和原生代码的任务时考虑这种代价，最小化这种转换可以大大提高应用程序的性能。</p>
 </blockquote>
 </li>
-<li><p>域和方法的描述符</p>
-<p> 下表为 Java类型签名映射</p>
-<p> |Java 类型| 签名 |<br> |:–:|:–:|<br> |Boolean | Z|<br> |Byte|B|<br> |Char|C|<br> |Short|S|<br> |Int|I|<br> |Long|J|<br> |fully-qualified-class|Lfully-qualified-class;|<br> |type[]|[type|<br> |method type|(arg-type)ret-type|</p>
+</ol>
+<ol>
+<li>域和方法的描述符</li>
+</ol>
+<p>下表为 Java类型签名映射</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Java 类型</th>
+<th style="text-align:center">签名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Boolean</td>
+<td style="text-align:center">Z</td>
+</tr>
+<tr>
+<td style="text-align:center">Byte</td>
+<td style="text-align:center">B</td>
+</tr>
+<tr>
+<td style="text-align:center">Char</td>
+<td style="text-align:center">C</td>
+</tr>
+<tr>
+<td style="text-align:center">Short</td>
+<td style="text-align:center">S</td>
+</tr>
+<tr>
+<td style="text-align:center">Int</td>
+<td style="text-align:center">I</td>
+</tr>
+<tr>
+<td style="text-align:center">Long</td>
+<td style="text-align:center">J</td>
+</tr>
+<tr>
+<td style="text-align:center">fully-qualified-class</td>
+<td style="text-align:center">Lfully-qualified-class;</td>
+</tr>
+<tr>
+<td style="text-align:center">type[]</td>
+<td style="text-align:center">[type</td>
+</tr>
+<tr>
+<td style="text-align:center">method type</td>
+<td style="text-align:center">(arg-type)ret-type</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>用类型签名映射手工生成域和方法描述符并让它们与Java代码同步是一件非常繁琐的任务。通常都是借助Java的类文件反汇编程序：javap</p>
 </blockquote>
-</li>
-</ol>
 
       
 
