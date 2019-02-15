@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://lyuzhao.com">
   <title>Java中Math类的一些常用方法 | 催眠术的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -46,7 +46,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -187,7 +187,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Java中Math类的一些常用方法"><a href="#Java中Math类的一些常用方法" class="headerlink" title="Java中Math类的一些常用方法"></a>Java中Math类的一些常用方法</h1><a id="more"></a>
+        <h1 id="java中math类的一些常用方法"><a class="markdownIt-Anchor" href="#java中math类的一些常用方法"></a> Java中Math类的一些常用方法</h1>
+<a id="more"></a>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> class MathTest&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span> args[])&#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * abs求绝对值 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">abs</span>(<span class="number">-10.4</span>));    <span class="comment">//10.4  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">abs</span>(<span class="number">10.1</span>));     <span class="comment">//10.1  </span></span><br><span class="line">              </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * ceil天花板的意思，就是返回大的值，注意一些特殊值 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">ceil</span>(<span class="number">-10.1</span>));   <span class="comment">//-10.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">ceil</span>(<span class="number">10.7</span>));    <span class="comment">//11.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">ceil</span>(<span class="number">-0.7</span>));    <span class="comment">//-0.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">ceil</span>(<span class="number">0.0</span>));     <span class="comment">//0.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">ceil</span>(<span class="number">-0.0</span>));    <span class="comment">//-0.0  </span></span><br><span class="line">              </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * floor地板的意思，就是返回小的值 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">floor</span>(<span class="number">-10.1</span>));  <span class="comment">//-11.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">floor</span>(<span class="number">10.7</span>));   <span class="comment">//10.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">floor</span>(<span class="number">-0.7</span>));   <span class="comment">//-1.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">floor</span>(<span class="number">0.0</span>));    <span class="comment">//0.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">floor</span>(<span class="number">-0.0</span>));   <span class="comment">//-0.0  </span></span><br><span class="line">              </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * max 两个中返回大的值,min和它相反，就不举例了 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">max</span>(<span class="number">-10.1</span>, <span class="number">-10</span>));   <span class="comment">//-10.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">max</span>(<span class="number">10.7</span>, <span class="number">10</span>));     <span class="comment">//10.7  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">max</span>(<span class="number">0.0</span>, <span class="number">-0.0</span>));    <span class="comment">//0.0  </span></span><br><span class="line">              </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * random 取得一个大于或者等于0.0小于不等于1.0的随机数 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">random</span>());  <span class="comment">//0.08417657924317234  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">random</span>());  <span class="comment">//0.43527904004403717  </span></span><br><span class="line">              </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * rint 四舍五入，返回double值 </span></span><br><span class="line"><span class="comment">             * 注意.5的时候会取偶数 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.rint(<span class="number">10.1</span>));    <span class="comment">//10.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.rint(<span class="number">10.7</span>));    <span class="comment">//11.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.rint(<span class="number">11.5</span>));    <span class="comment">//12.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.rint(<span class="number">10.5</span>));    <span class="comment">//10.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.rint(<span class="number">10.51</span>));   <span class="comment">//11.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.rint(<span class="number">-10.5</span>));   <span class="comment">//-10.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.rint(<span class="number">-11.5</span>));   <span class="comment">//-12.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.rint(<span class="number">-10.51</span>));  <span class="comment">//-11.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.rint(<span class="number">-10.6</span>));   <span class="comment">//-11.0  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.rint(<span class="number">-10.2</span>));   <span class="comment">//-10.0  </span></span><br><span class="line">              </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * round 四舍五入，float时返回int值，double时返回long值 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">round</span>(<span class="number">10.1</span>));   <span class="comment">//10  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">round</span>(<span class="number">10.7</span>));   <span class="comment">//11  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">round</span>(<span class="number">10.5</span>));   <span class="comment">//11  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">round</span>(<span class="number">10.51</span>));  <span class="comment">//11  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">round</span>(<span class="number">-10.5</span>));  <span class="comment">//-10  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">round</span>(<span class="number">-10.51</span>)); <span class="comment">//-11  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">round</span>(<span class="number">-10.6</span>));  <span class="comment">//-11  </span></span><br><span class="line">            System.out.<span class="built_in">println</span>(Math.<span class="built_in">round</span>(<span class="number">-10.2</span>));  <span class="comment">//-10  </span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
@@ -514,15 +515,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">apktool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jni</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">apktool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AsyncTask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,23 +547,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AsyncTask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">EditText</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,7 +559,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">integer</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,7 +571,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,19 +587,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">qt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,11 +607,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">glide</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,11 +615,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">glide</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">grep</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,11 +643,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lint</a>
+                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -658,7 +659,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">lint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,11 +679,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">english</a>
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+                <a href="javascript:void(0)" class="js-tag color3">english</a>
               </li>
             
             <div class="clearfix"></div>
@@ -690,7 +691,7 @@ MathJax.Hub.Queue(function() {
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

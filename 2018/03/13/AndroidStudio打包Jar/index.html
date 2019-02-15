@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://lyuzhao.com">
   <title>AndroidStudio打包Jar | 催眠术的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -46,7 +46,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -187,11 +187,16 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Android-Studio-打包Jar"><a href="#Android-Studio-打包Jar" class="headerlink" title="Android Studio 打包Jar"></a>Android Studio 打包Jar</h2><a id="more"></a>
-<h5 id="需要在module的gradle中配置如下task"><a href="#需要在module的gradle中配置如下task" class="headerlink" title="需要在module的gradle中配置如下task"></a>需要在module的gradle中配置如下task</h5><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Copy类型</span></span><br><span class="line"><span class="keyword">task</span> makeJar(type: <span class="keyword">Copy</span>) &#123;</span><br><span class="line">    <span class="comment">//删除存在的</span></span><br><span class="line">    <span class="keyword">delete</span> <span class="string">'build/libs/myjar.jar'</span></span><br><span class="line">    <span class="comment">//设置拷贝的文件</span></span><br><span class="line">    <span class="keyword">from</span>(<span class="string">'build/intermediates/bundles/release/'</span>)</span><br><span class="line">    <span class="comment">//打进jar包后的文件目录</span></span><br><span class="line">    <span class="keyword">into</span>(<span class="string">'build/libs/'</span>)</span><br><span class="line">    <span class="comment">//将classes.jar放入build/libs/目录下</span></span><br><span class="line">    <span class="comment">//include ,exclude参数来设置过滤</span></span><br><span class="line">    <span class="comment">//（我们只关心classes.jar这个文件）</span></span><br><span class="line">    <span class="keyword">include</span>(<span class="string">'classes.jar'</span>)</span><br><span class="line">    <span class="comment">//重命名</span></span><br><span class="line">    rename(<span class="string">'classes.jar'</span>, <span class="string">'myjar.jar'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">makeJar.dependsOn(build)</span><br></pre></td></tr></table></figure>
-<h5 id="在终端执行"><a href="#在终端执行" class="headerlink" title="在终端执行"></a>在终端执行</h5><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gradlew markJar</span></span><br></pre></td></tr></table></figure>
-<h5 id="打包后的位置：module的-build-libs-下"><a href="#打包后的位置：module的-build-libs-下" class="headerlink" title="打包后的位置：module的/build/libs/下"></a>打包后的位置：module的/build/libs/下</h5><p>具体位置自己可以修改</p>
-<h5 id="可能的报错"><a href="#可能的报错" class="headerlink" title="可能的报错"></a>可能的报错</h5><blockquote>
+        <h2 id="android-studio-打包jar"><a class="markdownIt-Anchor" href="#android-studio-打包jar"></a> Android Studio 打包Jar</h2>
+<a id="more"></a>
+<h5 id="需要在module的gradle中配置如下task"><a class="markdownIt-Anchor" href="#需要在module的gradle中配置如下task"></a> 需要在module的gradle中配置如下task</h5>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Copy类型</span></span><br><span class="line"><span class="keyword">task</span> makeJar(type: <span class="keyword">Copy</span>) &#123;</span><br><span class="line">    <span class="comment">//删除存在的</span></span><br><span class="line">    <span class="keyword">delete</span> <span class="string">'build/libs/myjar.jar'</span></span><br><span class="line">    <span class="comment">//设置拷贝的文件</span></span><br><span class="line">    <span class="keyword">from</span>(<span class="string">'build/intermediates/bundles/release/'</span>)</span><br><span class="line">    <span class="comment">//打进jar包后的文件目录</span></span><br><span class="line">    <span class="keyword">into</span>(<span class="string">'build/libs/'</span>)</span><br><span class="line">    <span class="comment">//将classes.jar放入build/libs/目录下</span></span><br><span class="line">    <span class="comment">//include ,exclude参数来设置过滤</span></span><br><span class="line">    <span class="comment">//（我们只关心classes.jar这个文件）</span></span><br><span class="line">    <span class="keyword">include</span>(<span class="string">'classes.jar'</span>)</span><br><span class="line">    <span class="comment">//重命名</span></span><br><span class="line">    rename(<span class="string">'classes.jar'</span>, <span class="string">'myjar.jar'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">makeJar.dependsOn(build)</span><br></pre></td></tr></table></figure>
+<h5 id="在终端执行"><a class="markdownIt-Anchor" href="#在终端执行"></a> 在终端执行</h5>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gradlew markJar</span></span><br></pre></td></tr></table></figure>
+<h5 id="打包后的位置module的buildlibs下"><a class="markdownIt-Anchor" href="#打包后的位置module的buildlibs下"></a> 打包后的位置：module的/build/libs/下</h5>
+<p>具体位置自己可以修改</p>
+<h5 id="可能的报错"><a class="markdownIt-Anchor" href="#可能的报错"></a> 可能的报错</h5>
+<blockquote>
 <p>Fix the issues identified by lint, or add the following to your build script to proceed with errors</p>
 </blockquote>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">android</span> &#123;</span><br><span class="line">	<span class="section">lintOptions</span> &#123;</span><br><span class="line">		<span class="attribute">abortOnError</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -516,15 +521,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">apktool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jni</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">apktool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AsyncTask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,23 +553,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AsyncTask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">EditText</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,7 +565,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">integer</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,7 +577,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,19 +593,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">qt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,11 +613,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">glide</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,11 +621,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">glide</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">grep</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,11 +649,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lint</a>
+                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,7 +665,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">lint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,11 +685,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">english</a>
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+                <a href="javascript:void(0)" class="js-tag color3">english</a>
               </li>
             
             <div class="clearfix"></div>
@@ -692,7 +697,7 @@ MathJax.Hub.Queue(function() {
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

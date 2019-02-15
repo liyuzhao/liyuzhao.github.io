@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://lyuzhao.com">
   <title>从Android手机内提取已安装的apk文件 | 催眠术的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -46,7 +46,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -189,16 +189,19 @@ var _hmt = _hmt || [];
       
         <p>假如你在其他手机上看到一个应用，又不知道从哪去下载，而那个手机的安装包已经被删除掉，那怎样安装一个和那个手机上一模一样的应用呢？办法就是从那个手机中备份一份，然后传给你。也许你见过一些其他软件有备份apk的功能，也是这个原理。</p>
 <a id="more"></a>
-<h4 id="找到具体的应用的包名"><a href="#找到具体的应用的包名" class="headerlink" title="找到具体的应用的包名"></a>找到具体的应用的包名</h4><p>连接到手机，用adb命令执行如下命令：</p>
+<h4 id="找到具体的应用的包名"><a class="markdownIt-Anchor" href="#找到具体的应用的包名"></a> 找到具体的应用的包名</h4>
+<p>连接到手机，用adb命令执行如下命令：</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb <span class="keyword">shell</span><span class="bash"> pm list package</span></span><br></pre></td></tr></table></figure>
 <p>输出结果为：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package:com<span class="selector-class">.mediatek</span><span class="selector-class">.gba</span></span><br><span class="line">package:com<span class="selector-class">.mediatek</span><span class="selector-class">.ims</span></span><br><span class="line">package:com<span class="selector-class">.flyme</span><span class="selector-class">.roamingpay</span></span><br><span class="line">package:com<span class="selector-class">.github</span><span class="selector-class">.shadowsocks</span></span><br><span class="line">package:org<span class="selector-class">.simalliance</span><span class="selector-class">.openmobileapi</span><span class="selector-class">.uicc2terminal</span></span><br><span class="line">package:com<span class="selector-class">.android</span><span class="selector-class">.providers</span><span class="selector-class">.telephony</span></span><br><span class="line">package:com<span class="selector-class">.meizu</span><span class="selector-class">.documentsui</span></span><br><span class="line">package:com<span class="selector-class">.goodix</span><span class="selector-class">.fingerprint</span></span><br><span class="line">package:com<span class="selector-class">.android</span><span class="selector-class">.providers</span><span class="selector-class">.calendar</span></span><br><span class="line">package:com<span class="selector-class">.zgczw</span><span class="selector-class">.chezhiwang</span></span><br><span class="line">package:cc.mianfeinovel</span><br><span class="line">package:com<span class="selector-class">.android</span><span class="selector-class">.providers</span><span class="selector-class">.media</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-<h4 id="找到需要备份的安装包的位置"><a href="#找到需要备份的安装包的位置" class="headerlink" title="找到需要备份的安装包的位置"></a>找到需要备份的安装包的位置</h4><p>如果要找到应用包名为：cc.mianfeinovel</p>
+<h4 id="找到需要备份的安装包的位置"><a class="markdownIt-Anchor" href="#找到需要备份的安装包的位置"></a> 找到需要备份的安装包的位置</h4>
+<p>如果要找到应用包名为：cc.mianfeinovel</p>
 <p>可通过如下命令，找到具体安装包的位置：</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb <span class="keyword">shell</span><span class="bash"> pm path cc.mianfeinovel</span></span><br></pre></td></tr></table></figure>
 <p>输出结果为：</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span>:<span class="regexp">/data/</span>app<span class="regexp">/cc.mianfeinovel-2/</span>base.apk</span><br></pre></td></tr></table></figure>
-<h4 id="把安装包取出"><a href="#把安装包取出" class="headerlink" title="把安装包取出"></a>把安装包取出</h4><p>可通过adb的pull命令：</p>
+<h4 id="把安装包取出"><a class="markdownIt-Anchor" href="#把安装包取出"></a> 把安装包取出</h4>
+<p>可通过adb的pull命令：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb pull <span class="regexp">/data/</span>app<span class="regexp">/cc.mianfeinovel-2/</span>base.apk</span><br></pre></td></tr></table></figure>
 <p>结果为：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/data/</span>app<span class="regexp">/cc.mianfeinovel-2/</span>base.<span class="string">apk:</span> <span class="number">1</span> file pulled. <span class="number">5.7</span> MB/s (<span class="number">11417386</span> bytes <span class="keyword">in</span> <span class="number">1.913</span>s)</span><br></pre></td></tr></table></figure>
@@ -525,15 +528,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">apktool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jni</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">apktool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AsyncTask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,23 +560,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AsyncTask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">EditText</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,7 +572,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">integer</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,7 +584,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,19 +600,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">qt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,11 +620,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">glide</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,11 +628,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">glide</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">grep</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,11 +656,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lint</a>
+                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -669,7 +672,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">lint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -689,11 +692,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">english</a>
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+                <a href="javascript:void(0)" class="js-tag color3">english</a>
               </li>
             
             <div class="clearfix"></div>
@@ -701,7 +704,7 @@ MathJax.Hub.Queue(function() {
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

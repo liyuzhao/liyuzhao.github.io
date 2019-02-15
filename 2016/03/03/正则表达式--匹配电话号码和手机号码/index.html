@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://lyuzhao.com">
   <title>正则表达式--匹配电话号码和手机号码 | 催眠术的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="正则表达式匹配电话号码和手机号码 正则表达式（电话号码）一、\d{3}-\d{8}|\d{4}-\d{7} 匹配 0511-1234567 | 022 -28191732 不匹配 02-123456 12345-123456 正则表达式（电话号码）二、(^\([0]\d{2}|\d{4}\))(\d{6,7}$) 匹配    (021)1234567 | (0411)123456 | (000)0">
+  <meta name="description" content="正则表达式匹配电话号码和手机号码   正则表达式（电话号码）一、 \d{3}-\d{8}|\d{4}-\d{7} 匹配 0511-1234567 | 022 -28191732 不匹配 02-123456 12345-123456   正则表达式（电话号码）二、 (^\([0]\d{2}|\d{4}\))(\d{6,7}$) 匹配    (021)1234567 | (0411)123456 |">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式--匹配电话号码和手机号码">
 <meta property="og:url" content="http://lyuzhao.com/2016/03/03/正则表达式--匹配电话号码和手机号码/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="正则表达式匹配电话号码和手机号码 正则表达式（电话号码）一、\d{3}-\d{8}|\d{4}-\d{7} 匹配 0511-1234567 | 022 -28191732 不匹配 02-123456 12345-123456 正则表达式（电话号码）二、(^\([0]\d{2}|\d{4}\))(\d{6,7}$) 匹配    (021)1234567 | (0411)123456 | (000)0">
+<meta property="og:description" content="正则表达式匹配电话号码和手机号码   正则表达式（电话号码）一、 \d{3}-\d{8}|\d{4}-\d{7} 匹配 0511-1234567 | 022 -28191732 不匹配 02-123456 12345-123456   正则表达式（电话号码）二、 (^\([0]\d{2}|\d{4}\))(\d{6,7}$) 匹配    (021)1234567 | (0411)123456 |">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-03-12T03:25:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式--匹配电话号码和手机号码">
-<meta name="twitter:description" content="正则表达式匹配电话号码和手机号码 正则表达式（电话号码）一、\d{3}-\d{8}|\d{4}-\d{7} 匹配 0511-1234567 | 022 -28191732 不匹配 02-123456 12345-123456 正则表达式（电话号码）二、(^\([0]\d{2}|\d{4}\))(\d{6,7}$) 匹配    (021)1234567 | (0411)123456 | (000)0">
+<meta name="twitter:description" content="正则表达式匹配电话号码和手机号码   正则表达式（电话号码）一、 \d{3}-\d{8}|\d{4}-\d{7} 匹配 0511-1234567 | 022 -28191732 不匹配 02-123456 12345-123456   正则表达式（电话号码）二、 (^\([0]\d{2}|\d{4}\))(\d{6,7}$) 匹配    (021)1234567 | (0411)123456 |">
   
   
     <link rel="icon" href="/favicon.png">
@@ -46,7 +46,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -187,18 +187,25 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="正则表达式匹配电话号码和手机号码"><a href="#正则表达式匹配电话号码和手机号码" class="headerlink" title="正则表达式匹配电话号码和手机号码"></a>正则表达式匹配电话号码和手机号码</h3><hr>
-<h5 id="正则表达式（电话号码）一、"><a href="#正则表达式（电话号码）一、" class="headerlink" title="正则表达式（电话号码）一、"></a>正则表达式（电话号码）一、</h5><pre><code>\d{3}-\d{8}|\d{4}-\d{7}
+        <h3 id="正则表达式匹配电话号码和手机号码"><a class="markdownIt-Anchor" href="#正则表达式匹配电话号码和手机号码"></a> 正则表达式匹配电话号码和手机号码</h3>
+<hr>
+<h5 id="正则表达式电话号码一"><a class="markdownIt-Anchor" href="#正则表达式电话号码一"></a> 正则表达式（电话号码）一、</h5>
+<pre><code>\d{3}-\d{8}|\d{4}-\d{7}
 匹配 0511-1234567 | 022 -28191732
 不匹配 02-123456 12345-123456
-</code></pre><h5 id="正则表达式（电话号码）二、"><a href="#正则表达式（电话号码）二、" class="headerlink" title="正则表达式（电话号码）二、"></a>正则表达式（电话号码）二、</h5><pre><code>(^\([0]\d{2}|\d{4}\))(\d{6,7}$)
+</code></pre>
+<h5 id="正则表达式电话号码二"><a class="markdownIt-Anchor" href="#正则表达式电话号码二"></a> 正则表达式（电话号码）二、</h5>
+<pre><code>(^\([0]\d{2}|\d{4}\))(\d{6,7}$)
 匹配    (021)1234567 | (0411)123456 | (000)000000
 不匹配    (123)1234567 | 025123456 | 0252345678  
-</code></pre><a id="more"></a>
-<h5 id="正则表达式（手机号码）三、"><a href="#正则表达式（手机号码）三、" class="headerlink" title="正则表达式（手机号码）三、"></a>正则表达式（手机号码）三、</h5><pre><code>^(?&lt;national&gt;\+?(?:86)?)(?&lt;separator&gt;\s?-?)(?&lt;phone&gt;(?&lt;vender&gt;(13|15|18)[0-9])(?&lt;area&gt;\d{4})(?&lt;id&gt;\d{4}))$
+</code></pre>
+<a id="more"></a>
+<h5 id="正则表达式手机号码三"><a class="markdownIt-Anchor" href="#正则表达式手机号码三"></a> 正则表达式（手机号码）三、</h5>
+<pre><code>^(?&lt;national&gt;\+?(?:86)?)(?&lt;separator&gt;\s?-?)(?&lt;phone&gt;(?&lt;vender&gt;(13|15|18)[0-9])(?&lt;area&gt;\d{4})(?&lt;id&gt;\d{4}))$
 匹配 +8613012345678 | 86 13012345678 | 13245679087
 不匹配 +86130123456781231434352 | 13560012513 | ++8613012345678
 </code></pre>
+
       
 
       
@@ -511,15 +518,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">apktool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jni</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">apktool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AsyncTask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,23 +550,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AsyncTask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">EditText</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,7 +562,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">integer</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,7 +574,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,19 +590,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">qt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,11 +610,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">glide</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,11 +618,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">glide</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">grep</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,11 +646,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lint</a>
+                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,7 +662,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">lint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,11 +682,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">english</a>
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+                <a href="javascript:void(0)" class="js-tag color3">english</a>
               </li>
             
             <div class="clearfix"></div>
@@ -687,7 +694,7 @@ MathJax.Hub.Queue(function() {
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
