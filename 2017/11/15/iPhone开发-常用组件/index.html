@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,13 +48,13 @@ var _hmt = _hmt || [];
 	var s = document.getElementsByTagName("script")[0]; 
 	s.parentNode.insertBefore(hm, s);
 })();
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 
 </head>
 </html>
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
+  <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
@@ -199,7 +199,7 @@ var _hmt = _hmt || [];
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIAlertView *alert = [[UIAlertView alloc]<span class="string">initWithTitle:</span>@<span class="string">"标题"</span> <span class="string">message:</span>@<span class="string">"你的内存已满"</span> <span class="string">delegate:</span>self <span class="string">cancelButtonTitle:</span>@<span class="string">"取消"</span> <span class="string">otherButtonTitles:</span>nil, nil];</span><br><span class="line">   [alert show];</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="3-uilabel"><a class="markdownIt-Anchor" href="#3-uilabel"></a> 3. UILabel</h3>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">UILabel *<span class="keyword">label</span><span class="bash"> =[[UILabel alloc]initWithFrame:CGRectMake(0, 10, 200, 34)];</span></span><br><span class="line"><span class="bash">label.textColor =[UIColor grayColor];</span></span><br><span class="line"><span class="bash">label.font =[UIFont systemFontOfSize:18];</span></span><br><span class="line"><span class="bash">label.text =@<span class="string">"创建一个文本"</span>;</span></span><br><span class="line"><span class="bash">label.lineBreakMode = NSLineBreakByCharWrapping;</span></span><br><span class="line"><span class="bash">label.numberOfLines = 0;</span></span><br><span class="line"><span class="bash">label.backgroundColor =[UIColor grayColor];</span></span><br><span class="line"><span class="bash">label.textAlignment = NSTextAlignmentCenter;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">UILabel *<span class="keyword">label</span><span class="bash"> =[[UILabel alloc]initWithFrame:CGRectMake(0, 10, 200, 34)];</span></span><br><span class="line"><span class="keyword">label</span>.<span class="bash">textColor =[UIColor grayColor];</span></span><br><span class="line"><span class="keyword">label</span>.<span class="bash">font =[UIFont systemFontOfSize:18];</span></span><br><span class="line"><span class="keyword">label</span>.<span class="bash">text =@<span class="string">"创建一个文本"</span>;</span></span><br><span class="line"><span class="keyword">label</span>.<span class="bash">lineBreakMode = NSLineBreakByCharWrapping;</span></span><br><span class="line"><span class="keyword">label</span>.<span class="bash">numberOfLines = 0;</span></span><br><span class="line"><span class="keyword">label</span>.<span class="bash">backgroundColor =[UIColor grayColor];</span></span><br><span class="line"><span class="keyword">label</span>.<span class="bash">textAlignment = NSTextAlignmentCenter;</span></span><br></pre></td></tr></table></figure>
 <h3 id="4-uitextfield"><a class="markdownIt-Anchor" href="#4-uitextfield"></a> 4. UITextField</h3>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">UITextField</span> *textField =[[<span class="built_in">UITextField</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">44</span>, <span class="keyword">self</span>.view.bounds.size.width<span class="number">-20</span>,<span class="number">30</span>)];</span><br><span class="line"> textField.borderStyle = <span class="built_in">UITextBorderStyleRoundedRect</span>;</span><br><span class="line"> textField.placeholder = <span class="string">@"请输入用户名"</span>;</span><br><span class="line"> textField.clearButtonMode = <span class="built_in">UITextFieldViewModeAlways</span>;</span><br><span class="line"> textField.delegate = <span class="keyword">self</span>;</span><br><span class="line"> textField.textColor = [<span class="built_in">UIColor</span> grayColor];</span><br><span class="line"> textField.keyboardType = <span class="built_in">UIKeyboardTypeDefault</span>;</span><br><span class="line"> textField.returnKeyType = <span class="built_in">UIReturnKeyDone</span>;</span><br><span class="line"> textField.clearButtonMode = <span class="built_in">UITextFieldViewModeWhileEditing</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="5uislider"><a class="markdownIt-Anchor" href="#5uislider"></a> 5.UISlider</h3>
@@ -586,11 +586,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jni</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">file</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,11 +642,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,7 +654,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">integer</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,10 +663,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">round</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,6 +682,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">qt</a>
               </li>
              
@@ -686,11 +694,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -730,11 +738,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lint</a>
+                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
+                <a href="javascript:void(0)" class="js-tag color5">lint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -750,11 +758,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+                <a href="javascript:void(0)" class="js-tag color3">english</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">english</a>
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
             
             <div class="clearfix"></div>
@@ -890,23 +898,6 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,13 +42,13 @@ var _hmt = _hmt || [];
 	var s = document.getElementsByTagName("script")[0]; 
 	s.parentNode.insertBefore(hm, s);
 })();
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 
 </head>
 </html>
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
+  <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
@@ -349,7 +349,7 @@ var _hmt = _hmt || [];
 <li>
 <p>3.释放字符串</p>
 <p>通过JNI GetStringChars 函数和 GetStringUTFChars 函数获得的C字符串在原生代码中使用完之后需要正确地释放，否则将会引起内存泄露。 JNI提供了 ReleaseStringChars 函数释放 Unicode编码格式的字符串，而用ReleaseStringUTFChars函数释放UTF-8编码格式的字符串。</p>
-  <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">释放 JNI 函数返回的 C 字符串</span><br><span class="line"><span class="function"><span class="params">(*env)</span>-&gt;</span>ReleaseStringUTFChars(env, javaString, str);</span><br></pre></td></tr></table></figure>
+  <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">释放 JNI 函数返回的 C 字符串</span><br><span class="line">(*env)-&gt;<span class="constructor">ReleaseStringUTFChars(<span class="params">env</span>, <span class="params">javaString</span>, <span class="params">str</span>)</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h5 id="数组操作"><a class="markdownIt-Anchor" href="#数组操作"></a> 数组操作</h5>
@@ -370,7 +370,7 @@ var _hmt = _hmt || [];
 <p>Get&lt;Type&gt;ArrayRegion 函数将给定的基本Java数组复制到给定的C数组中。</p>
   <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">将<span class="keyword">Java数组区复制到C数组中</span></span><br><span class="line"><span class="keyword">jint </span>nativeArray[<span class="number">10</span>]<span class="comment">;</span></span><br><span class="line">(*env)-&gt;GetIntArrayRegion(env, <span class="keyword">javaArray, </span><span class="number">0</span>, <span class="number">10</span>, nativeArray)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <p>原生代码可以像使用普通的C数组一样使用和修改数组元素。当原生代码想将所做的修改提交给Java数组时，可以使用 Set&lt;Type&gt;ArrayRegion 函数将C数组复制回Java数组中。</p>
-  <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">从C数组向Java数组提交所作的修改</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="params">(*env)</span>-&gt;</span>SetIntArrayRegion(env, javaArray, <span class="number">0</span>, <span class="number">10</span>, nativeArray);</span><br></pre></td></tr></table></figure>
+  <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">从C数组向Java数组提交所作的修改</span><br><span class="line"></span><br><span class="line">(*env)-&gt;<span class="constructor">SetIntArrayRegion(<span class="params">env</span>, <span class="params">javaArray</span>, 0, 10, <span class="params">nativeArray</span>)</span>;</span><br></pre></td></tr></table></figure>
 <p>当数组很大时，为了对数组进行操作而复制数组会引起性能问题。在这种情况下，如果可能的话，原生代码只获取或设置数组元素区域而不是获取整个数组。另外，JNI 提供了不同的函数集以获得数组元素而非其副本的直接指针。</p>
 </li>
 <li>
@@ -378,7 +378,7 @@ var _hmt = _hmt || [];
 <p>可能的话，原生代码可以用Get&lt;Type&gt;ArrayElements函数获取指向数组元素的直接指针。函数带有三个参数，第三个参数是可选参数，该可选参数名是isCopy, 让调用者确定返回的C字符串地址指向副本还是指向堆中的固定对象。</p>
   <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">获得指向<span class="keyword">Java数组元素的直接指针</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">jint* </span>nativeDirectArray<span class="comment">;</span></span><br><span class="line"><span class="keyword">jboolean </span>isCopy<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">nativeDirectArray = (*env)-&gt;GetIntArrayElements(env, <span class="keyword">javaArray, </span>&amp;isCopy)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <p>因为可以像普通的C数组一样访问和处理数组元素，因此JNI没提供访问和处理数组元素的方法，JNI 要求原生代码用完这些指针立即释放，否则会出现内存溢出。原生代码可以使用JNI提供的 Release&lt;Type&gt;ArrayElements函数释放 Get&lt;Type&gt;ArrayElements函数返回C数组。</p>
-  <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">释放指向Java数组元素的直接指针</span><br><span class="line"><span class="function"><span class="params">(*env)</span>-&gt;</span>ReleaseIntArrayElements(env, javaArray, nativeDirectArray, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+  <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">释放指向Java数组元素的直接指针</span><br><span class="line">(*env)-&gt;<span class="constructor">ReleaseIntArrayElements(<span class="params">env</span>, <span class="params">javaArray</span>, <span class="params">nativeDirectArray</span>, 0)</span>;</span><br></pre></td></tr></table></figure>
 <p>该函数带有四个函数，第四个函数是释放模式，下面列出了支持的释放模式列表。</p>
 </li>
 </ul>
@@ -443,7 +443,7 @@ var _hmt = _hmt || [];
 <p>在获得域ID之后，可以用Get&lt;Type&gt;Field 函数获得实际的实例域，</p>
   <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">获得实例域</span><br><span class="line"></span><br><span class="line"><span class="keyword">jstring </span><span class="keyword">instanceField;</span></span><br><span class="line"><span class="keyword">instanceField </span>= (*env)-&gt;GetObjectField(env, <span class="keyword">instance, </span><span class="keyword">instanceFieldId);</span></span><br></pre></td></tr></table></figure>
 <p>用GetStatic&lt;Type&gt;Field函数获得静态域</p>
-  <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">获得静态域</span><br><span class="line">jstring staticField;</span><br><span class="line"><span class="function"><span class="title">staticField</span> = <span class="params">(*env)</span>-&gt;</span>GetStaticObjectField(env, clazz, staticFieldId);</span><br></pre></td></tr></table></figure>
+  <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">获得静态域</span><br><span class="line">jstring staticField;</span><br><span class="line">staticField = (*env)-&gt;<span class="constructor">GetStaticObjectField(<span class="params">env</span>, <span class="params">clazz</span>, <span class="params">staticFieldId</span>)</span>;</span><br></pre></td></tr></table></figure>
 <p>在内存溢出的情况下，这些函数均返回NULL，此时原生代码不会继续执行。</p>
 <blockquote>
 <p>获得单个域值需要调用两到三个JNI函数，原生代码回到Java中获取每个单独的域值，这给应用程序增加了额外的负担，进而导致性能下降。强烈建议将所有需要的参数传递给原生方法调用，而不是让原生代码回到Java中。</p>
@@ -470,7 +470,7 @@ var _hmt = _hmt || [];
 <p>可以以方法ID为参数通过Call&lt;Type&gt;Method 类函数调用实际的实例方法， 如下：</p>
   <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">调用实例方法</span><br><span class="line"><span class="keyword">jstring </span><span class="keyword">instanceMethodResult;</span></span><br><span class="line"><span class="keyword">instanceMethodResult </span>= (*env)-&gt;CallStringMethod(env, <span class="keyword">instance, </span><span class="keyword">instanceMethodId);</span></span><br></pre></td></tr></table></figure>
 <p>用CallStatic&lt;Type&gt;Field类函数调用静态方法，如下：</p>
-  <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">调用静态方法</span><br><span class="line">jstring staticMethodResult;</span><br><span class="line"><span class="function"><span class="title">staticMethodResult</span> = <span class="params">(*env)</span>-&gt;</span>CallStaticStringMethod(env, clazz, staticMethodId);</span><br></pre></td></tr></table></figure>
+  <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">调用静态方法</span><br><span class="line">jstring staticMethodResult;</span><br><span class="line">staticMethodResult = (*env)-&gt;<span class="constructor">CallStaticStringMethod(<span class="params">env</span>, <span class="params">clazz</span>, <span class="params">staticMethodId</span>)</span>;</span><br></pre></td></tr></table></figure>
 <p>在内存溢出的情况下，这些函数均返回NULL，此时原生代码不会继续执行。</p>
 <blockquote>
 <p>Java和原生代码之间的转换是代价较大的操作，强烈建议规划Java代码和原生代码的任务时考虑这种代价，最小化这种转换可以大大提高应用程序的性能。</p>
@@ -856,11 +856,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jni</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">file</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -904,11 +912,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -916,7 +924,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">integer</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -925,10 +933,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">round</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -948,6 +952,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">qt</a>
               </li>
              
@@ -956,11 +964,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1000,11 +1008,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lint</a>
+                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
+                <a href="javascript:void(0)" class="js-tag color5">lint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1020,11 +1028,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+                <a href="javascript:void(0)" class="js-tag color3">english</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">english</a>
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1160,23 +1168,6 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  </div>
 </body>
 </html>

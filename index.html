@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,13 +40,13 @@ var _hmt = _hmt || [];
 	var s = document.getElementsByTagName("script")[0]; 
 	s.parentNode.insertBefore(hm, s);
 })();
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 
 </head>
 </html>
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
+  <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
@@ -167,6 +167,106 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C语言-文件操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/18/C语言-文件操作/">C语言-文件操作</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/18/C语言-文件操作/" class="archive-article-date">
+  	<time datetime="2019-02-18T09:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019年02月18日</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>文件操作</p>
+<p>fopen</p>
+<p>r 以只读方式打开文件， 该文件必须存在<br>
+r+ 以可读方式打开文件，该文件必须存在<br>
+rb+ 读写打开一个二进制文件，允许读写数据，文件必须存在<br>
+rw+ 读写打开一个文本文件，允许读和写<br>
+w 	打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失，若文件不存在则建立该文件。<br>
+w+	打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失，若文件不存在则建立该文件。</p>
+<p>a 	以追加的方式打开只写文件，若文件不存在，则会建立该文件，如果文件存在，写入的数据会被追加到文件末尾，即文件原先的内容不会被覆盖。(EOF符保留)</p>
+<p>a+ 	以追加的方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被追加到文件末尾，即文件原先的内容不会被覆盖。(原先的EOF符不保留)</p>
+        
+          <a class="article-more-a" href="/2019/02/18/C语言-文件操作/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">c</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">file</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/c//" class="article-tag-list-link color2">c</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/18/C语言-文件操作/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JNI-日志" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -220,23 +320,23 @@ var _hmt = _hmt || [];
 <ul>
 <li><code>_android_log_print</code>:可用于生成一个格式化字符串为日志消息。它包括日志优先级、日志标签、字符串格式和格式中指定个数的其他参数，</li>
 </ul>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//生成格式化的日志消息</span></span><br><span class="line"><span class="selector-tag">_android_log_print</span>(ANDROID_LOG_ERROR, <span class="string">"hello-jni"</span>, <span class="string">"Failed with errno %d"</span>, errno);</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//生成格式化的日志消息</span></span><br><span class="line"><span class="constructor">_android_log_print(ANDROID_LOG_ERROR, <span class="string">"hello-jni"</span>, <span class="string">"Failed with errno %d"</span>, <span class="params">errno</span>)</span>;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>_android_log_vprint</code>: 除了参数传递方式外，其他功能与<code>_android_log_print</code> 函数完全相同，<code>_android_log_vprint</code> 函数用va_list 传递附加参数， 而 <code>_android_log_print</code> 函数中以连续参数的方式改为传递参数。如果想要调用日志函数时给当前函数的参数个数动态变化时，该函数的优势就会体现出来。</li>
 </ul>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 传递的参数个数变化时生成日志消息</span></span><br><span class="line">void log_verbose(<span class="keyword">const</span> <span class="keyword">char</span>* <span class="keyword">format</span>, ...)&#123;</span><br><span class="line">	va_list <span class="keyword">args</span>;</span><br><span class="line">	</span><br><span class="line">	va_start(<span class="keyword">args</span>, <span class="keyword">format</span>);</span><br><span class="line">	_android_log_vprint(ANDROID_LOG_VERBOSE, <span class="string">"hello-jni"</span>, <span class="keyword">format</span>, <span class="keyword">args</span>);</span><br><span class="line">	va_end(<span class="keyword">args</span>);</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">void example()</span><br><span class="line">&#123;</span><br><span class="line">	log_verbose(<span class="string">"Errno is now %d"</span>, errno);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 传递的参数个数变化时生成日志消息</span></span><br><span class="line">void log<span class="constructor">_verbose(<span class="params">const</span> <span class="params">char</span><span class="operator">*</span> <span class="params">format</span>, <span class="operator">...</span>)</span>&#123;</span><br><span class="line">	va_list args;</span><br><span class="line">	</span><br><span class="line">	va<span class="constructor">_start(<span class="params">args</span>, <span class="params">format</span>)</span>;</span><br><span class="line">	<span class="constructor">_android_log_vprint(ANDROID_LOG_VERBOSE, <span class="string">"hello-jni"</span>, <span class="params">format</span>, <span class="params">args</span>)</span>;</span><br><span class="line">	va<span class="constructor">_end(<span class="params">args</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">void example<span class="literal">()</span></span><br><span class="line">&#123;</span><br><span class="line">	log<span class="constructor">_verbose(<span class="string">"Errno is now %d"</span>, <span class="params">errno</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>_android_log_assert</code>: 用于记录断言失败。与其他的日志函数比较，它不包括日志优先级，但总是将所有的日志记录为fatal, 如果附加了调试器，它也SIGTRAP 当前进程以通过 debugger 进一步检查。</li>
 </ul>
 <figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生成断言失败日志</span></span><br><span class="line"><span class="keyword">if</span>(<span class="number">0</span>!=errno)&#123;</span><br><span class="line">	<span class="number">_</span>android<span class="number">_</span>log<span class="number">_</span><span class="keyword">assert</span>(<span class="string">"0!=errno"</span>, <span class="string">"hello-jni"</span>, <span class="string">"There is an error."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="受控制的日志"><a class="markdownIt-Anchor" href="#受控制的日志"></a> 受控制的日志</h4>
 <p>在jni目录下，添加文件<code>my_log.h</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">pragma once</span></span><br><span class="line">/**</span><br><span class="line"> * NDK的基本日志框架</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">include &lt;android/log.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">define MY_LOG_LEVEL_VERBOSE 1</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define MY_LOG_LEVEL_DEBUG 2</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define MY_LOG_LEVEL_INFO 3</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define MY_LOG_LEVEL_WARNING 4</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define MY_LOG_LEVEL_ERROR 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define MY_LOG_LEVEL_FATAL 6</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define MY_LOG_LEVEL_SILENT 7</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">ifndef MY_LOG_TAG</span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_TAG  __FILE__</span></span><br><span class="line"><span class="meta">#</span><span class="bash">endif</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">ifndef MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_LEVEL	MY_LOG_LEVEL_VERBOSE</span></span><br><span class="line"><span class="meta">#</span><span class="bash">endif</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">define MY_LOG_NOOP (void) 0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">define MY_LOG_PRINT(level, fmt, ...) \</span></span><br><span class="line">	_android_log_print(level, MY_LOG_TAG, "(%s:%u) %s: " fmt, \</span><br><span class="line">			__FILE__, __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">if</span> MY_LOG_LEVEL_VERBOSE &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_VERBOSE(fmt,...) \</span></span><br><span class="line">	MY_LOG_PRINT(ANDROID_LOG_VERBOSE, fmt, ##__VA_ARGS__)</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_VERBOSE(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#</span><span class="bash">endif</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">if</span>	MY_LOG_LEVEL_DEBUG &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_DEBUG(fmt, ...) \</span></span><br><span class="line">	MY_LOG_PRINT(ANDROID_LOG_DEBUG, fmt, ##__VA_ARGS__)</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_DEBUG(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#</span><span class="bash">endif</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">if</span> MY_LOG_LEVEL_INFO &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_INFO(fmt, ...) \</span></span><br><span class="line">	MY_LOG_PRINT(ANDROID_LOG_INFO, fmt, ##__VA_ARGS__)</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_INFO(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#</span><span class="bash">endif</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">if</span> MY_LOG_LEVEL_WARNING &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_WARNING(fmt, ...) \</span></span><br><span class="line">	MY_LOG_PRINT(ANDROID_LOG_WARN, fmt, ##__VA_ARGS__)</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_WARING(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#</span><span class="bash">endif</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">if</span> MY_LOG_LEVEL_ERROR &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_ERROR(fmt, ...) \</span></span><br><span class="line">	MY_LOG_PRINT(ANDROID_LOG_ERROR, fmt, ##__VA_ARGS__)</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_ERROR(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#</span><span class="bash">endif</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">if</span> MY_LOG_LEVEL_FATAL &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_FATAL(fmt, ...) \</span></span><br><span class="line">	MY_LOG_PRINT(ANDROID_LOG_FATAL, fmt, ##__VA_ARGS__)</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_FATAL(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#</span><span class="bash">endif</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">if</span> MY_LOG_LEVEL_FATAL &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_ASSERT(expression, fmt, ...) \</span></span><br><span class="line">	if(!(expression)) \</span><br><span class="line">	&#123; \</span><br><span class="line"><span class="meta">		__android_log_assert(#</span><span class="bash">expression, MY_LOG_TAG, \</span></span><br><span class="line">				fmt, ##__VA_ARGS__); \</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">	define MY_LOG_ASSERT(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#</span><span class="bash">endif</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma once</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * NDK的基本日志框架</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> &lt;android/log.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_LOG_LEVEL_VERBOSE <span class="number">1</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_LOG_LEVEL_DEBUG <span class="number">2</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_LOG_LEVEL_INFO <span class="number">3</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_LOG_LEVEL_WARNING <span class="number">4</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_LOG_LEVEL_ERROR <span class="number">5</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_LOG_LEVEL_FATAL <span class="number">6</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_LOG_LEVEL_SILENT <span class="number">7</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MY_LOG_TAG</span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_TAG  __FILE__</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_LEVEL	MY_LOG_LEVEL_VERBOSE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_LOG_NOOP (void) <span class="number">0</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_LOG_PRINT(level, fmt, ...) \</span></span><br><span class="line">	_android_log_print(level, MY_LOG_TAG, <span class="string">"(%s:%u) %s: "</span> fmt, \</span><br><span class="line">			<span class="keyword">__FILE__</span>, <span class="keyword">__LINE__</span>, __PRETTY_FUNCTION__, <span class="meta">##__VA_ARGS__)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> MY_LOG_LEVEL_VERBOSE &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_VERBOSE(fmt,...) \</span></span><br><span class="line">	MY_LOG_PRINT(ANDROID_LOG_VERBOSE, fmt, <span class="meta">##__VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_VERBOSE(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span>	MY_LOG_LEVEL_DEBUG &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_DEBUG(fmt, ...) \</span></span><br><span class="line">	MY_LOG_PRINT(ANDROID_LOG_DEBUG, fmt, <span class="meta">##__VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_DEBUG(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> MY_LOG_LEVEL_INFO &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_INFO(fmt, ...) \</span></span><br><span class="line">	MY_LOG_PRINT(ANDROID_LOG_INFO, fmt, <span class="meta">##__VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_INFO(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> MY_LOG_LEVEL_WARNING &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_WARNING(fmt, ...) \</span></span><br><span class="line">	MY_LOG_PRINT(ANDROID_LOG_WARN, fmt, <span class="meta">##__VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_WARING(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> MY_LOG_LEVEL_ERROR &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_ERROR(fmt, ...) \</span></span><br><span class="line">	MY_LOG_PRINT(ANDROID_LOG_ERROR, fmt, <span class="meta">##__VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_ERROR(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> MY_LOG_LEVEL_FATAL &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_FATAL(fmt, ...) \</span></span><br><span class="line">	MY_LOG_PRINT(ANDROID_LOG_FATAL, fmt, <span class="meta">##__VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_FATAL(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> MY_LOG_LEVEL_FATAL &gt;= MY_LOG_LEVEL</span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_ASSERT(expression, fmt, ...) \</span></span><br><span class="line">	<span class="keyword">if</span>(!(expression)) \</span><br><span class="line">	&#123; \</span><br><span class="line">		__android_log_assert(<span class="meta">#expression, MY_LOG_TAG, \</span></span><br><span class="line">				fmt, <span class="meta">##__VA_ARGS__); \</span></span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#	<span class="meta-keyword">define</span> MY_LOG_ASSERT(...) MY_LOG_NOOP</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
 <p>现在可以在原生函数中添加日志声明语句。</p>
 <blockquote>
 <p>在原生函数中添加日志声明语句</p>
 </blockquote>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">jstring </span><span class="keyword">Java_com.example_hellojni_HelloJni_stringFromJNI(JNIEnv* </span>env, <span class="keyword">jobject </span>thiz)</span><br><span class="line">&#123;</span><br><span class="line">	MY_LOG_VERBOSE(<span class="string">"The stringFromJNI is called."</span>)<span class="comment">;</span></span><br><span class="line">	MY_LOG_DEBUG(<span class="string">"env=%p thiz=%p"</span>, env, thiz)<span class="comment">;</span></span><br><span class="line">	MY_LOG_ASSERT(<span class="number">0</span> != env, <span class="string">"JNIENV cannot be NULL."</span>)<span class="comment">;</span></span><br><span class="line">	MY_LOG_INFO(<span class="string">"Returning a new string."</span>)<span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	return (*env)-&gt;NewStringUTF(env, <span class="string">"Hello from JNI!"</span>)<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">jstring <span class="module-access"><span class="module"><span class="identifier">Java_com</span>.</span></span>example<span class="constructor">_hellojni_HelloJni_stringFromJNI(JNIEnv<span class="operator">*</span> <span class="params">env</span>, <span class="params">jobject</span> <span class="params">thiz</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="constructor">MY_LOG_VERBOSE(<span class="string">"The stringFromJNI is called."</span>)</span>;</span><br><span class="line">	<span class="constructor">MY_LOG_DEBUG(<span class="string">"env=%p thiz=%p"</span>, <span class="params">env</span>, <span class="params">thiz</span>)</span>;</span><br><span class="line">	<span class="constructor">MY_LOG_ASSERT(0 != <span class="params">env</span>, <span class="string">"JNIENV cannot be NULL."</span>)</span>;</span><br><span class="line">	<span class="constructor">MY_LOG_INFO(<span class="string">"Returning a new string."</span>)</span>;</span><br><span class="line">	</span><br><span class="line">	return (*env)-&gt;<span class="constructor">NewStringUTF(<span class="params">env</span>, <span class="string">"Hello from JNI!"</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>更新 <code>Android.mk</code></p>
 <ul>
 <li>1.日志标签</li>
@@ -251,7 +351,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>定义默认的日志等级</p>
 </blockquote>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_MODULE := hello-jni</span><br><span class="line">...</span><br><span class="line"><span class="comment"># 定义日志标签</span></span><br><span class="line">MY_LOG_TAG := \<span class="string">"hello-jni\"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 定义基于构建类型的默认日志等级</span></span><br><span class="line"><span class="string">ifeq (<span class="variable">$(APP_OPTIM)</span>, release)</span></span><br><span class="line"><span class="string">	MY_LOG_LEVEL := MY_LOG_LEVEL_ERROR</span></span><br><span class="line"><span class="string">else</span></span><br><span class="line"><span class="string">	MY_LOG_LEVEL := MY_LOG_LEVEL_VERBOSE</span></span><br><span class="line"><span class="string">endif</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">LOCAL_MODULE</span> :<span class="string">= hello-jni</span></span><br><span class="line"><span class="attr">...</span></span><br><span class="line"><span class="comment"># 定义日志标签</span></span><br><span class="line"><span class="attr">MY_LOG_TAG</span> :<span class="string">= \"hello-jni\"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义基于构建类型的默认日志等级</span></span><br><span class="line"><span class="attr">ifeq</span> <span class="string">($(APP_OPTIM), release)</span></span><br><span class="line">	<span class="attr">MY_LOG_LEVEL</span> :<span class="string">= MY_LOG_LEVEL_ERROR</span></span><br><span class="line"><span class="attr">else</span></span><br><span class="line">	<span class="attr">MY_LOG_LEVEL</span> :<span class="string">= MY_LOG_LEVEL_VERBOSE</span></span><br><span class="line"><span class="attr">endif</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>3.应用日志配置</li>
 </ul>
@@ -259,7 +359,7 @@ var _hmt = _hmt || [];
 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 将日志系统配置应用在模块中</span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := hello-jni</span><br><span class="line">...</span><br><span class="line"><span class="comment"># 定义日志标签</span></span><br><span class="line">MY_LOG_TAG := hello-jni</span><br><span class="line"><span class="comment"># 定义基于构建类型的默认日志等级</span></span><br><span class="line"><span class="keyword">ifeq</span> (<span class="variable">$(APP_OPTIM)</span>, release)</span><br><span class="line">	MY_LOG_LEVEL := MY_LOG_LEVEL_ERROR</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	MY_LOG_LEVEL := MY_LOG_LEVEL_VERBOSE</span><br><span class="line"><span class="keyword">endif</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 追加编译标记</span></span><br><span class="line">LOCAL_CFLAGS += -DMY_LOG_TAG=<span class="variable">$(MY_LOG_TAG)</span></span><br><span class="line">LOCAL_CFLAGS += -DMY_LOG_LEVEL=<span class="variable">$(MY_LOG_LEVEL)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 动态链接日志库</span></span><br><span class="line">LOCAL_LDLIBS += -llog</span><br></pre></td></tr></table></figure>
 <h5 id="控制台日志"><a class="markdownIt-Anchor" href="#控制台日志"></a> 控制台日志</h5>
 <p>默认情况下，控制台文件描述符–STDOUT 和 STDERR 在Android 平台上是不可见的。要想将这些日志消息重定向到 Android 系统日志中， 需要打开一个命令提示符或一个终端窗口，并执行如下所示的ADB命令。</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 将控制台日志重定向到 Android 系统日志中</span><br><span class="line">adb <span class="keyword">shell</span><span class="bash"> stop</span></span><br><span class="line"><span class="bash">adb shell setprop log.redirect-stdio <span class="literal">true</span></span></span><br><span class="line"><span class="bash">adb shell start</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 将控制台日志重定向到 Android 系统日志中</span><br><span class="line">adb <span class="keyword">shell</span><span class="bash"> stop</span></span><br><span class="line">adb <span class="keyword">shell</span><span class="bash"> setprop log.redirect-stdio <span class="literal">true</span></span></span><br><span class="line">adb <span class="keyword">shell</span><span class="bash"> start</span></span><br></pre></td></tr></table></figure>
 <p>在重新启动应用程序时，用Logcat视图可以看到控制台日志信息。</p>
 
       
@@ -374,7 +474,7 @@ var _hmt = _hmt || [];
 <li>2.删除全局引用</li>
 </ul>
 <p>当原生代码不再需要一个全局引用时，可以随时用 DeleteGlobalRef 函数释放它，如下：</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除一个全局应用</span></span><br><span class="line"><span class="comment">(*env)</span>-&gt;DeleteGlobalRef<span class="comment">(env, globalClazz)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除一个全局应用</span></span><br><span class="line">(*env)-&gt;<span class="constructor">DeleteGlobalRef(<span class="params">env</span>, <span class="params">globalClazz</span>)</span>;</span><br></pre></td></tr></table></figure>
 <h4 id="弱全局引用"><a class="markdownIt-Anchor" href="#弱全局引用"></a> 弱全局引用</h4>
 <p>全局引用的另一种类型是弱全局引用。与全局引用一样，弱全局引用在原生方法的后续调用过程中依然有效，与全局引用不同，弱全局引用并不阻止潜在的对象被垃圾收回。</p>
 <ul>
@@ -386,7 +486,7 @@ var _hmt = _hmt || [];
 <li>2.弱全局引用的有效性检验</li>
 </ul>
 <p>可以用 IsSameObject 函数检验一个弱全局引用是否仍然指向活动的类实例。</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">检验弱全局变量是否仍然有效</span><br><span class="line"><span class="keyword">if</span>(JNI_FALSE == (*env)-&gt;IsSameObject(env, weakGlobalClazz, NULL))&#123;</span><br><span class="line">	<span class="comment"><span class="markdown">/<span class="emphasis">** 对象仍然处于活动状态且可以使用 *</span>/</span></span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="comment"><span class="markdown">/<span class="emphasis">** 对象被垃圾回收器收回，不能使用 *</span>/</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">检验弱全局变量是否仍然有效</span><br><span class="line"><span class="keyword">if</span>(JNI_FALSE<span class="operator"> == </span>(*env)-&gt;<span class="constructor">IsSameObject(<span class="params">env</span>, <span class="params">weakGlobalClazz</span>, NULL)</span>)&#123;</span><br><span class="line">	<span class="comment">/** 对象仍然处于活动状态且可以使用 */</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="comment">/** 对象被垃圾回收器收回，不能使用 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>3.删除弱全局引用</li>
 </ul>
@@ -785,7 +885,7 @@ var _hmt = _hmt || [];
       
         <h4 id="方法一"><a class="markdownIt-Anchor" href="#方法一"></a> 方法一</h4>
 <h5 id="1通过lsof命令查看pid"><a class="markdownIt-Anchor" href="#1通过lsof命令查看pid"></a> 1.通过lsof命令查看PID</h5>
-<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ipv4</span><br><span class="line">[root@test <span class="keyword">proc</span>]#<span class="title"> lsof</span> -Pnl +M -i4          </span><br><span class="line">COMMAND<span class="title">     PID</span> <span class="title">    USER</span> <span class="title">  FD</span> <span class="title">  TYPE</span> <span class="title"> DEVICE</span> SIZE<span class="title"> NODE</span> NAME</span><br><span class="line">java       1419     1401   10u<span class="title">  IPv4</span> 6793357<span class="title">       TCP</span> *:8453 (LISTEN)</span><br><span class="line">AutonomyD  6147     1401    6u<span class="title">  IPv4</span> 7597365<span class="title">       TCP</span> *:20003 (LISTEN)</span><br><span class="line">AutonomyD  6147     1401   14u<span class="title">  IPv4</span> 7597369<span class="title">       TCP</span> *:20000 (LISTEN)</span><br><span class="line">也可以使用:</span><br><span class="line">[root@test<span class="title"> proc]#</span> lsof -Pnl +M -i4|grep 8453</span><br><span class="line">java       1419     1401   10u<span class="title">  IPv4</span> 6793357<span class="title">       TCP</span> *:8453 (LISTEN)</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ipv4</span><br><span class="line">[<span class="symbol">root@</span>test proc]# lsof -Pnl +M -i4          </span><br><span class="line">COMMAND     PID     USER   FD   TYPE  DEVICE SIZE NODE NAME</span><br><span class="line">java       <span class="number">1419</span>     <span class="number">1401</span>   <span class="number">10</span>u  IPv4 <span class="number">6793357</span>       TCP *:<span class="number">8453</span> (LISTEN)</span><br><span class="line">AutonomyD  <span class="number">6147</span>     <span class="number">1401</span>    <span class="number">6</span>u  IPv4 <span class="number">7597365</span>       TCP *:<span class="number">20003</span> (LISTEN)</span><br><span class="line">AutonomyD  <span class="number">6147</span>     <span class="number">1401</span>   <span class="number">14</span>u  IPv4 <span class="number">7597369</span>       TCP *:<span class="number">20000</span> (LISTEN)</span><br><span class="line">也可以使用:</span><br><span class="line">[<span class="symbol">root@</span>test proc]# lsof -Pnl +M -i4|grep <span class="number">8453</span></span><br><span class="line">java       <span class="number">1419</span>     <span class="number">1401</span>   <span class="number">10</span>u  IPv4 <span class="number">6793357</span>       TCP *:<span class="number">8453</span> (LISTEN)</span><br></pre></td></tr></table></figure>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ipv6</span><br><span class="line">[root@test proc]# lsof -Pnl +M -i6</span><br><span class="line">COMMAND     PID    <span class="built_in"> USER </span>  FD  <span class="built_in"> TYPE </span> DEVICE SIZE NODE NAME</span><br><span class="line">java       1419     1401  286u <span class="built_in"> IPv6 </span>7616547       TCP 192.168.1.29:55829-&gt;192.168.1.17:7001 (CLOSE_WAIT)</span><br><span class="line">java       1419     1401  290u <span class="built_in"> IPv6 </span>6987470       TCP 192.168.1.29:33836-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  297u <span class="built_in"> IPv6 </span>6793642       UDP *:1133 </span><br><span class="line">java       1419     1401  304u <span class="built_in"> IPv6 </span>6987472       TCP 192.168.1.29:33838-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  306u <span class="built_in"> IPv6 </span>6987479       TCP 192.168.1.29:33839-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">java       1419     1401  307u <span class="built_in"> IPv6 </span>7006208       TCP 192.168.1.29:60340-&gt;192.168.1.154:1521 (ESTABLISHED)</span><br><span class="line">也可以使用:</span><br><span class="line">[root@test proc]# lsof -Pnl +M -i6|grep 5001</span><br><span class="line">java      12886        0  530u <span class="built_in"> IPv6 </span>6988341       TCP *:5001 (LISTEN)</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2018/12/10/linux下查看监听端口对应的进程/#more">more >></a>
@@ -893,7 +993,7 @@ var _hmt = _hmt || [];
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">例子:</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.uri</span> == “/img/logo-edu.gif”</span><br><span class="line">http contains “GET”</span><br><span class="line">http contains “HTTP/<span class="number">1</span>.”</span><br><span class="line"></span><br><span class="line"><span class="comment">// GET包</span></span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET” &amp;&amp; http contains “Host: ”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “GET” &amp;&amp; http contains “User-Agent: ”</span><br><span class="line"><span class="comment">// POST包</span></span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST” &amp;&amp; http contains “Host: ”</span><br><span class="line">http<span class="selector-class">.request</span><span class="selector-class">.method</span> == “POST” &amp;&amp; http contains “User-Agent: ”</span><br><span class="line"><span class="comment">// 响应包</span></span><br><span class="line">http contains “HTTP/<span class="number">1.1</span> <span class="number">200</span> OK” &amp;&amp; http contains “Content-Type: ”</span><br><span class="line">http contains “HTTP/<span class="number">1.0</span> <span class="number">200</span> OK” &amp;&amp; http contains “Content-Type: ”</span><br><span class="line">一定包含如下</span><br><span class="line">Content-Type:</span><br></pre></td></tr></table></figure>
 <h4 id="六-连接符-and-or"><a class="markdownIt-Anchor" href="#六-连接符-and-or"></a> 六、连接符 and / or</h4>
 <h4 id="七-表达式"><a class="markdownIt-Anchor" href="#七-表达式"></a> 七、表达式：</h4>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!(arp.src==<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>) and !(arp.dst.proto_ipv4==<span class="number">192.168</span><span class="number">.1</span><span class="number">.243</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!(arp.src==<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>) <span class="keyword">and</span> !(arp.dst.proto_ipv4==<span class="number">192.168</span><span class="number">.1</span><span class="number">.243</span>)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -1144,93 +1244,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Sublime快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/15/Sublime快捷键/">Sublime快捷键</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/15/Sublime快捷键/" class="archive-article-date">
-  	<time datetime="2018-08-15T14:42:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018年08月15日</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="sublime快捷键"><a class="markdownIt-Anchor" href="#sublime快捷键"></a> Sublime快捷键</h1>
-        
-          <a class="article-more-a" href="/2018/08/15/Sublime快捷键/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">sublime</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/mac//" class="article-tag-list-link color4">mac</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/15/Sublime快捷键/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1365,11 +1378,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jni</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">file</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1413,11 +1434,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1425,7 +1446,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">integer</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1434,10 +1455,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">round</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1457,6 +1474,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">qt</a>
               </li>
              
@@ -1465,11 +1486,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1509,11 +1530,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lint</a>
+                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
+                <a href="javascript:void(0)" class="js-tag color5">lint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1529,11 +1550,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+                <a href="javascript:void(0)" class="js-tag color3">english</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">english</a>
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1669,23 +1690,6 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  </div>
 </body>
 </html>

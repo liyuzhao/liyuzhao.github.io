@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,13 +42,13 @@ var _hmt = _hmt || [];
 	var s = document.getElementsByTagName("script")[0]; 
 	s.parentNode.insertBefore(hm, s);
 })();
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 
 </head>
 </html>
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
+  <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
@@ -233,7 +233,7 @@ grant select,insert,update,delete on <em>.</em> to test1”%&quot; Identified by
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">SHOW </span>DATABASES<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong>:mysql库里面有MYSQL的系统信息，我们改密码和新增用户，实际上就是用这个库进行操作。</p>
 <h4 id="2-显示数据库中的数据表"><a class="markdownIt-Anchor" href="#2-显示数据库中的数据表"></a> 2、显示数据库中的数据表：</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> USE 库名；</span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> SHOW TABLES;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">USE</span> 库名；</span><br><span class="line">mysql&gt; <span class="keyword">SHOW</span> TABLES;</span><br></pre></td></tr></table></figure>
 <h4 id="3-显示use的数据库名"><a class="markdownIt-Anchor" href="#3-显示use的数据库名"></a> 3、显示use的数据库名：</h4>
 <figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">SELECT</span> <span class="keyword">DATABASE</span>();</span><br></pre></td></tr></table></figure>
 <h4 id="4-建立数据库"><a class="markdownIt-Anchor" href="#4-建立数据库"></a> 4、建立数据库：</h4>
@@ -241,7 +241,7 @@ grant select,insert,update,delete on <em>.</em> to test1”%&quot; Identified by
 <h4 id="5-删除数据库"><a class="markdownIt-Anchor" href="#5-删除数据库"></a> 5、删除数据库：</h4>
 <figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">DROP</span> <span class="keyword">DATABASE</span> 库名;</span><br></pre></td></tr></table></figure>
 <h4 id="6-导入sql文件命令"><a class="markdownIt-Anchor" href="#6-导入sql文件命令"></a> 6、导入.sql文件命令：</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> USE 数据库名;</span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> SOURCE d:/mysql.sql;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">USE</span> 数据库名;</span><br><span class="line">mysql&gt; SOURCE d:/mysql.sql;</span><br></pre></td></tr></table></figure>
 <p>也可以在DOS环境下键入以下命令进行导入：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">mysql</span> <span class="selector-tag">-uroot</span> <span class="selector-tag">-proot</span> <span class="selector-tag">databasename</span> &lt; <span class="selector-tag">databasename</span><span class="selector-class">.sql</span></span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong>:导入前请保证mysql中必须有databasename这个数据库;</p>
@@ -249,11 +249,11 @@ grant select,insert,update,delete on <em>.</em> to test1”%&quot; Identified by
 <p>注意，mysqldump命令在DOS的 mysql\bin 目录下执行,不能在mysql环境下执行，因此，不能以分号“;”结尾。若已登陆mysql，请运行退出命令mysql&gt; exit</p>
 <h4 id="1导出整个数据库"><a class="markdownIt-Anchor" href="#1导出整个数据库"></a> 1.导出整个数据库</h4>
 <p>导出文件默认是存在mysql\bin目录下</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">mysqldump</span> <span class="selector-tag">-u</span>用户名 <span class="selector-tag">-p</span>数据库名 &gt; 导出的文件名</span><br><span class="line"><span class="selector-tag">mysqldump</span> <span class="selector-tag">-uroot</span> <span class="selector-tag">-p123456</span> <span class="selector-tag">database_name</span> &gt; <span class="selector-tag">outfile_name</span><span class="selector-class">.sql</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mysqldump</span> <span class="string">-u用户名 -p数据库名 &gt; 导出的文件名</span></span><br><span class="line"><span class="attr">mysqldump</span> <span class="string">-uroot -p123456 database_name &gt; outfile_name.sql</span></span><br></pre></td></tr></table></figure>
 <h4 id="2导出一个表"><a class="markdownIt-Anchor" href="#2导出一个表"></a> 2.导出一个表</h4>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u 用户名 -<span class="selector-tag">p</span> 数据库名 表名&gt; 导出的文件名</span><br><span class="line">mysqldump -u user_name -<span class="selector-tag">p</span> database_name table_name &gt; outfile_name.sql</span><br></pre></td></tr></table></figure>
 <h4 id="3导出一个数据库结构"><a class="markdownIt-Anchor" href="#3导出一个数据库结构"></a> 3.导出一个数据库结构</h4>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u user_name -p -d –add-<span class="keyword">drop</span>-<span class="keyword">table</span> database_name &gt; outfile_name.sql</span><br><span class="line">-d 没有数据 –<span class="keyword">add</span>-<span class="keyword">drop</span>-<span class="keyword">table</span> 在每个<span class="keyword">create</span>语句之前增加一个<span class="keyword">drop</span> <span class="keyword">table</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u user_name -p -d –<span class="keyword">add</span>-<span class="keyword">drop</span>-<span class="keyword">table</span> database_name &gt; outfile_name.<span class="keyword">sql</span></span><br><span class="line">-d 没有数据 –<span class="keyword">add</span>-<span class="keyword">drop</span>-<span class="keyword">table</span> 在每个<span class="keyword">create</span>语句之前增加一个<span class="keyword">drop</span> <span class="keyword">table</span></span><br></pre></td></tr></table></figure>
 <h4 id="4带语言参数导出"><a class="markdownIt-Anchor" href="#4带语言参数导出"></a> 4.带语言参数导出</h4>
 <figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">mysqldump </span>-<span class="string">uroot </span>-p –<span class="string">default-character-</span><span class="string">set=</span><span class="string">latin1 </span>–<span class="built_in">set-charset=gbk</span> –<span class="string">skip-opt </span><span class="string">database_name </span>&gt; <span class="string">outfile_name.</span><span class="string">sql</span></span><br></pre></td></tr></table></figure>
 <h3 id="七-将文本数据转到数据库中"><a class="markdownIt-Anchor" href="#七-将文本数据转到数据库中"></a> 七、将文本数据转到数据库中</h3>
@@ -262,13 +262,13 @@ grant select,insert,update,delete on <em>.</em> to test1”%&quot; Identified by
 <figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">3 </span>rose 大连二中 <span class="number">1976</span>-<span class="number">10</span>-<span class="number">10</span></span><br><span class="line"><span class="symbol">4 </span>mike 大连一中 <span class="number">1975</span>-<span class="number">12</span>-<span class="number">23</span></span><br></pre></td></tr></table></figure>
 <p>假设你把这两组数据存为school.txt文件，放在c盘根目录下。</p>
 <h4 id="2-数据传入命令"><a class="markdownIt-Anchor" href="#2-数据传入命令"></a> 2、数据传入命令</h4>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; load <span class="built_in">data</span> <span class="built_in">local</span> infile <span class="string">"c:\school.txt"</span> <span class="keyword">into</span> table 表名;</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">load</span> data <span class="keyword">local</span> infile "c:\school.txt" <span class="keyword">into</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong>:你最好将文件复制到mysql\bin目录下，并且要先用use命令打表所在的库。</p>
 <h3 id="八-对表的操作"><a class="markdownIt-Anchor" href="#八-对表的操作"></a> 八、对表的操作</h3>
 <h4 id="1-显示数据表的结构"><a class="markdownIt-Anchor" href="#1-显示数据表的结构"></a> 1、显示数据表的结构：</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> DESCRIBE 表名; （DESC 表名）</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">DESCRIBE</span> 表名; （<span class="keyword">DESC</span> 表名）</span><br></pre></td></tr></table></figure>
 <h4 id="2-建立数据表"><a class="markdownIt-Anchor" href="#2-建立数据表"></a> 2、建立数据表：</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> USE 库名; //进入数据库</span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> CREATE TABLE 表名 (字段名 VARCHAR(20), 字段名 CHAR(1));</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; USE 库名; //进入数据库</span><br><span class="line">mysql&gt; <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名 (字段名 <span class="type">VARCHAR</span>(<span class="number">20</span>), 字段名 <span class="type">CHAR</span>(<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
 <h4 id="3-删除数据表"><a class="markdownIt-Anchor" href="#3-删除数据表"></a> 3、删除数据表：</h4>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; DROP <span class="keyword">TABLE</span> 表名；</span><br></pre></td></tr></table></figure>
 <h4 id="4-重命名数据表"><a class="markdownIt-Anchor" href="#4-重命名数据表"></a> 4、重命名数据表</h4>
@@ -282,13 +282,13 @@ grant select,insert,update,delete on <em>.</em> to test1”%&quot; Identified by
 <h4 id="8-将表中记录清空"><a class="markdownIt-Anchor" href="#8-将表中记录清空"></a> 8、将表中记录清空：</h4>
 <figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">DELETE</span> <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
 <h4 id="9-用文本方式将数据装入数据表中"><a class="markdownIt-Anchor" href="#9-用文本方式将数据装入数据表中"></a> 9、用文本方式将数据装入数据表中：</h4>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; LOAD <span class="built_in">DATA</span> <span class="built_in">LOCAL</span> INFILE “D:/mysql.txt” <span class="keyword">INTO</span> TABLE 表名;</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">LOAD</span> DATA <span class="keyword">LOCAL</span> INFILE “D:/mysql.txt” <span class="keyword">INTO</span> <span class="keyword">TABLE</span> 表名;</span><br></pre></td></tr></table></figure>
 <h4 id="10-显示表的定义"><a class="markdownIt-Anchor" href="#10-显示表的定义"></a> 10、 显示表的定义</h4>
 <p>还可以看到表的约束，例如外键</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW CREATE <span class="keyword">TABLE</span> yourtablename</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> yourtablename</span><br></pre></td></tr></table></figure>
 <p>还可以通过 mysqldump 将表的完整定义转储到文件中，当然包括外键定义。<br>
 还可以通过下面的指令列出表 T 的外键约束：</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW <span class="keyword">TABLE</span> STATUS <span class="comment">FROM yourdatabasename LIKE</span> <span class="comment">'T'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">SHOW</span> <span class="keyword">TABLE</span> STATUS <span class="keyword">FROM</span> yourdatabasename <span class="keyword">LIKE</span> <span class="string">'T'</span></span><br></pre></td></tr></table></figure>
 <p>外键约束将会在表注释中列出。</p>
 <h3 id="存储过程"><a class="markdownIt-Anchor" href="#存储过程"></a> 存储过程</h3>
 <h4 id="11-创建存储过程"><a class="markdownIt-Anchor" href="#11-创建存储过程"></a> 11、创建存储过程</h4>
@@ -306,27 +306,27 @@ grant select,insert,update,delete on <em>.</em> to test1”%&quot; Identified by
 <li>为了改变列a，从INTEGER改为TINYINT NOT NULL(名字一样)，<br>
 并且改变列b，从CHAR(10)改为CHAR(20)，同时重命名它，从b改为c:</li>
 </ol>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER <span class="keyword">TABLE</span> t2 <span class="comment">MODIFY a TINYINT NOT NULL, CHANGE b c CHAR(20)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t2 MODIFY a TINYINT <span class="keyword">NOT</span> <span class="keyword">NULL</span>, CHANGE b c <span class="type">CHAR</span>(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li>增加一个新TIMESTAMP列，名为d：</li>
 </ol>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER <span class="keyword">TABLE</span> t2 <span class="comment">ADD d TIMESTAMP</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t2 <span class="keyword">ADD</span> d <span class="type">TIMESTAMP</span>;</span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li>在列d上增加一个索引，并且使列a为主键：</li>
 </ol>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE <span class="built_in">t2</span> <span class="keyword">ADD </span>INDEX (d), <span class="keyword">ADD </span>PRIMARY KEY (a)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="meta">ALTER</span> <span class="meta">TABLE</span> t2 <span class="meta">ADD</span> <span class="meta">INDEX</span> (d), <span class="meta">ADD</span> <span class="meta">PRIMARY</span> <span class="meta">KEY</span> (a);</span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li>删除列c：</li>
 </ol>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER <span class="keyword">TABLE</span> t2 <span class="comment">DROP COLUMN c</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t2 <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> c;</span><br></pre></td></tr></table></figure>
 <ol start="5">
 <li>增加一个新的AUTO_INCREMENT整数列，命名为c：</li>
 </ol>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE t2 <span class="builtin-name">ADD</span> c INT UNSIGNED <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,<span class="builtin-name">ADD</span> INDEX (c);</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t2 <span class="keyword">ADD</span> c <span class="type">INT</span> UNSIGNED <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,<span class="keyword">ADD</span> <span class="keyword">INDEX</span> (c);</span><br></pre></td></tr></table></figure>
 <p>注意，我们索引了c，因为AUTO_INCREMENT柱必须被索引，并且另外我们声明c为NOT NULL，<br>
 因为索引了的列不能是NULL</p>
 <h3 id="十-一个建库和建表以及插入数据的实例"><a class="markdownIt-Anchor" href="#十-一个建库和建表以及插入数据的实例"></a> 十、一个建库和建表以及插入数据的实例</h3>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">drop database <span class="keyword">if</span> exists school; <span class="comment">//如果存在SCHOOL则删除</span></span><br><span class="line">create database school; <span class="comment">//建立库SCHOOL</span></span><br><span class="line">use school; <span class="comment">//打开库SCHOOL</span></span><br><span class="line">create table teacher <span class="comment">//建立表TEACHER</span></span><br><span class="line">(</span><br><span class="line"><span class="function">id <span class="title">int</span>(<span class="params"><span class="number">3</span></span>) auto_increment not <span class="literal">null</span> primary key,</span></span><br><span class="line"><span class="function">name <span class="title">char</span>(<span class="params"><span class="number">10</span></span>) not <span class="literal">null</span>,</span></span><br><span class="line"><span class="function">address <span class="title">varchar</span>(<span class="params"><span class="number">50</span></span>) <span class="keyword">default</span> ‘深圳’,</span></span><br><span class="line"><span class="function">year date</span></span><br><span class="line"><span class="function">)</span>; <span class="comment">//建表结束</span></span><br><span class="line"><span class="comment">//以下为插入字段</span></span><br><span class="line"><span class="function">insert <span class="keyword">into</span> teacher <span class="title">values</span>(<span class="params"><span class="string">''</span>,<span class="string">'allen'</span>,<span class="string">'大连一中'</span>,<span class="string">'1976-10-10'</span></span>)</span>;</span><br><span class="line"><span class="function">insert <span class="keyword">into</span> teacher <span class="title">values</span>(<span class="params"><span class="string">''</span>,<span class="string">'jack'</span>,<span class="string">'大连二中'</span>,<span class="string">'1975-12-23'</span></span>)</span>;</span><br><span class="line">如果你在mysql提示符键入上面的命令也可以，但不方便调试。</span><br><span class="line">（<span class="number">1</span>）你可以将以上命令原样写入一个文本文件中，假设为school.sql，然后复制到c:\下，并在DOS状态进入目录\mysql\bin，然后键入以下命令：</span><br><span class="line">mysql -uroot -p密码 &lt; c:\school.sql</span><br><span class="line">如果成功，空出一行无任何显示；如有错误，会有提示。（以上命令已经调试，你只要将<span class="comment">//的注释去掉即可使用）。</span></span><br><span class="line">（<span class="number">2</span>）或者进入命令行后使用 mysql&gt; source c:\school.sql; 也可以将school.sql文件导入数据库中。</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> <span class="keyword">if</span> <span class="keyword">exists</span> school; //如果存在SCHOOL则删除</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> school; //建立库SCHOOL</span><br><span class="line">use school; //打开库SCHOOL</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> teacher //建立表TEACHER</span><br><span class="line">(</span><br><span class="line">id <span class="type">int</span>(<span class="number">3</span>) auto_increment <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">primary key</span>,</span><br><span class="line"><span class="type">name</span> <span class="type">char</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">address <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">default</span> ‘深圳’,</span><br><span class="line">year <span class="type">date</span></span><br><span class="line">); //建表结束</span><br><span class="line">//以下为插入字段</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> teacher <span class="keyword">values</span>(<span class="string">''</span>,<span class="string">'allen'</span>,<span class="string">'大连一中'</span>,<span class="string">'1976-10-10'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> teacher <span class="keyword">values</span>(<span class="string">''</span>,<span class="string">'jack'</span>,<span class="string">'大连二中'</span>,<span class="string">'1975-12-23'</span>);</span><br><span class="line">如果你在mysql提示符键入上面的命令也可以，但不方便调试。</span><br><span class="line">（<span class="number">1</span>）你可以将以上命令原样写入一个文本文件中，假设为school.<span class="keyword">sql</span>，然后复制到c:\下，并在DOS状态进入目录\mysql\bin，然后键入以下命令：</span><br><span class="line">mysql -uroot -p密码 &lt; c:\school.<span class="keyword">sql</span></span><br><span class="line">如果成功，空出一行无任何显示；如有错误，会有提示。（以上命令已经调试，你只要将//的注释去掉即可使用）。</span><br><span class="line">（<span class="number">2</span>）或者进入命令行后使用 mysql&gt; source c:\school.<span class="keyword">sql</span>; 也可以将school.<span class="keyword">sql</span>文件导入数据库中。</span><br></pre></td></tr></table></figure>
 
       
 
@@ -645,11 +645,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jni</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">file</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,11 +701,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -705,7 +713,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">integer</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -714,10 +722,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">round</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,6 +741,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">qt</a>
               </li>
              
@@ -745,11 +753,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,11 +797,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lint</a>
+                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
+                <a href="javascript:void(0)" class="js-tag color5">lint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,11 +817,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+                <a href="javascript:void(0)" class="js-tag color3">english</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">english</a>
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
             
             <div class="clearfix"></div>
@@ -949,23 +957,6 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  </div>
 </body>
 </html>

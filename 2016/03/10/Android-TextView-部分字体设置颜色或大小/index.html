@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,13 +44,13 @@ var _hmt = _hmt || [];
 	var s = document.getElementsByTagName("script")[0]; 
 	s.parentNode.insertBefore(hm, s);
 })();
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 
 </head>
 </html>
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
+  <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
@@ -202,19 +202,19 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 <h4 id="支持方式二"><a class="markdownIt-Anchor" href="#支持方式二"></a> 支持方式二</h4>
 <p>可以通过代码的方式，对TextView设置部分字体的颜色。</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Spannable span = <span class="keyword">new</span> <span class="type">SpannableString</span>(textView3.getText());</span><br><span class="line">span.setSpan(<span class="keyword">new</span> <span class="type">AbsoluteSizeSpan</span>(<span class="number">58</span>), <span class="number">11</span>, <span class="number">16</span>, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">span.setSpan(<span class="keyword">new</span> <span class="type">ForegroundColorSpan</span>(Color.RED), <span class="number">11</span>, <span class="number">16</span>, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">span.setSpan(<span class="keyword">new</span> <span class="type">BackgroundColorSpan</span>(Color.YELLOW), <span class="number">11</span>, <span class="number">16</span>, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">textView3.setText(span);</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Spannable span = <span class="keyword">new</span> <span class="constructor">SpannableString(<span class="params">textView3</span>.<span class="params">getText</span>()</span>);</span><br><span class="line">span.set<span class="constructor">Span(<span class="params">new</span> AbsoluteSizeSpan(58)</span>, <span class="number">11</span>, <span class="number">16</span>, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">span.set<span class="constructor">Span(<span class="params">new</span> ForegroundColorSpan(Color.RED)</span>, <span class="number">11</span>, <span class="number">16</span>, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">span.set<span class="constructor">Span(<span class="params">new</span> BackgroundColorSpan(Color.YELLOW)</span>, <span class="number">11</span>, <span class="number">16</span>, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">textView3.set<span class="constructor">Text(<span class="params">span</span>)</span>;</span><br></pre></td></tr></table></figure>
 <hr>
 <p>以上两种方式，我感觉就可以了，不过有些同学感觉就是用起来比较麻烦，因此我们可以封装下第二种方法，变为第三种方法，也就是我要写的。</p>
 <h4 id="支持方式三"><a class="markdownIt-Anchor" href="#支持方式三"></a> 支持方式三</h4>
 <p>通过自定义View的方式来封装这些代码。</p>
 <h5 id="首先是ctextview-extends-textview当然名称无所谓自己喜欢就好"><a class="markdownIt-Anchor" href="#首先是ctextview-extends-textview当然名称无所谓自己喜欢就好"></a> 首先是CTextView extends TextView,当然名称无所谓，自己喜欢就好</h5>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CTextView</span> <span class="keyword">extends</span> <span class="title">TextView</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> float normalTextSize;</span><br><span class="line">    <span class="keyword">private</span> float highlightTextSize;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> normalTextColor;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> highlightTextColor;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> CTextView(Context context) &#123;</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> CTextView(Context context, AttributeSet attrs) &#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">        TypedArray typedArray = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            typedArray = context.obtainStyledAttributes(attrs, R.styleable.CTextView, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">            normalTextSize = typedArray.getDimension(R.styleable.CTextView_normal_textsize, <span class="number">14</span>);</span><br><span class="line">            highlightTextSize = typedArray.getDimension(R.styleable.CTextView_highlight_textsize, <span class="number">14</span>);</span><br><span class="line">            normalTextColor = typedArray.getColor(R.styleable.CTextView_normal_textcolor, Color.BLACK);</span><br><span class="line">            highlightTextColor = typedArray.getColor(R.styleable.CTextView_highlight_textcolor, Color.BLACK);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (typedArray != <span class="keyword">null</span>) &#123;</span><br><span class="line">                typedArray.recycle();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> setText(String allString, String highlightString) &#123;</span><br><span class="line">        SpannableStringBuilder spannableStringBuilder = <span class="keyword">new</span> SpannableStringBuilder();</span><br><span class="line">        spannableStringBuilder.append(allString);</span><br><span class="line">        spannableStringBuilder.setSpan(<span class="keyword">new</span> AbsoluteSizeSpan((<span class="keyword">int</span>) normalTextSize, <span class="keyword">true</span>), <span class="number">0</span>, allString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">        spannableStringBuilder.setSpan(<span class="keyword">new</span> ForegroundColorSpan(normalTextColor), <span class="number">0</span>, allString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">        List&lt;Integer&gt; list = getSubIndex(<span class="number">0</span>, allString, highlightString);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> <span class="keyword">index</span> = list.get(i);</span><br><span class="line">            spannableStringBuilder.setSpan(<span class="keyword">new</span> StyleSpan(Typeface.BOLD), <span class="keyword">index</span>, <span class="keyword">index</span> + highlightString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">            spannableStringBuilder.setSpan(<span class="keyword">new</span> AbsoluteSizeSpan((<span class="keyword">int</span>) highlightTextSize, <span class="keyword">true</span>), <span class="keyword">index</span>, <span class="keyword">index</span> + highlightString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">            spannableStringBuilder.setSpan(<span class="keyword">new</span> ForegroundColorSpan(highlightTextColor), <span class="keyword">index</span>, <span class="keyword">index</span> + highlightString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">        &#125;</span><br><span class="line">        setMovementMethod(LinkMovementMethod.getInstance());</span><br><span class="line">        setText(spannableStringBuilder);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;Integer&gt; getSubIndex(<span class="keyword">int</span> startIndex, String allString, String highlightString) &#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">index</span> = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span> (startIndex == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">index</span> = allString.indexOf(highlightString);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">index</span> = allString.indexOf(highlightString, startIndex);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">index</span> != <span class="number">-1</span>) &#123;</span><br><span class="line">            list.add(<span class="keyword">index</span>);</span><br><span class="line">            list.addAll(getSubIndex(<span class="keyword">index</span> + highlightString.length(), allString, highlightString));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">class</span> CTextView extends TextView &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">float</span> normalTextSize;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">float</span> highlightTextSize;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> normalTextColor;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> highlightTextColor;</span><br><span class="line"></span><br><span class="line">    public <span class="constructor">CTextView(Context <span class="params">context</span>)</span> &#123;</span><br><span class="line">        super(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="constructor">CTextView(Context <span class="params">context</span>, AttributeSet <span class="params">attrs</span>)</span> &#123;</span><br><span class="line">        super(context, attrs);</span><br><span class="line">        TypedArray typedArray = null;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            typedArray = context.obtain<span class="constructor">StyledAttributes(<span class="params">attrs</span>, R.<span class="params">styleable</span>.CTextView, 0, 0)</span>;</span><br><span class="line">            normalTextSize = typedArray.get<span class="constructor">Dimension(R.<span class="params">styleable</span>.CTextView_normal_textsize, 14)</span>;</span><br><span class="line">            highlightTextSize = typedArray.get<span class="constructor">Dimension(R.<span class="params">styleable</span>.CTextView_highlight_textsize, 14)</span>;</span><br><span class="line">            normalTextColor = typedArray.get<span class="constructor">Color(R.<span class="params">styleable</span>.CTextView_normal_textcolor, Color.BLACK)</span>;</span><br><span class="line">            highlightTextColor = typedArray.get<span class="constructor">Color(R.<span class="params">styleable</span>.CTextView_highlight_textcolor, Color.BLACK)</span>;</span><br><span class="line"></span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            <span class="keyword">if</span> (typedArray != null) &#123;</span><br><span class="line">                typedArray.recycle<span class="literal">()</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void set<span class="constructor">Text(String <span class="params">allString</span>, String <span class="params">highlightString</span>)</span> &#123;</span><br><span class="line">        SpannableStringBuilder spannableStringBuilder = <span class="keyword">new</span> <span class="constructor">SpannableStringBuilder()</span>;</span><br><span class="line">        spannableStringBuilder.append(allString);</span><br><span class="line">        spannableStringBuilder.set<span class="constructor">Span(<span class="params">new</span> AbsoluteSizeSpan((<span class="params">int</span>)</span> normalTextSize, <span class="literal">true</span>), <span class="number">0</span>, allString.length<span class="literal">()</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">        spannableStringBuilder.set<span class="constructor">Span(<span class="params">new</span> ForegroundColorSpan(<span class="params">normalTextColor</span>)</span>, <span class="number">0</span>, allString.length<span class="literal">()</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">        List&lt;Integer&gt; <span class="built_in">list</span> = get<span class="constructor">SubIndex(0, <span class="params">allString</span>, <span class="params">highlightString</span>)</span>;</span><br><span class="line">        for (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">list</span>.size<span class="literal">()</span>; i++) &#123;</span><br><span class="line">            <span class="built_in">int</span> index = <span class="built_in">list</span>.get(i);</span><br><span class="line">            spannableStringBuilder.set<span class="constructor">Span(<span class="params">new</span> StyleSpan(Typeface.BOLD)</span>, index, index + highlightString.length<span class="literal">()</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">            spannableStringBuilder.set<span class="constructor">Span(<span class="params">new</span> AbsoluteSizeSpan((<span class="params">int</span>)</span> highlightTextSize, <span class="literal">true</span>), index, index + highlightString.length<span class="literal">()</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">            spannableStringBuilder.set<span class="constructor">Span(<span class="params">new</span> ForegroundColorSpan(<span class="params">highlightTextColor</span>)</span>, index, index + highlightString.length<span class="literal">()</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">        &#125;</span><br><span class="line">        set<span class="constructor">MovementMethod(LinkMovementMethod.<span class="params">getInstance</span>()</span>);</span><br><span class="line">        set<span class="constructor">Text(<span class="params">spannableStringBuilder</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;Integer&gt; get<span class="constructor">SubIndex(<span class="params">int</span> <span class="params">startIndex</span>, String <span class="params">allString</span>, String <span class="params">highlightString</span>)</span> &#123;</span><br><span class="line">        List&lt;Integer&gt; <span class="built_in">list</span> = <span class="keyword">new</span> ArrayList&lt;Integer&gt;<span class="literal">()</span>;</span><br><span class="line">        <span class="built_in">int</span> index = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (startIndex<span class="operator"> == </span><span class="number">0</span>) &#123;</span><br><span class="line">            index = allString.index<span class="constructor">Of(<span class="params">highlightString</span>)</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            index = allString.index<span class="constructor">Of(<span class="params">highlightString</span>, <span class="params">startIndex</span>)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (index != -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">list</span>.add(index);</span><br><span class="line">            <span class="built_in">list</span>.add<span class="constructor">All(<span class="params">getSubIndex</span>(<span class="params">index</span> + <span class="params">highlightString</span>.<span class="params">length</span>()</span>, allString, highlightString));</span><br><span class="line">        &#125;</span><br><span class="line">        return <span class="built_in">list</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="定义上面类中用到的attrsxml"><a class="markdownIt-Anchor" href="#定义上面类中用到的attrsxml"></a> 定义上面类中用到的attrs.xml</h5>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">declare-styleable</span> <span class="attr">name</span>=<span class="string">"CTextView"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"normal_textsize"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"highlight_textsize"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"normal_textcolor"</span> <span class="attr">format</span>=<span class="string">"color"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"highlight_textcolor"</span> <span class="attr">format</span>=<span class="string">"color"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">declare-styleable</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">declare-styleable</span> <span class="attr">name</span>=<span class="string">"CTextView"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"normal_textsize"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"highlight_textsize"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"normal_textcolor"</span> <span class="attr">format</span>=<span class="string">"color"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"highlight_textcolor"</span> <span class="attr">format</span>=<span class="string">"color"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">declare-styleable</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h5 id="在xml中的textview的用法"><a class="markdownIt-Anchor" href="#在xml中的textview的用法"></a> 在xml中的TextView的用法</h5>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> </span></span><br><span class="line"><span class="tag">	<span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 此处是包名+类名，请写自己的包名 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">com.easemob.ctextview.CTextView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/c_textview"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:normal_textsize</span>=<span class="string">"12sp"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:highlight_textsize</span>=<span class="string">"20sp"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:normal_textcolor</span>=<span class="string">"#000"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:highlight_textcolor</span>=<span class="string">"#f00"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h5 id="在activity中的用法"><a class="markdownIt-Anchor" href="#在activity中的用法"></a> 在Activity中的用法</h5>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CTextView cTextView = (CTextView) findViewById(R.id.c_textview)<span class="comment">;</span></span><br><span class="line">cTextView.setText(<span class="string">"欢迎大家看我说了这么久，大家辛苦了！"</span>,<span class="string">"大家"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CTextView cTextView = (CTextView) find<span class="constructor">ViewById(R.<span class="params">id</span>.<span class="params">c_textview</span>)</span>;</span><br><span class="line">cTextView.set<span class="constructor">Text(<span class="string">"欢迎大家看我说了这么久，大家辛苦了！"</span>,<span class="string">"大家"</span>)</span>;</span><br></pre></td></tr></table></figure>
 <h5 id="结果如下"><a class="markdownIt-Anchor" href="#结果如下"></a> 结果如下：</h5>
 <p><img src="http://7xpj58.com1.z0.glb.clouddn.com/img_20160310202020.png" alt="result ctextview"></p>
 
@@ -535,11 +535,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jni</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">file</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,11 +591,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,7 +603,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">integer</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -604,10 +612,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">round</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,6 +631,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">qt</a>
               </li>
              
@@ -635,11 +643,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,11 +687,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lint</a>
+                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
+                <a href="javascript:void(0)" class="js-tag color5">lint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -699,11 +707,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+                <a href="javascript:void(0)" class="js-tag color3">english</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">english</a>
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
             
             <div class="clearfix"></div>
@@ -839,23 +847,6 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  </div>
 </body>
 </html>

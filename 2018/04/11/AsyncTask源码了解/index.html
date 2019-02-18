@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,13 +42,13 @@ var _hmt = _hmt || [];
 	var s = document.getElementsByTagName("script")[0]; 
 	s.parentNode.insertBefore(hm, s);
 })();
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 
 </head>
 </html>
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
+  <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
@@ -204,10 +204,10 @@ var _hmt = _hmt || [];
 <h5 id="线程池部分"><a class="markdownIt-Anchor" href="#线程池部分"></a> 线程池部分：</h5>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    * An &#123;@link Executor&#125; that can be used to<span class="built_in"> execute </span>tasks in parallel.</span><br><span class="line">    */</span><br><span class="line">  <span class="keyword"> public</span><span class="keyword"> static</span><span class="keyword"> final</span> Executor THREAD_POO<span class="class">L_EXECUTOR;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword"> static</span> &#123;</span><br><span class="line">       ThreadPoolExecutor threadPoolExecutor =<span class="built_in"> new </span>ThreadPoolExecutor(</span><br><span class="line">               CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE_SECONDS, TimeUnit.SECONDS,</span><br><span class="line">               sPoolWorkQueue, sThreadFactory);</span><br><span class="line">       threadPoolExecutor.allowCoreThreadTimeOut(true);</span><br><span class="line">       THREAD_POO<span class="class">L_EXECUTOR = threadPoolExecutor;</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>其中参数：</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="built_in">int</span> CPU_COUNT = Runtime.getRuntime().availableProcessors();</span><br><span class="line"><span class="comment">// 核心线程数最小为2， 最大为4，根据cpu的核数确定。</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="built_in">int</span> CORE_POOL_SIZE = Math.<span class="built_in">max</span>(<span class="number">2</span>, Math.<span class="built_in">min</span>(CPU_COUNT - <span class="number">1</span>, <span class="number">4</span>));</span><br><span class="line">   <span class="comment">// 最大线程池数量为 cpu 的核数的2倍 + 1</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="built_in">int</span> MAXIMUM_POOL_SIZE = CPU_COUNT * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">   <span class="comment">// 非核心线程数存活时间为30s</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="built_in">int</span> KEEP_ALIVE_SECONDS = <span class="number">30</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> static <span class="keyword">final</span> <span class="built_in">int</span> CPU_COUNT = Runtime.getRuntime().availableProcessors();</span><br><span class="line"><span class="comment">// 核心线程数最小为2， 最大为4，根据cpu的核数确定。</span></span><br><span class="line">   <span class="keyword">private</span> static <span class="keyword">final</span> <span class="built_in">int</span> CORE_POOL_SIZE = Math.max(<span class="number">2</span>, Math.min(CPU_COUNT - <span class="number">1</span>, <span class="number">4</span>));</span><br><span class="line">   <span class="comment">// 最大线程池数量为 cpu 的核数的2倍 + 1</span></span><br><span class="line">   <span class="keyword">private</span> static <span class="keyword">final</span> <span class="built_in">int</span> MAXIMUM_POOL_SIZE = CPU_COUNT * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">   <span class="comment">// 非核心线程数存活时间为30s</span></span><br><span class="line">   <span class="keyword">private</span> static <span class="keyword">final</span> <span class="built_in">int</span> KEEP_ALIVE_SECONDS = <span class="number">30</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">阻塞队列长度为<span class="number">128</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> BlockingQueue&lt;Runnable&gt; sPoolWorkQueue =</span><br><span class="line">            <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;(<span class="number">128</span>);</span><br></pre></td></tr></table></figure>
 <h5 id="使用中重要的方法"><a class="markdownIt-Anchor" href="#使用中重要的方法"></a> 使用中重要的方法：</h5>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 任务开始前需要的操作：主线程</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPreExecute</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 抽象类，必须要实现。 耗时的操作：子线程</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> Result <span class="title">doInBackground</span>(<span class="params">Params... <span class="keyword">params</span></span>)</span>;</span><br><span class="line"><span class="comment">// 后台任务执行的进度，用于显示进度条：主线程</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span>(<span class="params">Progress... values</span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 任务执行完成后，需要调用的操作：主线程</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span>(<span class="params">Result result</span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 任务开始前需要的操作：主线程</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPreExecute</span>(<span class="params"></span>)</span> &#123;&#125;</span><br><span class="line"><span class="comment">// 抽象类，必须要实现。 耗时的操作：子线程</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> Result <span class="title">doInBackground</span>(<span class="params">Params... <span class="keyword">params</span></span>)</span>;</span><br><span class="line"><span class="comment">// 后台任务执行的进度，用于显示进度条：主线程</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span>(<span class="params">Progress... values</span>)</span> &#123;&#125;</span><br><span class="line"><span class="comment">// 任务执行完成后，需要调用的操作：主线程</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span>(<span class="params">Result result</span>)</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="execute执行方法"><a class="markdownIt-Anchor" href="#execute执行方法"></a> execute执行方法：</h5>
 <figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第一种：需要传入调度器和参数</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> AsyncTask&lt;<span class="keyword">Params</span>, Progress, <span class="keyword">Result</span>&gt; executeOnExecutor(Executor exec,</span><br><span class="line">            <span class="keyword">Params</span>... <span class="keyword">params</span>)</span><br><span class="line">第二种：内部调用了第一种方式，使用默认的调度器，传入参数即可</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> AsyncTask&lt;<span class="keyword">Params</span>, Progress, <span class="keyword">Result</span>&gt; execute(<span class="keyword">Params</span>... <span class="keyword">params</span>) </span><br><span class="line">            </span><br><span class="line">第三种：通过默认调度器执行runnable方法</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> void execute(Runnable runnable)</span><br></pre></td></tr></table></figure>
 <h5 id="默认调度器sdefaultexecutor"><a class="markdownIt-Anchor" href="#默认调度器sdefaultexecutor"></a> 默认调度器：sDefaultExecutor</h5>
@@ -219,7 +219,7 @@ var _hmt = _hmt || [];
 <li>mTasks.offer是每次来了task都放到ArrayDeque的尾部，保证先来的先被执行。</li>
 </ol>
 <h5 id="executeonexecutor方法"><a class="markdownIt-Anchor" href="#executeonexecutor方法"></a> executeOnExecutor()方法：</h5>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> final AsyncTask&lt;Params, Progress, Result&gt; <span class="title">executeOnExecutor</span>(<span class="params">Executor exec,</span></span></span><br><span class="line"><span class="function"><span class="params">            Params... <span class="keyword">params</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mStatus != Status.PENDING) &#123;</span><br><span class="line">            <span class="keyword">switch</span> (mStatus) &#123;</span><br><span class="line">                <span class="keyword">case</span> RUNNING:</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"Cannot execute task:"</span></span><br><span class="line">                            + <span class="string">" the task is already running."</span>);</span><br><span class="line">                <span class="keyword">case</span> FINISHED:</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"Cannot execute task:"</span></span><br><span class="line">                            + <span class="string">" the task has already been executed "</span></span><br><span class="line">                            + <span class="string">"(a task can be executed only once)"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mStatus = Status.RUNNING;</span><br><span class="line"></span><br><span class="line">        onPreExecute();</span><br><span class="line"></span><br><span class="line">        mWorker.mParams = <span class="keyword">params</span>;</span><br><span class="line">        exec.execute(mFuture);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> final AsyncTask&lt;Params, Progress, Result&gt; <span class="title">executeOnExecutor</span>(<span class="params">Executor exec,</span></span></span><br><span class="line"><span class="function"><span class="params">            Params... <span class="keyword">params</span></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (mStatus != Status.PENDING) &#123;</span><br><span class="line">            <span class="keyword">switch</span> (mStatus) &#123;</span><br><span class="line">                <span class="keyword">case</span> RUNNING:</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"Cannot execute task:"</span></span><br><span class="line">                            + <span class="string">" the task is already running."</span>);</span><br><span class="line">                <span class="keyword">case</span> FINISHED:</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"Cannot execute task:"</span></span><br><span class="line">                            + <span class="string">" the task has already been executed "</span></span><br><span class="line">                            + <span class="string">"(a task can be executed only once)"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mStatus = Status.RUNNING;</span><br><span class="line"></span><br><span class="line">        onPreExecute();</span><br><span class="line"></span><br><span class="line">        mWorker.mParams = <span class="keyword">params</span>;</span><br><span class="line">        exec.execute(mFuture);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>executeOnExecutor方法中执行了onPreExecute(),然后执行了exec.execute(mFuture);</p>
 <p>其中Future为：</p>
 <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mFuture = <span class="keyword">new</span> FutureTask&lt;Result&gt;(mWorker) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">done</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    postResultIfNotInvoked(get());</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    android.util.Log.w(LOG_TAG, e);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"An error occurred while executing doInBackground()"</span>,</span><br><span class="line">                            e.getCause());</span><br><span class="line">                &#125; <span class="keyword">catch</span> (CancellationException e) &#123;</span><br><span class="line">                    postResultIfNotInvoked(<span class="keyword">null</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure>
@@ -230,7 +230,7 @@ var _hmt = _hmt || [];
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> static <span class="class"><span class="keyword">class</span> <span class="title">InternalHandler</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line">       public <span class="type">InternalHandler</span>(<span class="type">Looper</span> looper) &#123;</span><br><span class="line">           <span class="keyword">super</span>(looper);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="meta">@SuppressWarnings</span>(&#123;<span class="string">"unchecked"</span>, <span class="string">"RawUseOfParameterizedType"</span>&#125;)</span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">       public void handleMessage(<span class="type">Message</span> msg) &#123;</span><br><span class="line">           <span class="type">AsyncTaskResult</span>&lt;?&gt; result = (<span class="type">AsyncTaskResult</span>&lt;?&gt;) msg.obj;</span><br><span class="line">           switch (msg.what) &#123;</span><br><span class="line">               <span class="keyword">case</span> <span class="type">MESSAGE_POST_RESULT</span>:</span><br><span class="line">                   <span class="comment">// There is only one result</span></span><br><span class="line">                   result.mTask.finish(result.mData[<span class="number">0</span>]);</span><br><span class="line">                   <span class="keyword">break</span>;</span><br><span class="line">               <span class="keyword">case</span> <span class="type">MESSAGE_POST_PROGRESS</span>:</span><br><span class="line">                   result.mTask.onProgressUpdate(result.mData);</span><br><span class="line">                   <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>接收结果的为InternalHandler类，接收到结果并调用mTask的finish方法并把结果返回过去。</p>
 <h5 id="finish方法"><a class="markdownIt-Anchor" href="#finish方法"></a> finish方法</h5>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private <span class="built_in">void</span> finish(<span class="type">Result</span> <span class="literal">result</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (isCancelled()) &#123;</span><br><span class="line">            onCancelled(<span class="literal">result</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            onPostExecute(<span class="literal">result</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        mStatus = <span class="type">Status</span>.<span class="type">FINISHED</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">private</span> <span class="variable">void</span> <span class="function"><span class="title">finish</span>(<span class="variable"><span class="class">Result</span></span> <span class="variable"><span class="class">result</span></span>) &#123;</span></span><br><span class="line"><span class="function">        <span class="variable"><span class="keyword">if</span></span> (<span class="title">isCancelled</span>()) &#123;</span></span><br><span class="line"><span class="function">            <span class="title">onCancelled</span>(<span class="variable"><span class="class">result</span></span>);</span></span><br><span class="line"><span class="function">        &#125; <span class="variable"><span class="keyword">else</span></span> &#123;</span></span><br><span class="line"><span class="function">            <span class="title">onPostExecute</span>(<span class="variable"><span class="class">result</span></span>);</span></span><br><span class="line"><span class="function">        &#125;</span></span><br><span class="line"><span class="function">        <span class="variable">mStatus</span> = <span class="variable">Status</span>.FINISHED;</span></span><br><span class="line"><span class="function">    &#125;</span></span><br></pre></td></tr></table></figure>
 <p>当Task结束后，会调用finish方法，如AsyncTask已经被取消，则会返回onCancelled回调，当未被取消则会调用onPostExecute回调。因此，onPostExecute回调也是主线程。</p>
 <h5 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结：</h5>
 <p>过去一直在用AsyncTask，也知道怎样调用，但并不知道它的工作原理，经过我们分析源码可以看到，AsyncTask为我们做了很好的线程管理(在应用中滥用线程，会造成线程过多引起很严重的问题)，提供了执行前，执行中进度条更新，执行后等回调操作，便利了我们使用。</p>
@@ -556,11 +556,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jni</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jar</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">file</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -604,11 +612,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">integer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,7 +624,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">integer</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,10 +633,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">round</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -648,6 +652,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">qt</a>
               </li>
              
@@ -656,11 +664,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,11 +708,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lint</a>
+                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
+                <a href="javascript:void(0)" class="js-tag color5">lint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -720,11 +728,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+                <a href="javascript:void(0)" class="js-tag color3">english</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">english</a>
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
             
             <div class="clearfix"></div>
@@ -860,23 +868,6 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  </div>
 </body>
 </html>
