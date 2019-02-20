@@ -90,12 +90,6 @@ var _hmt = _hmt || [];
 				
 					<a class="github" target="_blank" href="http://github.com/liyuzhao" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
-		        
 					<a class="mail" target="_blank" href="mailto:544188885@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
@@ -132,12 +126,6 @@ var _hmt = _hmt || [];
 				<div class="social">
 					
 						<a class="github" target="_blank" href="http://github.com/liyuzhao" title="github"><i class="icon-github"></i></a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:544188885@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -188,10 +176,18 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>文件操作</p>
-<h3 id="fopen"><a href="#fopen" class="headerlink" title="fopen"></a>fopen</h3><p>r 以只读方式打开文件， 该文件必须存在<br>r+ 以可读方式打开文件，该文件必须存在<br>rb+ 读写打开一个二进制文件，允许读写数据，文件必须存在<br>rw+ 读写打开一个文本文件，允许读和写<br>w     打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失，若文件不存在则建立该文件。<br>w+    打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失，若文件不存在则建立该文件。</p>
-<p>a     以追加的方式打开只写文件，若文件不存在，则会建立该文件，如果文件存在，写入的数据会被追加到文件末尾，即文件原先的内容不会被覆盖。(EOF符保留)</p>
-<p>a+     以追加的方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被追加到文件末尾，即文件原先的内容不会被覆盖。(原先的EOF符不保留)</p>
-<h3 id="EOF与feof-函数文件结尾"><a href="#EOF与feof-函数文件结尾" class="headerlink" title="EOF与feof 函数文件结尾"></a>EOF与feof 函数文件结尾</h3><p>如果已经是文件尾， feof 函数返回true.<br>EOF 用于一个字符一个字符输出时，当获取到的字符是EOF(其中EOF真实为-1)，则代表已经是文件尾。</p>
+<h3 id="fopen"><a class="markdownIt-Anchor" href="#fopen"></a> fopen</h3>
+<p>r 以只读方式打开文件， 该文件必须存在<br>
+r+ 以可读方式打开文件，该文件必须存在<br>
+rb+ 读写打开一个二进制文件，允许读写数据，文件必须存在<br>
+rw+ 读写打开一个文本文件，允许读和写<br>
+w 	打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失，若文件不存在则建立该文件。<br>
+w+	打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失，若文件不存在则建立该文件。</p>
+<p>a 	以追加的方式打开只写文件，若文件不存在，则会建立该文件，如果文件存在，写入的数据会被追加到文件末尾，即文件原先的内容不会被覆盖。(EOF符保留)</p>
+<p>a+ 	以追加的方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被追加到文件末尾，即文件原先的内容不会被覆盖。(原先的EOF符不保留)</p>
+<h3 id="eof与feof-函数文件结尾"><a class="markdownIt-Anchor" href="#eof与feof-函数文件结尾"></a> EOF与feof 函数文件结尾</h3>
+<p>如果已经是文件尾， feof 函数返回true.<br>
+EOF 用于一个字符一个字符输出时，当获取到的字符是EOF(其中EOF真实为-1)，则代表已经是文件尾。</p>
         
           <a class="article-more-a" href="/2019/02/18/C语言-文件操作/#more">more >></a>
         
@@ -1373,19 +1369,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jar</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jni</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">file</a>
+                <a href="javascript:void(0)" class="js-tag color4">jar</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1413,6 +1401,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">file</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">EditText</a>
               </li>
              
@@ -1429,7 +1425,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1437,11 +1433,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">gyp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1461,19 +1457,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">qt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">dns</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1485,19 +1485,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">glide</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">grep</a>
+                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">appicon</a>
+                <a href="javascript:void(0)" class="js-tag color5">grep</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1509,11 +1505,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wireshark</a>
+                <a href="javascript:void(0)" class="js-tag color5">lint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1522,14 +1526,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">backup</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">keyboard</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1545,11 +1541,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">english</a>
+                <a href="javascript:void(0)" class="js-tag color3">命名</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命名</a>
+                <a href="javascript:void(0)" class="js-tag color3">english</a>
               </li>
             
             <div class="clearfix"></div>
