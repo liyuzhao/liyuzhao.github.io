@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="催眠术的博客">
 <meta property="og:description" content="框架Android 日志框架把日志消息分成4个日志缓冲区：  Main: 主要应用程序的日志信息 Event: 系统事件 Radio: Radio相关的日志信息 System: 调试时产生的低级系统调试信息  这 4 个缓冲区以伪设备的形式保存在/dev/log 系统目录中。因为移动平台上的 I/O 操作代价很大，所以日志信息要保存到内存中，而不能保存在永久性存储器(例如磁盘)中。为了有效控制对存">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-07T11:51:13.089Z">
+<meta property="og:updated_time" content="2019-02-20T07:46:22.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JNI-日志">
 <meta name="twitter:description" content="框架Android 日志框架把日志消息分成4个日志缓冲区：  Main: 主要应用程序的日志信息 Event: 系统事件 Radio: Radio相关的日志信息 System: 调试时产生的低级系统调试信息  这 4 个缓冲区以伪设备的形式保存在/dev/log 系统目录中。因为移动平台上的 I/O 操作代价很大，所以日志信息要保存到内存中，而不能保存在永久性存储器(例如磁盘)中。为了有效控制对存">
@@ -366,6 +366,7 @@
 <li>System: 调试时产生的低级系统调试信息</li>
 </ul>
 <p>这 4 个缓冲区以伪设备的形式保存在/dev/log 系统目录中。因为移动平台上的 I/O 操作代价很大，所以日志信息要保存到内存中，而不能保存在永久性存储器(例如磁盘)中。为了有效控制对存储日志信息的内存空间的利用， logger 模块把日志信息放在固定大小的缓冲区。 Main、radio 和 system 日志以自由文本的格式保存在 64KB的日志缓存区中。事件日志信息带有额外的二进制形式信息，因此保存在256KB的日志缓存区中。</p>
+<a id="more"></a>
 <h4 id="原生日志API"><a href="#原生日志API" class="headerlink" title="原生日志API"></a>原生日志API</h4><p>开发者不希望直接与Logger内核模块进行交互。 Android 运行库系统提供了一组 API 调用以便于 Java 代码和原生代码向 logger 内核模块发送日志信息。通过 android/log.h 头文件来展示原生代码的日志 API。为了使用日志函数，原生代码需要先包含该头文件</p>
 <figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;android.h&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>除了要包含合适的头文件，还需要动态修改 Android.mk 文件从而将原生模块与日志库进行链接，可以通过构建系统变量 <code>LOCAL_LDLIBS</code> 完成该操作， 该构建系统变量必须被放在共享库构建片段的include语句之前；否则它将不起作用。</p>
