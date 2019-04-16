@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="催眠术的博客">
 <meta property="og:description" content="在头文件 iomainip.h 中定义了一些控制流输出格式的函数，默认情况下整型数按十进制形式输出，也可以通过 hex 将其设置为十六进制输出。 流操作的控制具体函数如下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-16T05:02:05.180Z">
+<meta property="og:updated_time" content="2019-04-16T06:46:31.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++流操作的控制">
 <meta name="twitter:description" content="在头文件 iomainip.h 中定义了一些控制流输出格式的函数，默认情况下整型数按十进制形式输出，也可以通过 hex 将其设置为十六进制输出。 流操作的控制具体函数如下。">
@@ -354,27 +354,16 @@
 
       
         <p>在头文件 <code>iomainip.h</code> 中定义了一些控制流输出格式的函数，默认情况下整型数按十进制形式输出，也可以通过 hex 将其设置为十六进制输出。</p>
-<p>流操作的控制具体函数如下。</p>
-<a id="more"></a>
-<h5 id="1-long-setflong-f"><a class="markdownIt-Anchor" href="#1-long-setflong-f"></a> (1) long setf(long f);</h5>
-<p>根据参数 f 设置相应的格式标志，返回此前的设置。该参数 f 所对应的实参为无名枚举类型中的枚举常量(又称格式化常量)，可以同时使用一个或多个常量，每两个常量之间要用按位或操作符连接。<br>
-如需要左对齐输出，并使数值中的字母大写时，则调用该函数的实参为 <code>ios::left|ios::uppercase</code>。</p>
-<h5 id="2-long-unsetflong-f"><a class="markdownIt-Anchor" href="#2-long-unsetflong-f"></a> (2) long unsetf(long f);</h5>
-<p>根据参数 f 清除相应的格式化标志，返回此前的设置。 如果要清除此前左对齐输出设置，恢复默认的右对齐输出设置，则调用该函数的实参为 <code>ios::left</code>。</p>
-<h5 id="3-int-width"><a class="markdownIt-Anchor" href="#3-int-width"></a> (3) int width();</h5>
-<p>返回当前的输出域宽。若返回数值为0，则表明没为刚才输出的数值设置输出域宽。输出域宽是指输出的值在流中所占有的字节数。</p>
-<h5 id="4-int-widthint-w"><a class="markdownIt-Anchor" href="#4-int-widthint-w"></a> (4) int width(int w);</h5>
-<p>设置下一个数据值的输出域宽为w, 返回为输出上一个数据值所规定的域宽，若无规定则返回0.注意，此设置不是一直有效，而只是对下一个输出数据有效。</p>
-<h5 id="5-setiosflagslong-f"><a class="markdownIt-Anchor" href="#5-setiosflagslong-f"></a> (5) setiosflags(long f);</h5>
-<p>设置f所对应的格式标志，功能与setf(long f)成员函数相同，当然，在输出该操作符后返回的是一个输出流。如果采用标准输出流 cout 输出它时，则返回 cout。输出每个操作符后都是如此，即返回输出它的流，以便向流中继续插入下一个数据。</p>
-<h5 id="6-resetiosflagslong-f"><a class="markdownIt-Anchor" href="#6-resetiosflagslong-f"></a> (6) resetiosflags(long f);</h5>
-<p>清除 f 所对应的格式化标志，功能与 unsetf(long f)成员函数相同。输出后返回一个流。</p>
-<h5 id="7-setfillint-c"><a class="markdownIt-Anchor" href="#7-setfillint-c"></a> (7) setfill(int c);</h5>
-<p>设置填充字符的 ASCⅡ 码为 c 的字符。</p>
-<h5 id="8-setprecisionint-n"><a class="markdownIt-Anchor" href="#8-setprecisionint-n"></a> (8) setprecision(int n);</h5>
-<p>设置浮点数的输出精度为 n 。</p>
-<h5 id="9-setwint-w"><a class="markdownIt-Anchor" href="#9-setwint-w"></a> (9) setw(int w);</h5>
-<p>设置下一个数据的输出域宽为 w 。</p>
+<p>流操作的控制具体函数如下。<br><a id="more"></a></p>
+<h5 id="1-long-setf-long-f"><a href="#1-long-setf-long-f" class="headerlink" title="(1) long setf(long f);"></a>(1) long setf(long f);</h5><p>根据参数 f 设置相应的格式标志，返回此前的设置。该参数 f 所对应的实参为无名枚举类型中的枚举常量(又称格式化常量)，可以同时使用一个或多个常量，每两个常量之间要用按位或操作符连接。<br>如需要左对齐输出，并使数值中的字母大写时，则调用该函数的实参为 <code>ios::left|ios::uppercase</code>。</p>
+<h5 id="2-long-unsetf-long-f"><a href="#2-long-unsetf-long-f" class="headerlink" title="(2) long unsetf(long f);"></a>(2) long unsetf(long f);</h5><p>根据参数 f 清除相应的格式化标志，返回此前的设置。 如果要清除此前左对齐输出设置，恢复默认的右对齐输出设置，则调用该函数的实参为 <code>ios::left</code>。</p>
+<h5 id="3-int-width"><a href="#3-int-width" class="headerlink" title="(3) int width();"></a>(3) int width();</h5><p>返回当前的输出域宽。若返回数值为0，则表明没为刚才输出的数值设置输出域宽。输出域宽是指输出的值在流中所占有的字节数。</p>
+<h5 id="4-int-width-int-w"><a href="#4-int-width-int-w" class="headerlink" title="(4) int width(int w);"></a>(4) int width(int w);</h5><p>设置下一个数据值的输出域宽为w, 返回为输出上一个数据值所规定的域宽，若无规定则返回0.注意，此设置不是一直有效，而只是对下一个输出数据有效。</p>
+<h5 id="5-setiosflags-long-f"><a href="#5-setiosflags-long-f" class="headerlink" title="(5) setiosflags(long f);"></a>(5) setiosflags(long f);</h5><p>设置f所对应的格式标志，功能与setf(long f)成员函数相同，当然，在输出该操作符后返回的是一个输出流。如果采用标准输出流 cout 输出它时，则返回 cout。输出每个操作符后都是如此，即返回输出它的流，以便向流中继续插入下一个数据。</p>
+<h5 id="6-resetiosflags-long-f"><a href="#6-resetiosflags-long-f" class="headerlink" title="(6) resetiosflags(long f);"></a>(6) resetiosflags(long f);</h5><p>清除 f 所对应的格式化标志，功能与 unsetf(long f)成员函数相同。输出后返回一个流。</p>
+<h5 id="7-setfill-int-c"><a href="#7-setfill-int-c" class="headerlink" title="(7) setfill(int c);"></a>(7) setfill(int c);</h5><p>设置填充字符的 ASCⅡ 码为 c 的字符。</p>
+<h5 id="8-setprecision-int-n"><a href="#8-setprecision-int-n" class="headerlink" title="(8) setprecision(int n);"></a>(8) setprecision(int n);</h5><p>设置浮点数的输出精度为 n 。</p>
+<h5 id="9-setw-int-w"><a href="#9-setw-int-w" class="headerlink" title="(9) setw(int w);"></a>(9) setw(int w);</h5><p>设置下一个数据的输出域宽为 w 。</p>
 <p>数据输入/输出的格式控制还有更简便的形式，就是使用头文件 iomainip.h 中提供的操作符。使用这些操作符不需要调用成员函数，只要把它们作为插入操作符 “” 的输出对象即可。</p>
 <p>☑ dec: 转换为按十进制输出整数，是默认的输出格式。</p>
 <p>☑ oct: 转换为按八进制输出整数。</p>
@@ -384,76 +373,13 @@
 <p>☑ ends: 输出一个空字符\0。</p>
 <p>☑ flush: 只刷新一个输出流。</p>
 <p>例如 (控制打印程序)：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">double</span> a = <span class="number">123.456789012345</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setprecision(<span class="number">9</span>) &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setprecision(<span class="number">6</span>); <span class="comment">// 恢复默认格式（精度为6）</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setiosflags(ios::fixed);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setiosflags(ios::fixed) &lt;&lt; setprecision(<span class="number">8</span>) &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setiosflags(ios::scientific) &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setiosflags(ios::scientific) &lt;&lt; setprecision(<span class="number">4</span>) &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">例如 (整数输出的例子)：</span><br></pre></td></tr></table></figure>
-<p>#include <iostream><br>
-#include <iomainip><br>
-using namespace std;<br>
-void main()<br>
-{<br>
-int b = 123456;	// 对b赋初值<br>
-cout &lt;&lt; b &lt;&lt; endl;	// 输出: 123456<br>
-cout &lt;&lt; hex &lt;&lt; b &lt;&lt; endl; // 输出：1e240<br>
-cout &lt;&lt; setiosflags(ios::uppercase) &lt;&lt; b &lt;&lt; endl;  // 输出：1E240<br>
-cout &lt;&lt; setw(10) &lt;&lt; b &lt;&lt; ‘,’ &lt;&lt; b &lt;&lt; endl; // 输出：    123456， 123456<br>
-cout &lt;&lt; setfill(’*’) &lt;&lt; setw(10) &lt;&lt; b &lt;&lt; endl; // 输出： **** 123456<br>
-cout &lt;&lt; setiosflags(ios::showpos) &lt;&lt; b &lt;&lt; endl; // 输出：+123456</iomainip></iostream></p>
-<p>}</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">例如<span class="comment">(输出大写的十六进制)</span>：</span><br></pre></td></tr></table></figure>
-<p>#include <iostream><br>
-#include <iomanip><br>
-using namespace std;<br>
-void main()<br>
-{<br>
-int i=0x2F,j=255;<br>
-cout &lt;&lt; i &lt;&lt; endl;<br>
-cout &lt;&lt; hex &lt;&lt; i &lt;&lt; endl;<br>
-cout &lt;&lt; hex &lt;&lt; j &lt;&lt; endl;<br>
-cout &lt;&lt; hex &lt;&lt; setiosflags(ios::uppercase)&lt;&lt;j&lt;&lt;endl;<br>
-}</iomanip></iostream></p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">例如<span class="comment">(控制输出精度)</span>：</span><br></pre></td></tr></table></figure>
-<p>#include <iostream><br>
-#include <iomanip><br>
-using namespace std;<br>
-void main()<br>
-{<br>
-int x = 123;<br>
-double y = 3.1415;<br>
-cout &lt;&lt; “x=”;<br>
-cout.width(10);<br>
-cout &lt;&lt; y &lt;&lt; endl;<br>
-cout.setf(ios::left);<br>
-cout &lt;&lt; “x=”;<br>
-cout.width(10);<br>
-cout &lt;&lt; x;<br>
-cout &lt;&lt; “y=”;<br>
-cout &lt;&lt; y &lt;&lt; endl;<br>
-cout.fill(’*’);<br>
-cout.precision(4);<br>
-cout.setf(ios:showpos);<br>
-cout &lt;&lt; “x=”;<br>
-cout.width(10);<br>
-cout &lt;&lt; x;<br>
-cout &lt;&lt; “y=”;<br>
-cout.width(10);<br>
-cout &lt;&lt; y &lt;&lt; endl;<br>
-}</iomanip></iostream></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">例如（流输出小数点控制）：</span><br></pre></td></tr></table></figure>
-<p>#include <iostream><br>
-using namespace std;<br>
-void main()<br>
-{<br>
-float x = 20, y = -400;<br>
-cout &lt;&lt; x &lt;&lt; ‘’ &lt;&lt; y &lt;&lt; endl;<br>
-cout.setf(ios::showpoint); // 强制显示小数点和无效0<br>
-cout &lt;&lt; x &lt;&lt; ‘’ &lt;&lt; y &lt;&lt; endl;<br>
-cout.unsetf(ios::showpoint);<br>
-cout.setf(ios::scientific); // 设置按科学表示法输出<br>
-cout &lt;&lt; x &lt;&lt; ‘’ &lt;&lt; y &lt;&lt; endl;<br>
-cout.setf(ios::fixed); // 设置按定点表示法输出<br>
-cout &lt;&lt; x &lt;&lt; ‘’ &lt;&lt; y &lt;&lt; endl;<br>
-}</iostream></p>
-<pre class="highlight"><code class></code></pre>
-
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">double</span> a = <span class="number">123.456789012345</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setprecision(<span class="number">9</span>) &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setprecision(<span class="number">6</span>); <span class="comment">// 恢复默认格式（精度为6）</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setiosflags(ios::fixed);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setiosflags(ios::fixed) &lt;&lt; setprecision(<span class="number">8</span>) &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setiosflags(ios::scientific) &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setiosflags(ios::scientific) &lt;&lt; setprecision(<span class="number">4</span>) &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">例如 (整数输出的例子)：</span><br><span class="line"></span><br><span class="line">```c++</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomainip&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> b = <span class="number">123456</span>;	<span class="comment">// 对b赋初值</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 输出: 123456</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; hex &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出：1e240</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setiosflags(ios::uppercase) &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>;  <span class="comment">// 输出：1E240</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setw(<span class="number">10</span>) &lt;&lt; b &lt;&lt; <span class="string">','</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出：    123456， 123456</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setfill(<span class="string">'*'</span>) &lt;&lt; setw(<span class="number">10</span>) &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出： **** 123456</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; setiosflags(ios::showpos) &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出：+123456</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例如(输出大写的十六进制)：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0x2F</span>,j=<span class="number">255</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; hex &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; hex &lt;&lt; j &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; hex &lt;&lt; setiosflags(ios::uppercase)&lt;&lt;j&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例如(控制输出精度)：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">123</span>;</span><br><span class="line">	<span class="keyword">double</span> y = <span class="number">3.1415</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"x="</span>;</span><br><span class="line">	<span class="built_in">cout</span>.width(<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; y &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>.setf(ios::left);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"x="</span>;</span><br><span class="line">	<span class="built_in">cout</span>.width(<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; x;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"y="</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; y &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>.fill(<span class="string">'*'</span>);</span><br><span class="line">	<span class="built_in">cout</span>.precision(<span class="number">4</span>);</span><br><span class="line">	<span class="built_in">cout</span>.setf(ios:showpos);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"x="</span>;</span><br><span class="line">	<span class="built_in">cout</span>.width(<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; x;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"y="</span>;</span><br><span class="line">	<span class="built_in">cout</span>.width(<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; y &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例如（流输出小数点控制）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">float</span> x = <span class="number">20</span>, y = <span class="number">-400</span>;</span><br><span class="line">	cout &lt;&lt; x &lt;&lt; '' &lt;&lt; y &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">cout</span>.setf(ios::showpoint); <span class="comment">// 强制显示小数点和无效0</span></span><br><span class="line">	cout &lt;&lt; x &lt;&lt; '' &lt;&lt; y &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">cout</span>.unsetf(ios::showpoint); </span><br><span class="line">	<span class="built_in">cout</span>.setf(ios::scientific); <span class="comment">// 设置按科学表示法输出</span></span><br><span class="line">	cout &lt;&lt; x &lt;&lt; '' &lt;&lt; y &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">cout</span>.setf(ios::fixed); <span class="comment">// 设置按定点表示法输出</span></span><br><span class="line">	cout &lt;&lt; x &lt;&lt; '' &lt;&lt; y &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -654,7 +580,7 @@ cout &lt;&lt; x &lt;&lt; ‘’ &lt;&lt; y &lt;&lt; endl;<br>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-long-setflong-f"><span class="nav-number">1.</span> <span class="nav-text"> (1) long setf(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-long-unsetflong-f"><span class="nav-number">2.</span> <span class="nav-text"> (2) long unsetf(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-int-width"><span class="nav-number">3.</span> <span class="nav-text"> (3) int width();</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-int-widthint-w"><span class="nav-number">4.</span> <span class="nav-text"> (4) int width(int w);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-setiosflagslong-f"><span class="nav-number">5.</span> <span class="nav-text"> (5) setiosflags(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-resetiosflagslong-f"><span class="nav-number">6.</span> <span class="nav-text"> (6) resetiosflags(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-setfillint-c"><span class="nav-number">7.</span> <span class="nav-text"> (7) setfill(int c);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-setprecisionint-n"><span class="nav-number">8.</span> <span class="nav-text"> (8) setprecision(int n);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-setwint-w"><span class="nav-number">9.</span> <span class="nav-text"> (9) setw(int w);</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-long-setf-long-f"><span class="nav-number">1.</span> <span class="nav-text">(1) long setf(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-long-unsetf-long-f"><span class="nav-number">2.</span> <span class="nav-text">(2) long unsetf(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-int-width"><span class="nav-number">3.</span> <span class="nav-text">(3) int width();</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-int-width-int-w"><span class="nav-number">4.</span> <span class="nav-text">(4) int width(int w);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-setiosflags-long-f"><span class="nav-number">5.</span> <span class="nav-text">(5) setiosflags(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-resetiosflags-long-f"><span class="nav-number">6.</span> <span class="nav-text">(6) resetiosflags(long f);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-setfill-int-c"><span class="nav-number">7.</span> <span class="nav-text">(7) setfill(int c);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-setprecision-int-n"><span class="nav-number">8.</span> <span class="nav-text">(8) setprecision(int n);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-setw-int-w"><span class="nav-number">9.</span> <span class="nav-text">(9) setw(int w);</span></a></li></ol></div>
             
 
           </div>
