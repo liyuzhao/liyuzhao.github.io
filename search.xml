@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>vpn下git clone的正确方式</title>
+      <link href="/2019/07/12/vpn%E4%B8%8Bgit-clone%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%96%B9%E5%BC%8F/"/>
+      <url>/2019/07/12/vpn%E4%B8%8Bgit-clone%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%96%B9%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<p>在Mac系统中，使用了Shadowsocks开了代理，使用浏览器打开Google是正常的，但用git clone googlesource.com里面的代码，缺总是超时，怎样解决git也使用代理呢？</p><p>修改git配置即可，速度直接飙升10倍</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git config --global http<span class="selector-class">.proxy</span> <span class="string">'socks5://127.0.0.1:1080'</span></span><br><span class="line"></span><br><span class="line">git config --global https<span class="selector-class">.proxy</span> <span class="string">'socks5://127.0.0.1:1080'</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Makefile经典教程</title>
       <link href="/2019/05/22/Makefile%E7%BB%8F%E5%85%B8%E6%95%99%E7%A8%8B/"/>
       <url>/2019/05/22/Makefile%E7%BB%8F%E5%85%B8%E6%95%99%E7%A8%8B/</url>
@@ -718,9 +745,9 @@
       
         <tags>
             
-            <tag> integer </tag>
-            
             <tag> java </tag>
+            
+            <tag> integer </tag>
             
         </tags>
       
