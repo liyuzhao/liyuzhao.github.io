@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Linux搜索命令ag</title>
+      <link href="/2019/09/24/Linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4ag/"/>
+      <url>/2019/09/24/Linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4ag/</url>
+      
+        <content type="html"><![CDATA[<p>ag的the_silver_searcher介绍，搜索代码神器</p><a id="more"></a><p>the_silver_searcher是什么？ ag又是什么？</p><p>作者主页关于the_silver_searcher的说明：<a href="http://geoff.greer.fm/ag/" target="_blank" rel="noopener">http://geoff.greer.fm/ag/</a></p><p>The Silver Searcher is a tool for searching code. It started off as a clone of Ack, but their feature sets have since diverged slightly. In typical usage, Ag is 5-10x faster than Ack. See the GitHub page for more info.</p><p>源代码：<a href="https://github.com/ggreer/the_silver_searcher" target="_blank" rel="noopener">https://github.com/ggreer/the_silver_searcher</a></p><p>Mac 下安装：</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>the_silver_searcher</span><br></pre></td></tr></table></figure><p>Mac 下卸载：</p><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>uninstall the_silver_searcher</span><br></pre></td></tr></table></figure><p>使用方法</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ag <span class="string">'hx'</span> <span class="regexp">/www/</span>t086.com</span><br></pre></td></tr></table></figure><p>常用参数<br>-i 忽略大小写<br>-l 只列出文件名<br>-g 文件名匹配<br>–php 只搜索php文件<br>–ignore-dir 忽略目录</p><p>如：</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ag <span class="params">--ignore-dir</span> sitedata <span class="params">--php</span> hx <span class="string">/www/9enjoy.com</span></span><br></pre></td></tr></table></figure><p>更多</p><p>-h 看帮助吧</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> ag </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git命令生成Patch和打补丁</title>
       <link href="/2019/07/26/Git%E5%91%BD%E4%BB%A4%E7%94%9F%E6%88%90Patch%E5%92%8C%E6%89%93%E8%A1%A5%E4%B8%81/"/>
       <url>/2019/07/26/Git%E5%91%BD%E4%BB%A4%E7%94%9F%E6%88%90Patch%E5%92%8C%E6%89%93%E8%A1%A5%E4%B8%81/</url>
@@ -799,9 +826,9 @@
       
         <tags>
             
-            <tag> java </tag>
-            
             <tag> integer </tag>
+            
+            <tag> java </tag>
             
         </tags>
       
