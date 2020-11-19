@@ -242,6 +242,185 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/11/15/iPhone开发-UILabel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/15/iPhone开发-UILabel/" itemprop="url">iPhone开发-UILabel</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T20:38:52+08:00">
+                2017年11月15日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ios/" itemprop="url" rel="index">
+                    <span itemprop="name">ios</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/15/iPhone开发-UILabel/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/15/iPhone开发-UILabel/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/15/iPhone开发-UILabel/" class="leancloud_visitors" data-flag-title="iPhone开发-UILabel">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>UILable 的用法涉及内容有如下</p>
+<ol>
+<li>创建与显示</li>
+<li>文本内容和字体设置</li>
+<li>背景颜色指定</li>
+<li>计算高度。</li>
+<li>行数指定和计算</li>
+</ol>
+<p>UIlabel可以显示指定的行数，设置numberOfLines =0 则为不限制行数，因为UIlabel不是Icontrol的方面，没有addTarget和block等方法处理相应的行为机制，但支持扩展手势触控等方法处理点击，不过对于html 超链接响应情况，在之前看过是需要采用第三方处理机制处理。</p>
+<p>在日常使用过程，对于文本方法计算高度的用法很常用，ios提供相应计算方法。如属于NSString的类别（NSStringDrawing.h）该类为此提供相应处理解决方案，提供计算高度和文本大小的方法。<br>注意到 过去ios6的版本 提供sizeWithFont方法 在ios 7.0 已经不生效，需要改成其他方法处理。boundingRectWithSize 后续推荐的方式。</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(CGSize)</span>sizeWithAttributes:<span class="params">(NSDictionary *)</span>attrs NS_AVAILABLE_IOS<span class="params">(<span class="number">7</span>_0)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(CGRect)</span>boundingRectWithSize:<span class="params">(CGSize)</span>size options:<span class="params">(NSStringDrawingOptions)</span>options attributes:<span class="params">(NSDictionary *)</span>attributes context:<span class="params">(NSStringDrawingContext *)</span>context NS_AVAILABLE_IOS<span class="params">(<span class="number">7</span>_0)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span> = [[UILabel alloc]initWithFrame:CGRectMake(<span class="number">85</span>, <span class="number">0</span>, <span class="literal">self</span>.view.frame.size.width-<span class="number">85</span>, <span class="number">70</span>)];</span><br><span class="line"> [<span class="literal">self</span>.panel addSubview:<span class="literal">self</span>.<span class="keyword">label</span>];</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.text = @<span class="string">"这个人很懒，什么都没留下"</span>;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.numberOfLines = <span class="number">3</span>;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.lineBreakMode = NSLineBreakByCharWrapping;</span><br><span class="line"> <span class="literal">self</span>.<span class="keyword">label</span>.font =[UIFont systemFontOfSize:<span class="number">14</span>];</span><br><span class="line">// <span class="literal">self</span>.<span class="keyword">label</span>.<span class="keyword">user</span>InteractionEnabled = YES; 需要的时候才打开</span><br><span class="line"> [<span class="literal">self</span>.view addSubview:<span class="literal">self</span>.panel];</span><br></pre></td></tr></table></figure>
+<p>下面计算一下高度，当采用默认字体的时候，字体号为17，其高度约为20, 字体为14的时候，高度约为16~17之间</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">字体号：<span class="number">17</span> ，文本高：<span class="number">20</span></span><br><span class="line">字体号：<span class="number">16</span> ，文本高：<span class="number">19</span></span><br><span class="line">字体号：<span class="number">15</span> ，文本高：<span class="number">17</span>~<span class="number">18</span> 之间</span><br><span class="line">字体号：<span class="number">14</span>， 文本高：<span class="number">16</span>~<span class="number">17</span> 之间</span><br></pre></td></tr></table></figure>
+<p>这些字体是默认字体，要是采用其他字体或者设置粗体 ，估计值会受到一些浮动影响。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> getTextHeight:<span class="number">17</span> width:<span class="keyword">self</span>.view.frame.size.width<span class="number">-85</span>];   </span><br><span class="line">-(<span class="keyword">void</span>) getTextHeight:(<span class="built_in">CGFloat</span>) fontSize width:(<span class="built_in">CGFloat</span>) textWidth</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSDictionary</span> *dic =@&#123;<span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:fontSize]&#125;;</span><br><span class="line">    <span class="built_in">CGSize</span> curSize = <span class="built_in">CGSizeMake</span>(textWidth, MAXFLOAT);</span><br><span class="line">    <span class="built_in">CGRect</span> rect =   [<span class="keyword">self</span>.label.text boundingRectWithSize:curSize</span><br><span class="line">                                                  options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span>|<span class="built_in">NSStringDrawingUsesFontLeading</span></span><br><span class="line">                                               attributes:dic context:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *str = <span class="built_in">NSStringFromCGRect</span>(rect);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,str);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2017/11/15/iPhone开发-leftBarButtonItem/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1739,176 +1918,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2016/09/01/EditText-的使用及值得注意的地方/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="催眠术">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="催眠术的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/01/EditText-的使用及值得注意的地方/" itemprop="url">EditText 的使用及值得注意的地方</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-01T12:54:29+08:00">
-                2016年09月01日
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/09/01/EditText-的使用及值得注意的地方/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/09/01/EditText-的使用及值得注意的地方/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2016/09/01/EditText-的使用及值得注意的地方/" class="leancloud_visitors" data-flag-title="EditText 的使用及值得注意的地方">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>来源：<a href="http://www.jianshu.com/p/1f05bb1fde3e" target="_blank" rel="noopener">http://www.jianshu.com/p/1f05bb1fde3e</a><br>作者：张明云（@UperOne）</p>
-</blockquote>
-<p>Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/09/01/EditText-的使用及值得注意的地方/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1961,7 +1970,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
