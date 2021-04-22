@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="cpp11,chrono,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="C++11 chrono解析">
+<meta name="keywords" content="cpp11,chrono">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++11 chrono解析">
+<meta property="og:url" content="http://lyuzhao.com/2021/04/22/C-11-chrono解析/index.html">
+<meta property="og:site_name" content="催眠术的博客">
+<meta property="og:description" content="C++11 chrono解析">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-04-22T04:34:11.140Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++11 chrono解析">
+<meta name="twitter:description" content="C++11 chrono解析">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lyuzhao.com/2021/04/22/C-11-chrono解析/">
+
+
+
+
+
+  <title>C++11 chrono解析 | 催眠术的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9b14e8e9abf2dbd975832c83cdf15b71";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">催眠术的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyuzhao.com/2021/04/22/C-11-chrono解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="催眠术">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="催眠术的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++11 chrono解析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-22T10:36:12+08:00">
+                2021年04月22日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index">
+                    <span itemprop="name">cpp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/04/22/C-11-chrono解析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/04/22/C-11-chrono解析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2021/04/22/C-11-chrono解析/" class="leancloud_visitors" data-flag-title="C++11 chrono解析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>C++11 chrono解析</p>
+<a id="more"></a>
+<p>chrono 是C++11的时间库，提供了计时、时钟等功能。</p>
+<p>学习chrono, 关键是理解里面时间段(Durations)、时间点(Time points)的概念。</p>
+<h3 id="精度"><a href="#精度" class="headerlink" title="精度"></a>精度</h3><p>时钟节拍(时间精度):</p>
+<p>template&lt;intmax_t N, intmax_t D = l&gt; class ratio;</p>
+<p>其中：N表示分子，D表示分母，默认用秒表示的时间单位。</p>
+<p>N对应于其成员num，D对应于其成员den</p>
+<p>常用的单位：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ratio&lt;<span class="number">60</span>, <span class="number">1</span>&gt; minute</span><br><span class="line">ratio&lt;<span class="number">1</span>, <span class="number">1</span>&gt;	second</span><br><span class="line">ratio&lt;<span class="number">1</span>, <span class="number">1000</span>&gt; 	microsecond</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>ratio主要是为后面将要讲解的时间段，时间点等提供精度(单位)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;chrono&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"millisecond:"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::chrono::milliseconds::period::num &lt;&lt; <span class="string">"/"</span> &lt;&lt; <span class="built_in">std</span>::chrono::milliseconds::period::den &lt;&lt; <span class="string">"s"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="时间段："><a href="#时间段：" class="headerlink" title="时间段："></a>时间段：</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">template&lt;<span class="class"><span class="keyword">class</span> <span class="title">Rep</span>, <span class="type">class Period = ratio</span>&lt;<span class="type">l</span>&gt; &gt;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">duration</span>;</span></span><br></pre></td></tr></table></figure>
+<p>std::chrono::duration 表示一段时间，比如两个小时，12.88秒，半个时辰，一炷香的时间等等。</p>
+<p>Rep表示一种数值类型，用来表示Period的数量，比如int float double。</p>
+<p>Period是ratio类型，用来表示上面所说的单位精度，比如second millisecond。</p>
+<p>chrono中宏定义了许多特例了的duration：</p>
+<p>就是常见的hours，minutes，seconds，milliseconds等，使用std::chrono::milliseconds直接使用。</p>
+<p>（1）构造函数很简单</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>) duration() = <span class="built_in">default</span>;	<span class="comment">// 默认构造</span></span><br><span class="line">(<span class="number">2</span>) duration(<span class="keyword">const</span> duration&amp; dtn);	<span class="comment">// (2)(3) 拷贝构造</span></span><br><span class="line">(<span class="number">3</span>) <span class="keyword">template</span>&lt;class Rep2, class Periods&gt;</span><br><span class="line">	<span class="keyword">constexpr</span> duration(<span class="keyword">const</span> duration&lt;Rep2, Periods2&gt;&amp; dtn);</span><br><span class="line">(<span class="number">4</span>) <span class="keyword">template</span>&lt;class Rep2&gt;	<span class="comment">// 传递一个某类型(int等)的数值，构造一个时间段</span></span><br><span class="line">	<span class="keyword">constexpr</span> <span class="keyword">explicit</span> duration(<span class="keyword">const</span> Rep2&amp; n);</span><br></pre></td></tr></table></figure>
+<p>(2) 成员函数count() 返回单位时间的数量。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;chrono&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">std</span>::chrono::<span class="function">milliseconds <span class="title">msecond</span><span class="params">(<span class="number">1000</span>)</span></span>; 	<span class="comment">// 1 second</span></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; msecond.count() &lt;&lt; <span class="string">" milliseconds.\n"</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; msecond.count() * <span class="built_in">std</span>::chrono::milliseconds::period::num / <span class="built_in">std</span>::chrono::milliseconds::period::den;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">" seconds.\n"</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(3) 当不要截断值的情况下（时转换成秒是没问题，但是秒转换成时就不行）时间段的转换是隐式的。显示转换可以由 <code>std::chrono::duration_cast&lt;&gt;</code>来完成。</p>
+<p>比如 std::chrono::milliseconds ms(54802);</p>
+<p>std::chrono::seconds s = std::chrono::duration_cast<a href="std::chrono::seconds" target="_blank" rel="noopener">std::chrono::seconds</a>(ms);</p>
+<p>这里的结果就是截断的，而不是进行了舍入，所以s最后的值将为54。</p>
+<h3 id="时间点："><a href="#时间点：" class="headerlink" title="时间点："></a>时间点：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">Clock</span>, <span class="title">class</span> <span class="title">Duration</span> = <span class="title">typename</span> <span class="title">Clock</span>:</span>:duration&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">time_point</span>;</span></span><br></pre></td></tr></table></figure>
+<p>std::chrono::time_point 表示一个具体时间，如上个世纪80年代、今天下午3点、火车出发时间等，只要它能用计算机时钟表示。</p>
+<p>第一个模板参数Clock用来指定所要使用的时钟（标准库中有三种时钟，system_clock，steady_clock和high_resolution_clock。见 时钟详解 ），第二个模板函数参数用来表示时间的计量单位（特化的<code>std::chrono::duration&lt;&gt;</code>）</p>
+<p>时间点都有一个时间戳，即时间原点。chrono库中采用的是Unix的时间戳1970年1月1日 00:00。所以time_point也就是距离时间戳(epoch)的时间长度(duration)。</p>
+<p>（1）构造函数</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">time<span class="constructor">_point()</span>; <span class="comment">// 默认构造函数，时间戳作为其值</span></span><br><span class="line"> </span><br><span class="line">template&lt;<span class="keyword">class</span> Duration2&gt;</span><br><span class="line">time<span class="constructor">_point(<span class="params">const</span> <span class="params">time_point</span>&lt;<span class="params">clock</span>, Duration2&gt;&amp; <span class="params">tp</span>)</span>; <span class="comment">// 拷贝构造函数</span></span><br><span class="line"></span><br><span class="line">explict time<span class="constructor">_point(<span class="params">const</span> <span class="params">duration</span>&amp; <span class="params">dtn</span>)</span>; <span class="comment">// 使用duration构造，就是距离时间戳的时间长度</span></span><br></pre></td></tr></table></figure>
+<p>(2) 时间点有个重要的函数：<code>duration time_since_epoch()</code> （用于获取当前时间点距离时间戳的时间长度）</p>
+<p>即经常用来得到当前时间点到1970年1月1日00:00的时间距离、该函数返回的duration的精度和构造time_point的时钟(Clock)有关(见 时钟详解)。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// 距离时间戳2秒</span></span><br><span class="line">	chrono::time_point&lt;chrono::system_clock, chrono::seconds&gt; tp(chrono::seconds(<span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"to epoch:"</span> &lt;&lt; tp.time_since_epoch().count() &lt;&lt; <span class="string">"s"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 转化为ctime，打印输出时间点</span></span><br><span class="line">	<span class="keyword">time_t</span> tt = chrono::system_clock::<span class="keyword">to_time_t</span>(tp);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ctime(&amp;tt);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="时钟（代表当前系统的时间）"><a href="#时钟（代表当前系统的时间）" class="headerlink" title="时钟（代表当前系统的时间）"></a>时钟（代表当前系统的时间）</h3><p>chrono中有三种时钟：<code>system_clock</code>， <code>steady_clock</code>和<code>hight_resolution_clock</code>。 每一个clock类中都有确定的time_point，duration，Rep，Period类型。</p>
+<p>system_clock是不稳定。因为时钟是可调的，即这种是完全自动适应本地账户的调节。这种调节可能造成的是，首次调用now()返回的时间要早于上次调用now()所返回的时间，这就违反了节拍频率的均匀分布。稳定闹钟对于超时的计算很重要，所以C++标准库提供了一个稳定时钟 <code>std::chrono::steady_clock</code>。</p>
+<p><code>std::chrono::hight_resolution_clock</code>是标准库中提供的具有最小节拍周期（因此具有最高的精度的时钟）。</p>
+<p>上文所说<code>time_since_epoch()</code>，以及将要介绍的now()函数的返回值都依赖于时钟的精度，测试时钟的精度的一种方式就是：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"system clock :"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; chrono::system_clock::period::num &lt;&lt; <span class="string">"/"</span> &lt;&lt; chrono::system_clock::period::den &lt;&lt; <span class="string">"s"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"steady clock :"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; chrono::steady_clock::period::num &lt;&lt; <span class="string">"/"</span> &lt;&lt; chrono::steady_clock::period::den &lt;&lt; <span class="string">"s"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"hight resolution clock :"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; chrono::high_resolution_clock::period::num &lt;&lt; <span class="string">"/"</span> &lt;&lt; chrono::high_resolution_clock::period::den &lt;&lt; <span class="string">"s"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>windows系统的测试结果是<code>system_clock</code>的精度是100纳秒，而<code>hight_resolution</code>的精度是1纳秒，对于程序来说，一般毫秒级就够了，所以说chrono提供的时钟精度绰绰有余。</p>
+<p>（1）成员函数<code>static time_point now() noexcept;</code> 用于获取系统的当前时间。</p>
+<p>（2）由于各种<code>time_point</code>表示方式不同，chrono也提供了相应的转换函数 <code>time_point_cast</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">ToDuration</span>, <span class="title">class</span> <span class="title">Clock</span>, <span class="title">class</span> <span class="title">Duration</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">time_point</span>&lt;Clock, ToDuration&gt; <span class="title">time_point_cast</span> (<span class="title">const</span> <span class="title">time_point</span>&lt;Clock, Duration&gt;&amp; <span class="title">tp</span>);</span></span><br><span class="line"></span><br><span class="line">传一个要转换为的精度的duration模板参数和一个要转换的time_point参数 (用法见下面综合应用)</span><br></pre></td></tr></table></figure>
+<p>（3）其他成员函数：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">to_time_t</span><span class="params">()</span></span> time_point转换成time_t秒</span><br><span class="line"><span class="function"><span class="title">from_time_t</span><span class="params">()</span></span> 从time_t转换成time_point</span><br></pre></td></tr></table></figure>
+<p>综合应用：</p>
+<p>输出当前时间，并计算当前的时间距离1970年1月1日00:00的毫秒数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义毫米级别的时钟类型</span></span><br><span class="line"><span class="keyword">typedef</span> chrono::time_point&lt;chrono::system_clock, chrono::milliseconds&gt; milliClockType;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前时间点, window system_clock是100纳秒级别(不同系统可能会不一样)，所以要转换</span></span><br><span class="line">milliClockType tp = chrono::time_point_cast&lt;chrono::milliseconds&gt;(chrono::system_clock::now());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 转换为ctime,用于打印显示时间</span></span><br><span class="line"><span class="keyword">time_t</span> tt = chrono::system_clock::<span class="keyword">to_time_t</span>(tp);</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"now time is : "</span> &lt;&lt; ctime(&amp;tt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算距离1970-1-1 00:00 的时间长度，因为当前时间点定义的精度为毫秒，所以输出的是毫秒</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"to 1970-1-1 00:00 -&gt;"</span> &lt;&lt; tp.time_since_epoch().count() &lt;&lt; <span class="string">"ms"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将上面的程序中millisconds换成microseconds或者更小的单位，便可达到微妙，甚至更高的精度。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>多谢您的大力支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/assets/blogImg/wechat.jpg" alt="催眠术 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cpp11/" rel="tag"># cpp11</a>
+          
+            <a href="/tags/chrono/" rel="tag"># chrono</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/04/19/C-语言ctime库/" rel="next" title="C++语言ctime库">
+                <i class="fa fa-chevron-left"></i> C++语言ctime库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/04/22/C-11-匿名函数-lambda-详解/" rel="prev" title="C++11-匿名函数(lambda)详解">
+                C++11-匿名函数(lambda)详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjcwNC85MjY1"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/blogImg/avatar.jpg" alt="催眠术">
+            
+              <p class="site-author-name" itemprop="name">催眠术</p>
+              <p class="site-description motion-element" itemprop="description">催眠术的技术博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">93</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#精度"><span class="nav-number">1.</span> <span class="nav-text">精度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间段："><span class="nav-number">2.</span> <span class="nav-text">时间段：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间点："><span class="nav-number">3.</span> <span class="nav-text">时间点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时钟（代表当前系统的时间）"><span class="nav-number">4.</span> <span class="nav-text">时钟（代表当前系统的时间）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">催眠术</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'm2BnDzc5dixa8ULB7igYd3cl-gzGzoHsz',
+        appKey: 'FAY02ARertEPSzSaWCAowemt',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("m2BnDzc5dixa8ULB7igYd3cl-gzGzoHsz", "FAY02ARertEPSzSaWCAowemt");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

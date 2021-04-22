@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="C++文件读写详解（ofstream,ifstream,fstream）  #include &amp;lt;fstream&amp;gt; ostream //文件写操作 内存写入存储设备 istream // 文件读操作，存储设备读取到内存中 fstream // 读写操作，对打开的文件可进行读写操作">
+<meta name="description" content="C++文件读写详解（ofstream,ifstream,fstream） #include &amp;lt;fstream&amp;gt; ostream //文件写操作 内存写入存储设备 istream // 文件读操作，存储设备读取到内存中 fstream // 读写操作，对打开的文件可进行读写操作">
 <meta name="keywords" content="c++,file">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++文件读写详解">
 <meta property="og:url" content="http://lyuzhao.com/2021/04/15/C-文件读写详解/index.html">
 <meta property="og:site_name" content="催眠术的博客">
-<meta property="og:description" content="C++文件读写详解（ofstream,ifstream,fstream）  #include &amp;lt;fstream&amp;gt; ostream //文件写操作 内存写入存储设备 istream // 文件读操作，存储设备读取到内存中 fstream // 读写操作，对打开的文件可进行读写操作">
+<meta property="og:description" content="C++文件读写详解（ofstream,ifstream,fstream） #include &amp;lt;fstream&amp;gt; ostream //文件写操作 内存写入存储设备 istream // 文件读操作，存储设备读取到内存中 fstream // 读写操作，对打开的文件可进行读写操作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-19T04:53:48.820Z">
+<meta property="og:updated_time" content="2021-04-20T04:28:12.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++文件读写详解">
-<meta name="twitter:description" content="C++文件读写详解（ofstream,ifstream,fstream）  #include &amp;lt;fstream&amp;gt; ostream //文件写操作 内存写入存储设备 istream // 文件读操作，存储设备读取到内存中 fstream // 读写操作，对打开的文件可进行读写操作">
+<meta name="twitter:description" content="C++文件读写详解（ofstream,ifstream,fstream） #include &amp;lt;fstream&amp;gt; ostream //文件写操作 内存写入存储设备 istream // 文件读操作，存储设备读取到内存中 fstream // 读写操作，对打开的文件可进行读写操作">
 
 
 
@@ -353,22 +353,19 @@
       
 
       
-        <h2 id="c文件读写详解ofstreamifstreamfstream"><a class="markdownIt-Anchor" href="#c文件读写详解ofstreamifstreamfstream"></a> C++文件读写详解（ofstream,ifstream,fstream）</h2>
-<ul>
+        <h2 id="C-文件读写详解（ofstream-ifstream-fstream）"><a href="#C-文件读写详解（ofstream-ifstream-fstream）" class="headerlink" title="C++文件读写详解（ofstream,ifstream,fstream）"></a>C++文件读写详解（ofstream,ifstream,fstream）</h2><ul>
 <li><code>#include &lt;fstream&gt;</code></li>
 <li>ostream //文件写操作 内存写入存储设备</li>
 <li>istream // 文件读操作，存储设备读取到内存中</li>
 <li>fstream // 读写操作，对打开的文件可进行读写操作</li>
 </ul>
 <a id="more"></a>
-<h3 id="打开文件"><a class="markdownIt-Anchor" href="#打开文件"></a> 打开文件</h3>
-<p>在fstream类中，成员函数open()实现打开文件的操作，从而将数据流和文件进行关联，通过ofstream，ifstram，fstream对象进行对文件的读写操作</p>
-<h4 id="函数open"><a class="markdownIt-Anchor" href="#函数open"></a> 函数：open()</h4>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> member function</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> open(const <span class="keyword">char</span> *filename, <span class="string">ios_base:</span>:openmode mode = <span class="string">ios_base:</span>:<span class="keyword">in</span>|<span class="string">ios_base:</span>:out);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> open(const wchar_t *_Filename, <span class="string">ios_base:</span>:openmode mode = <span class="string">ios_base:</span>:<span class="keyword">in</span> | <span class="string">ios_base:</span>:out, <span class="keyword">int</span> prot = <span class="string">ios_base:</span>:Openprot);</span><br></pre></td></tr></table></figure>
-<p>参数:</p>
+<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><p>在fstream类中，成员函数open()实现打开文件的操作，从而将数据流和文件进行关联，通过ofstream，ifstram，fstream对象进行对文件的读写操作</p>
+<h4 id="函数：open"><a href="#函数：open" class="headerlink" title="函数：open()"></a>函数：open()</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> member function</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> open(const <span class="keyword">char</span> *filename, <span class="string">ios_base:</span>:openmode mode = <span class="string">ios_base:</span>:<span class="keyword">in</span>|<span class="string">ios_base:</span>:out);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> open(const wchar_t *_Filename, <span class="string">ios_base:</span>:openmode mode = <span class="string">ios_base:</span>:<span class="keyword">in</span> | <span class="string">ios_base:</span>:out, <span class="keyword">int</span> prot = <span class="string">ios_base:</span>:Openprot);</span><br></pre></td></tr></table></figure>
+<p>参数: </p>
 <p>filename 操作文件名</p>
 <p>mode 打开文件的方式</p>
-<p>prot 打开文件的属性	// 基本很少用到，在查看资料时，发现有两种方式</p>
+<p>prot 打开文件的属性    // 基本很少用到，在查看资料时，发现有两种方式</p>
 <p>打开文件的方式在ios类(所以流式I/O的基类)中定义，有如下几种方式：</p>
 <table>
 <thead>
@@ -404,7 +401,7 @@
 </tr>
 </tbody>
 </table>
-<p>这些方式是能够进行组合使用的，以&quot;或&quot;运算(&quot;|&quot;)的方式：例如</p>
+<p>这些方式是能够进行组合使用的，以”或”运算(“|”)的方式：例如</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ofstream <span class="keyword">out</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">out</span>.<span class="keyword">open</span>(<span class="string">"hello.txt"</span>, ios::<span class="keyword">in</span>|ios::<span class="keyword">out</span>|ios::binary); <span class="comment">// 根据自己需要进行适当的选取</span></span><br></pre></td></tr></table></figure>
 <p>打开文件的属性同样在ios类中也有定义：</p>
 <table>
@@ -433,21 +430,18 @@
 </tr>
 </tbody>
 </table>
-<p>对于文件的属性也可以使用&quot;或&quot;运算和&quot;+&quot;进行组合使用，这里就不做说明了。</p>
-<p>很多程序中，可能会遇到ofstream out(“hello.txt”)，ifstream in(&quot;…&quot;)，fstream foi(&quot;…&quot;) 这样的使用，并没有显式的去调用open()函数就进行文件的操作，直接调用了其默认的打开方式，因为在stream类的构造函数中调用了open()函数，并拥有同样的构造函数，所以在这里可以直接使用流对象进行文件的操作，默认方式如下：</p>
+<p>对于文件的属性也可以使用”或”运算和”+”进行组合使用，这里就不做说明了。</p>
+<p>很多程序中，可能会遇到ofstream out(“hello.txt”)，ifstream in(“…”)，fstream foi(“…”) 这样的使用，并没有显式的去调用open()函数就进行文件的操作，直接调用了其默认的打开方式，因为在stream类的构造函数中调用了open()函数，并拥有同样的构造函数，所以在这里可以直接使用流对象进行文件的操作，默认方式如下：</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ostream <span class="title">out</span>(<span class="params"><span class="string">"..."</span>, ios::<span class="keyword">out</span></span>)</span>;</span><br><span class="line"><span class="function">ifstream <span class="title">in</span>(<span class="params"><span class="string">"..."</span>, ios::<span class="keyword">in</span></span>)</span>;</span><br><span class="line"><span class="function">fstream <span class="title">foi</span>(<span class="params"><span class="string">"..."</span>, ios::<span class="keyword">in</span>|ios::<span class="keyword">out</span></span>)</span>;</span><br></pre></td></tr></table></figure>
 <p>当使用默认方式进行对文件的操作时，你可以使用成员函数is_open()对文件是否打开进行验证</p>
-<h4 id="关闭文件"><a class="markdownIt-Anchor" href="#关闭文件"></a> 关闭文件</h4>
-<p>当文件读写操作完成之后，我们必须将文件关闭以使文件重新变为可访问的。成员函数close()，它负责将缓存中的数据排放出来并关闭文件。</p>
-<h4 id="文本文件的读写"><a class="markdownIt-Anchor" href="#文本文件的读写"></a> 文本文件的读写</h4>
-<p>类ofstream，ifstream和fstream是分别从ostream，istream和iostream中引申而来的。这就是为什么fstream的对象可以使用其父类的成员来访问数据。</p>
+<h4 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h4><p>当文件读写操作完成之后，我们必须将文件关闭以使文件重新变为可访问的。成员函数close()，它负责将缓存中的数据排放出来并关闭文件。</p>
+<h4 id="文本文件的读写"><a href="#文本文件的读写" class="headerlink" title="文本文件的读写"></a>文本文件的读写</h4><p>类ofstream，ifstream和fstream是分别从ostream，istream和iostream中引申而来的。这就是为什么fstream的对象可以使用其父类的成员来访问数据。</p>
 <p>一般来说，我们将使用这些类与同控制台(console)交互同样的成员函数(cin和cout)来进行输入输出。如下面的例题所示，我们使用重载的插入操作符&lt;&lt;:</p>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// <span class="keyword">write</span> <span class="keyword">on</span> a <span class="type">text</span> file</span><br><span class="line"><span class="meta">#include &lt;fstream&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main() &#123;</span><br><span class="line"></span><br><span class="line">ofstream <span class="keyword">out</span>("out.txt");</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">out</span>.is_open())</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">out</span> &lt;&lt; "This is a line.\n";</span><br><span class="line">	<span class="keyword">out</span> &lt;&lt; "This is another line.\n";</span><br><span class="line">	<span class="keyword">out</span>.<span class="keyword">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 结果: 在<span class="keyword">out</span>.txt中写入:</span><br><span class="line">This <span class="keyword">is</span> a <span class="type">line</span>.</span><br><span class="line">This <span class="keyword">is</span> another <span class="type">line</span>.</span><br></pre></td></tr></table></figure>
 <p>从文件中读入数据也可以用与cin &gt;&gt; 的使用同样的方法:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rending a text file</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">char</span> buffer[<span class="number">256</span>];</span><br><span class="line">	<span class="function">ifstream <span class="title">in</span><span class="params">(<span class="string">"test.txt"</span>)</span></span>;</span><br><span class="line">	<span class="keyword">if</span>(!in.is_open())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Error opening"</span>; <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(!in.oof()) &#123;</span><br><span class="line">		in.getline(buffer, <span class="number">100</span>);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; buffer &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 结果 在屏幕上输出</span></span><br><span class="line">This is a line.</span><br><span class="line">This is another line.</span><br></pre></td></tr></table></figure>
 <p>上面的例子读入一个文本文件的内容，然后将它打印到屏幕上。注意我们使用了一个新的成员函数叫做eof，它是ifstream从类ios中集成过来的，当到达文件末尾时返回true。</p>
-<h3 id="状态标识符的验证verification-of-state-flags"><a class="markdownIt-Anchor" href="#状态标识符的验证verification-of-state-flags"></a> 状态标识符的验证(Verification of state flags)</h3>
-<p>除了eof()以外，还有一些验证流的状态的成员函数(所有都返回bool型返回值)：</p>
+<h3 id="状态标识符的验证-Verification-of-state-flags"><a href="#状态标识符的验证-Verification-of-state-flags" class="headerlink" title="状态标识符的验证(Verification of state flags)"></a>状态标识符的验证(Verification of state flags)</h3><p>除了eof()以外，还有一些验证流的状态的成员函数(所有都返回bool型返回值)：</p>
 <ul>
 <li>bad()</li>
 </ul>
@@ -465,8 +459,7 @@
 </ul>
 <p>这是最通用的：如果调用以上任何一个函数返回true的话，此函数返回false。</p>
 <p>要想重置以上成员函数所检查的状态标志，你可以使用成员函数clear(),没有函数。</p>
-<h3 id="获得和设置流指针get-and-put-stream-pointers"><a class="markdownIt-Anchor" href="#获得和设置流指针get-and-put-stream-pointers"></a> 获得和设置流指针(get and put stream pointers)</h3>
-<p>所有输入/输出流对象(i/o streams objects)都有至少一个流指针：</p>
+<h3 id="获得和设置流指针-get-and-put-stream-pointers"><a href="#获得和设置流指针-get-and-put-stream-pointers" class="headerlink" title="获得和设置流指针(get and put stream pointers)"></a>获得和设置流指针(get and put stream pointers)</h3><p>所有输入/输出流对象(i/o streams objects)都有至少一个流指针：</p>
 <ul>
 <li>ifstream，类似istream，有一个被称为get pointer的指针，指向下一个将被读取的元素。</li>
 <li>ofstream，类似ostream，有一个指针put pointer，指向写入下一个元素的位置。</li>
@@ -510,15 +503,12 @@
 <p>流指针get 和 put的值对文本文件(text file)和二进制文件(binary file)的计算方法都是不同的，因为文本模式的文件中某些特殊字符可能被修改。由于这个原因，建议对以文本文件模式打开的文件总是使用seekg和seekp的第一种原型，而且不要对tellg或tellp的返回值进行修改。对二进制文件，你可以任意使用这些函数，应该不会有任何意外的行为产生。</p>
 <p>以下例子使用这些函数来获得一个二进制文件的大小：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> * filename = <span class="string">"test.txt"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> l,m;</span><br><span class="line"></span><br><span class="line"><span class="function">ifstream <span class="title">in</span><span class="params">(filename, ios::in|ios::binary)</span></span>;</span><br><span class="line"></span><br><span class="line">l = in.tellg();</span><br><span class="line">in.seekg(<span class="number">0</span>, ios::end);</span><br><span class="line">m = in.tellg();</span><br><span class="line">in.close();</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"size of "</span> &lt;&lt; filename;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">" is "</span> &lt;&lt; (m-l) &lt;&lt; <span class="string">" bytes.\n"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果：</span></span><br><span class="line"><span class="comment">// size of test.txt is 40 bytes.</span></span><br></pre></td></tr></table></figure>
-<h3 id="二进制文件"><a class="markdownIt-Anchor" href="#二进制文件"></a> 二进制文件</h3>
-<p>在二进制文件中，使用<code>&lt;&lt;</code>和<code>&gt;&gt;</code>，以及函数(如getline)来操作输入和输出数据，没有什么实际意义，虽然它们是符合语法的。</p>
+<h3 id="二进制文件"><a href="#二进制文件" class="headerlink" title="二进制文件"></a>二进制文件</h3><p>在二进制文件中，使用<code>&lt;&lt;</code>和<code>&gt;&gt;</code>，以及函数(如getline)来操作输入和输出数据，没有什么实际意义，虽然它们是符合语法的。</p>
 <p>文件流包括两个为顺序读写数据特殊设计的成员函数：write 和 read。第一个函数(write)是ostream的一个成员函数，都是被ofstream所继承。而read是istream的一个成员函数，被ifstream锁继承。类fstream的对象同时拥有这两个函数。它们的原型是：</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">write</span>(<span class="keyword">char</span> * <span class="built_in">buffer</span>, streamsize <span class="built_in">size</span>);</span><br><span class="line"><span class="built_in">read</span>(<span class="keyword">char</span> * <span class="built_in">buffer</span>, streamsize <span class="built_in">size</span>);</span><br></pre></td></tr></table></figure>
 <p>这里buffer是一块内存的地址，用来存储或读取数据。参数size是一个整数值，表示要从缓存(buffer)中读出和写入的字符数。</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> * filename = <span class="string">"test.txt"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main() &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> * <span class="built_in">buffer</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="built_in">size</span>;</span><br><span class="line"></span><br><span class="line">ifstream in(filename, ios::in|ios::binary|ios::ate);</span><br><span class="line"></span><br><span class="line"><span class="built_in">size</span> = in.tellg();</span><br><span class="line"></span><br><span class="line">in.seekg(<span class="number">0</span>, ios::beg);</span><br><span class="line"></span><br><span class="line"><span class="built_in">buffer</span> = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">size</span>];</span><br><span class="line"></span><br><span class="line">in.<span class="built_in">read</span>(<span class="built_in">buffer</span>, <span class="built_in">size</span>);</span><br><span class="line"></span><br><span class="line">in.<span class="built_in">close</span>();</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; <span class="string">"the complete file is in a buffer"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> [] <span class="built_in">buffer</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="缓存和同步buffer-and-synchronization"><a class="markdownIt-Anchor" href="#缓存和同步buffer-and-synchronization"></a> 缓存和同步(buffer and synchronization)</h3>
-<p>当我们对文件流进行操作的时候，它们与一个streambuf类型的缓存(buffer)联系在一起。这个缓存(buffer)实际是一块内存空间，作为流(stream)和物理文件的媒介。例如，对于一个输出流，每次成员函数put（写一个单个字符）被调用，这个字符不是直接被写入该输出流所对应的物理文件中的，而是首先被插入到该流的缓存(buffer)中。<br>
-当缓存被排放出来(flush)时，它里面的所有数据或者被写入物理媒质中(如果是一个输出流的话)，或者简单的被抹掉(如果是一个输入流的话)。这个过程称为同步(synchronzization)，它会在以下任一情况下发生：</p>
+<h3 id="缓存和同步-buffer-and-synchronization"><a href="#缓存和同步-buffer-and-synchronization" class="headerlink" title="缓存和同步(buffer and synchronization)"></a>缓存和同步(buffer and synchronization)</h3><p>当我们对文件流进行操作的时候，它们与一个streambuf类型的缓存(buffer)联系在一起。这个缓存(buffer)实际是一块内存空间，作为流(stream)和物理文件的媒介。例如，对于一个输出流，每次成员函数put（写一个单个字符）被调用，这个字符不是直接被写入该输出流所对应的物理文件中的，而是首先被插入到该流的缓存(buffer)中。<br>当缓存被排放出来(flush)时，它里面的所有数据或者被写入物理媒质中(如果是一个输出流的话)，或者简单的被抹掉(如果是一个输入流的话)。这个过程称为同步(synchronzization)，它会在以下任一情况下发生：</p>
 <ul>
 <li><strong>当文件被关闭时</strong>：在文件被关闭之前，所有还没有被完全写出或读取的缓存都将被同步。</li>
 <li><strong>当缓存buffer满时</strong>：缓存Buffers有一定的时间空间限制。当缓存满时，它会被自动同步。</li>
@@ -526,13 +516,12 @@
 <li><strong>明确调用函数sync()</strong>： 调用成员函数sync()（无参数）可以引发立即同步。这个函数返回一个int值，等于-1表示流没有联系的缓存和操作失败。</li>
 </ul>
 <p>在ios,istream和ostream类中,还定义了若干输入输出函数,它们主要用于错误处理,流的刷新以及流输入输出方式的控制。</p>
-<h4 id="错误处理"><a class="markdownIt-Anchor" href="#错误处理"></a> 错误处理</h4>
-<p>在对一个流对象进行I/O操作时，可能会产生错误。当错误发生时，错误的性质被记录在ios类的一个数据成员中。</p>
-<p>ios类中定义的描述错误状态的常量:</p>
+<h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><p>在对一个流对象进行I/O操作时，可能会产生错误。当错误发生时，错误的性质被记录在ios类的一个数据成员中。</p>
+<p> ios类中定义的描述错误状态的常量:</p>
  <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">goodbit<span class="comment">-------------没有错误，正常状态　</span></span><br><span class="line">eofbit<span class="comment">--------------到达流的结尾</span></span><br><span class="line">failbit<span class="comment">-------------I/O操作失败，清除状态字后，可以对流继续进行操作。</span></span><br><span class="line">badbit<span class="comment">--------------试图进行非法操作，清除状态字后，流可能还可以使用。</span></span><br><span class="line">hardfail<span class="comment">------------致命错误，不可恢复的错误。</span></span><br></pre></td></tr></table></figure>
-<p>对应于这些位,可用ios中定义的如下函数来检查流的当前状态位:</p>
+<p> 对应于这些位,可用ios中定义的如下函数来检查流的当前状态位:</p>
  <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> good()<span class="comment">---------如果正常,返回非0值</span></span><br><span class="line"><span class="type">int</span> bad()<span class="comment">----------如果badbit被设置,返回非0值</span></span><br><span class="line"><span class="type">int</span> eof()<span class="comment">----------如果eofbit被设置,返回非0值</span></span><br><span class="line"><span class="type">int</span> fail()<span class="comment">---------如果failbit被设置,返回非0值</span></span><br><span class="line"><span class="type">int</span> rdstate()<span class="comment">------返回当前错误状态位.</span></span><br></pre></td></tr></table></figure>
-<p>流的其它成员函数可以从流中读取字符或字符串，对流进行无格式化的输入 输出操作，以及直接控制对流的I/O操作。</p>
+<p> 流的其它成员函数可以从流中读取字符或字符串，对流进行无格式化的输入 输出操作，以及直接控制对流的I/O操作。</p>
 <table>
 <thead>
 <tr>
@@ -778,7 +767,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">91</span>
+                  <span class="site-state-item-count">93</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -800,7 +789,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">76</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -833,7 +822,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#c文件读写详解ofstreamifstreamfstream"><span class="nav-number">1.</span> <span class="nav-text"> C++文件读写详解（ofstream,ifstream,fstream）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开文件"><span class="nav-number">1.1.</span> <span class="nav-text"> 打开文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数open"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 函数：open()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭文件"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 关闭文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本文件的读写"><span class="nav-number">1.1.3.</span> <span class="nav-text"> 文本文件的读写</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态标识符的验证verification-of-state-flags"><span class="nav-number">1.2.</span> <span class="nav-text"> 状态标识符的验证(Verification of state flags)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得和设置流指针get-and-put-stream-pointers"><span class="nav-number">1.3.</span> <span class="nav-text"> 获得和设置流指针(get and put stream pointers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制文件"><span class="nav-number">1.4.</span> <span class="nav-text"> 二进制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存和同步buffer-and-synchronization"><span class="nav-number">1.5.</span> <span class="nav-text"> 缓存和同步(buffer and synchronization)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误处理"><span class="nav-number">1.5.1.</span> <span class="nav-text"> 错误处理</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-文件读写详解（ofstream-ifstream-fstream）"><span class="nav-number">1.</span> <span class="nav-text">C++文件读写详解（ofstream,ifstream,fstream）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开文件"><span class="nav-number">1.1.</span> <span class="nav-text">打开文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数：open"><span class="nav-number">1.1.1.</span> <span class="nav-text">函数：open()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭文件"><span class="nav-number">1.1.2.</span> <span class="nav-text">关闭文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本文件的读写"><span class="nav-number">1.1.3.</span> <span class="nav-text">文本文件的读写</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态标识符的验证-Verification-of-state-flags"><span class="nav-number">1.2.</span> <span class="nav-text">状态标识符的验证(Verification of state flags)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得和设置流指针-get-and-put-stream-pointers"><span class="nav-number">1.3.</span> <span class="nav-text">获得和设置流指针(get and put stream pointers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制文件"><span class="nav-number">1.4.</span> <span class="nav-text">二进制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存和同步-buffer-and-synchronization"><span class="nav-number">1.5.</span> <span class="nav-text">缓存和同步(buffer and synchronization)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误处理"><span class="nav-number">1.5.1.</span> <span class="nav-text">错误处理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
