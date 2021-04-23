@@ -355,7 +355,8 @@
       
         <p>linux添加service服务，设置自启动</p>
 <a id="more"></a>
-<p>例如：注册一个oa-server的服务<br>创建文件： 在<code>/etc/init.d/oa-server</code></p>
+<p>例如：注册一个oa-server的服务<br>
+创建文件： 在<code>/etc/init.d/oa-server</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment"># chkconfig: 2345 80 90</span></span><br><span class="line"><span class="comment"># description: oa-server register server</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">		start)</span><br><span class="line">			sh /usr/<span class="built_in">local</span>/idea/start.sh</span><br><span class="line">			;;</span><br><span class="line">		stop)</span><br><span class="line">			ps -ef | grep oa-server | grep -v grep | awk <span class="string">'&#123;print $2&#125;'</span> | xargs <span class="built_in">kill</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>注意: <code>#chkconfig, #description 不要少，设置自启动需要</code>.</li>
@@ -505,7 +506,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">93</span>
+                  <span class="site-state-item-count">95</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -527,7 +528,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-count">78</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
