@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="催眠术的博客">
 <meta property="og:description" content="Erlang 语言学习记录基础部分变量和原子123456789Eshell V10.3.5.19  (abort with ^G)1&amp;gt; 123456 * 223344.275731568642&amp;gt; X = 123.1233&amp;gt; X * 2.2464&amp;gt; X = 999.** exception error: no match of right hand side value 99">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-01-29T09:20:43.811Z">
+<meta property="og:updated_time" content="2022-01-29T09:21:50.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Erlang学习基本语法一">
 <meta name="twitter:description" content="Erlang 语言学习记录基础部分变量和原子123456789Eshell V10.3.5.19  (abort with ^G)1&amp;gt; 123456 * 223344.275731568642&amp;gt; X = 123.1233&amp;gt; X * 2.2464&amp;gt; X = 999.** exception error: no match of right hand side value 99">
@@ -354,6 +354,7 @@
 
       
         <h1 id="Erlang-语言学习记录"><a href="#Erlang-语言学习记录" class="headerlink" title="Erlang 语言学习记录"></a>Erlang 语言学习记录</h1><h2 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h2><h3 id="变量和原子"><a href="#变量和原子" class="headerlink" title="变量和原子"></a>变量和原子</h3><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Eshell V10.<span class="number">3.5</span>.<span class="number">19</span>  (abort with ^G)</span><br><span class="line"><span class="meta">1&gt; </span><span class="number">123456</span> * <span class="number">223344</span>.</span><br><span class="line"><span class="number">27573156864</span></span><br><span class="line"><span class="meta">2&gt; </span>X = <span class="number">123</span>.</span><br><span class="line"><span class="number">123</span></span><br><span class="line"><span class="meta">3&gt; </span>X * <span class="number">2</span>.</span><br><span class="line"><span class="number">246</span></span><br><span class="line"><span class="meta">4&gt; </span>X = <span class="number">999</span>.</span><br><span class="line">** exception error: no match of right hand side value <span class="number">999</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>一旦定义了变量 X = 123, 那么 X 永远就是123， 不允许改变。其中 <code>=</code> 不是一个赋值操作符，它实际上是一个<code>模式匹配操作符</code>。</p>
 <hr>
 <p>请注意Erlang的变量以大写字母开头。所以X、This和A_long都是变量。以小写字母开头的名称（比如monday或friday）不是变量，而是符号常量，它们被称为<code>原子</code>（atom）。</p>
@@ -417,7 +418,6 @@
 <p>现在重启shell并重新编译所有代码，展示客户端和服务器如果共同工作。</p>
 <figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Eshell V10.<span class="number">3.5</span>.<span class="number">19</span>  (abort with ^G)</span><br><span class="line"><span class="meta">1&gt; </span>c(afile_server).</span><br><span class="line">&#123;ok,afile_server&#125;</span><br><span class="line"><span class="meta">2&gt; </span>c(afile_client).</span><br><span class="line">&#123;ok,afile_client&#125;</span><br><span class="line"><span class="meta">3&gt; </span>FileServer = afile_server:start(<span class="string">"."</span>).</span><br><span class="line">&lt;<span class="number">0.90</span>.<span class="number">0</span>&gt;</span><br><span class="line"><span class="meta">4&gt; </span>c(afile_client).</span><br><span class="line">&#123;ok,afile_client&#125;</span><br><span class="line"><span class="meta">5&gt; </span>afile_client:get_file(FileServer, <span class="string">"missing"</span>).</span><br><span class="line">&#123;error,enoent&#125;</span><br><span class="line"><span class="meta">6&gt; </span>afile_client:get_file(FileServer, <span class="string">"afile_server.erl"</span>).</span><br><span class="line">&#123;ok,&lt;&lt;<span class="string">"-module(afile_server).\n-export([start/1, loop/1]).\n\nstart(Dir) -&gt; spawn(afile_server, loop, [Dir]).\n\nloop(Di"</span>...&gt;&gt;&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="顺序编程"><a href="#顺序编程" class="headerlink" title="顺序编程"></a>顺序编程</h3><h4 id="Erlang-shell里编辑命令"><a href="#Erlang-shell里编辑命令" class="headerlink" title="Erlang shell里编辑命令"></a>Erlang shell里编辑命令</h4><p>快捷键可用的命令(注意^Key的意思是应该按下Ctrl+Key)：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -464,7 +464,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h4 id="整数运算"><a href="#整数运算" class="headerlink" title="整数运算"></a>整数运算</h4><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span><span class="number">2</span> + <span class="number">3</span> * <span class="number">4</span>.</span><br><span class="line"><span class="number">14</span></span><br><span class="line"><span class="meta">2&gt; </span>(<span class="number">2</span> + <span class="number">3</span>) * <span class="number">4</span>.</span><br><span class="line"><span class="number">20</span></span><br></pre></td></tr></table></figure>
 <p>Erlang可以用任意长度的整数执行整数运算。在Erlang里，整数运算是精确的，因此无需担心运算溢出或无法用特定字长来表示某个整数。</p>
 <figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">3&gt; </span><span class="number">123456789</span> * <span class="number">987654321</span> * <span class="number">112233445566778899</span> * <span class="number">998877665544332211</span>.</span><br><span class="line"><span class="number">13669560260321809985966198898925761696613427909935341</span></span><br></pre></td></tr></table></figure>
@@ -557,7 +556,6 @@
 <blockquote>
 <p>总结：</p>
 </blockquote>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -604,7 +602,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 
       
     </div>
